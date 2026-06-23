@@ -3,5 +3,6 @@ export const ROUTES = {
     ABOUT: "/about",
     CATALOG: "/catalog",
     CONTACT: "/contact",
+    DISTR: "/distrbuter",
     NOT_FOUND: "*",
 };

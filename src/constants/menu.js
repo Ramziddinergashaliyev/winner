@@ -17,8 +17,13 @@ export const MENU = [
         path: ROUTES.CATALOG,
     },
     {
-        id: 5,
+        id: 4,
         title: "Contact",
         path: ROUTES.CONTACT,
+    },
+    {
+        id: 5,
+        title: "Distrbuter",
+        path: ROUTES.DISTR,
     },
 ];
