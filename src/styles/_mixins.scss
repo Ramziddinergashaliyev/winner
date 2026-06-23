@@ -11,6 +11,13 @@
     align-items: center;
 }
 
+@mixin button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
 @mixin mobile {
     @media (max-width: 576px) {
         @content;
@@ -27,11 +34,4 @@
     @media (max-width: 1024px) {
         @content;
     }
-}
-
-@mixin button {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
