@@ -1,0 +1,12 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.header {
+    &__container {
+        @include flex-between
+    }
+
+    &__nav {
+        @include flex-center;
+    }
+}

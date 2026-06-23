@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.hero {
+    padding: 100px 0;
+
+    &__container {
+        @include flex-between;
+    }
+
+    &__title {
+        color: $primary;
+        font-size: 48px;
+    }
+
+    @include tablet {
+        &__container {
+            flex-direction: column;
+        }
+
+        &__title {
+            font-size: 32px;
+        }
+    }
+}
