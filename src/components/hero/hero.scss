@@ -22,8 +22,13 @@
         &-title {
             font-size: 44px;
             line-height: 50px;
-            @include title;
+            color: white;
             width: 60%;
+
+            @media (max-width:1500px) {
+                width: 60%;
+                @include title;
+            }
         }
 
         &-text {
