@@ -1,44 +1,3 @@
-// import { NavLink } from "react-router-dom";
-// import { MENU } from "../../constants"
-// import "./header.scss"
-// import { IoSearch } from "react-icons/io5";
-// import logo from "../../assets/icons/logo.webp"
-
-// function Header() {
-//     return (
-//         <div className="header">
-//             <div className="header__container container">
-//                 <div className="header-logo">
-//                     <img src={logo} alt="Header Logo" />
-//                 </div>
-
-//                 <nav className="header__nav">
-//                     {MENU.map((item) => (
-//                         <NavLink
-//                             key={item.id}
-//                             to={item.path}
-//                             className="header__nav-link"
-//                         >
-//                             {item.title}
-//                         </NavLink>
-//                     ))}
-//                 </nav>
-
-//                 <div className="header-right">
-//                     <div className="header-right-search">
-//                         <input placeholder="Search" type="text" />
-//                         <button><IoSearch /></button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-
-// }
-
-// export default Header;
-
-
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { MENU } from "../../constants"
@@ -47,9 +6,9 @@ import { IoSearch, IoChevronDown } from "react-icons/io5";
 import logo from "../../assets/icons/logo.webp"
 
 const LANGUAGES = [
-    { code: "uz", label: "UZ", flag: "🇺🇿" },
-    { code: "ru", label: "RU", flag: "🇷🇺" },
-    { code: "en", label: "EN", flag: "🇬🇧" },
+    { code: "uz", label: "UZ", flag: "https://flagcdn.com/w40/uz.png" },
+    { code: "ru", label: "RU", flag: "https://flagcdn.com/w40/ru.png" },
+    { code: "en", label: "EN", flag: "https://flagcdn.com/w40/gb.png" },
 ];
 
 function Header() {
@@ -73,6 +32,7 @@ function Header() {
                         <NavLink
                             key={item.id}
                             to={item.path}
+                            className="header__nav-link"
                         >
                             {item.title}
                         </NavLink>
@@ -85,7 +45,11 @@ function Header() {
                             className="header-right-lang__btn"
                             onClick={() => setIsLangOpen((prev) => !prev)}
                         >
-                            <span className="header-right-lang__flag">{activeLang.flag}</span>
+                            <img
+                                src={activeLang.flag}
+                                alt={activeLang.label}
+                                className="header-right-lang__flag"
+                            />
                             <span>{activeLang.label}</span>
                             <IoChevronDown className="header-right-lang__chevron" />
                         </button>
@@ -98,7 +62,11 @@ function Header() {
                                         className={lang.code === activeLang.code ? "active" : ""}
                                         onClick={() => handleSelectLang(lang)}
                                     >
-                                        <span className="header-right-lang__flag">{lang.flag}</span>
+                                        <img
+                                            src={lang.flag}
+                                            alt={lang.label}
+                                            className="header-right-lang__flag"
+                                        />
                                         <span>{lang.label}</span>
                                     </li>
                                 ))}
