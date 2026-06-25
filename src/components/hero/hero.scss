@@ -2,24 +2,31 @@
 @use "../../styles/mixins" as *;
 
 .hero {
-    padding: 100px 0;
+    background: url(../../assets/images/heroNew2.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
 
     &__container {
-        @include flex-between;
-    }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-top: 100px;
 
-    &__title {
-        color: $primary;
-        font-size: 48px;
-    }
-
-    @include tablet {
-        &__container {
-            flex-direction: column;
+        &-title {
+            @include title;
+            width: 60%;
         }
 
-        &__title {
-            font-size: 32px;
+        &-text {
+            @include subtitle
+        }
+
+        &-btn {
+            @include button;
+            margin-top: 10px;
         }
     }
 }
