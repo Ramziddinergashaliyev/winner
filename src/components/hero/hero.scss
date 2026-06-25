@@ -6,7 +6,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 650px;
+
+    @media (max-width:1500px) {
+        height: 500px;
+    }
 
     &__container {
         display: flex;
@@ -16,6 +20,8 @@
         padding-top: 100px;
 
         &-title {
+            font-size: 44px;
+            line-height: 50px;
             @include title;
             width: 60%;
         }
