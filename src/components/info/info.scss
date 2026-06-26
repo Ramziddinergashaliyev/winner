@@ -23,7 +23,7 @@ $color-shadow-hover: rgba(24, 20, 18, 0.18);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 280px;
+    min-height: 320px;
     border-radius: 16px;
     overflow: hidden;
     background-size: cover;
@@ -31,6 +31,10 @@ $color-shadow-hover: rgba(24, 20, 18, 0.18);
     background-repeat: no-repeat;
     box-shadow: 0 10px 28px $color-shadow;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+    @media (max-width:1500px) {
+        min-height: 280px;
+    }
 
     &::before {
         content: "";
