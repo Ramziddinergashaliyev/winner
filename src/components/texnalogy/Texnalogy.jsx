@@ -34,7 +34,6 @@ const LaurelWreath = ({ side }) => {
     return <g>{leaves}</g>
 }
 
-// 1) "Legenda kachestva" — kubok va laurel wreath ikonkasi
 const TrophyIcon = () => (
     <svg viewBox="0 0 64 64" className="icon-svg" xmlns="http://www.w3.org/2000/svg">
         <LaurelWreath side={-1} />
@@ -50,7 +49,6 @@ const TrophyIcon = () => (
     </svg>
 )
 
-// 2) "Peredovye tehnologii" — molekula / tarmoq ikonkasi
 const MoleculeIcon = () => (
     <svg viewBox="0 0 64 64" className="icon-svg" xmlns="http://www.w3.org/2000/svg">
         <g className="icon-stroke">
@@ -68,7 +66,6 @@ const MoleculeIcon = () => (
     </svg>
 )
 
-// 3) "Zashchita i nadyozhnost'" — qalqon (shield) ikonkasi
 const ShieldIcon = () => (
     <svg viewBox="0 0 64 64" className="icon-svg" xmlns="http://www.w3.org/2000/svg">
         <g className="icon-stroke">

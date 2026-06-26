@@ -1,47 +1,3 @@
-// @use "../../styles/variables" as *;
-// @use "../../styles/mixins" as *;
-
-// .hero {
-//     background: url(../../assets/images/heroNew2.webp);
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     background-position: center;
-//     height: 650px;
-
-//     @media (max-width:1500px) {
-//         height: 500px;
-//     }
-
-//     &__container {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: flex-start;
-//         gap: 10px;
-//         padding-top: 100px;
-
-//         &-title {
-//             font-size: 44px;
-//             line-height: 50px;
-//             color: white;
-//             width: 60%;
-
-//             @media (max-width:1500px) {
-//                 width: 60%;
-//                 @include title;
-//             }
-//         }
-
-//         &-text {
-//             @include subtitle
-//         }
-
-//         &-btn {
-//             @include button;
-//             margin-top: 10px;
-//         }
-//     }
-// }
-
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
@@ -107,15 +63,16 @@
         }
 
         &-btn {
-            padding: 14px 30px;
+            padding: 16px 30px;
             font-size: 16px;
             font-weight: 600;
             letter-spacing: 1px;
             border: none;
             border: 1px solid red;
             background-color: red;
-            color: white;
+            color: #ffffffde;
             border-radius: 4px;
+            margin-top: 6px;
 
             @media (max-width:1500px) {
                 @include button;
