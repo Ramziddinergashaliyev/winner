@@ -13,10 +13,14 @@ $font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     position: relative;
     display: flex;
     align-items: stretch;
-    min-height: 350px;
+    height: 420px;
     overflow: hidden;
     isolation: isolate;
     background: $color-bg-deep;
+
+    @media (max-width:1500px) {
+        height: 350px;
+    }
 
     &__panel {
         position: relative;
