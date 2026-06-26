@@ -17,7 +17,7 @@ const cards = [
         number: "02",
         image: img2,
         title: ["Technology", "That Leads"],
-        text: "Advanced formulas and strict quality control deliver engine protection, power, and reliability — mile after mile.",
+        text: "Advanced formulas and strict quality control deliver engine protection, power, and reliability — mile after.",
         link: "Our Technology",
     },
     {
