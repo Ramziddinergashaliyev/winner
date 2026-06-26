@@ -63,7 +63,7 @@ const ArrowIcon = () => (
 
 const Info = () => {
     return (
-        <section className="info">
+        <section className="info container">
             <div className="info__container">
                 {cards.map((card, index) => (
                     <div

@@ -12,9 +12,6 @@ $color-shadow-hover: rgba(24, 20, 18, 0.18);
     padding: 48px 0;
 
     &__container {
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 0 32px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
