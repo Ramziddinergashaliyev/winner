@@ -15,6 +15,7 @@ const Distrbut = () => {
                     <div className="distrbut__overlay" aria-hidden="true" />
 
                     <div className="distrbut__content container">
+
                         <h2 className="distrbut__title">
                             <span>Partnership and </span>
                             <br />
@@ -24,6 +25,7 @@ const Distrbut = () => {
                         <p className="distrbut__text">
                             Cooperate with the WINNER brand and lead the market together. Quality, trust and profit are the basis of our partnership.
                         </p>
+
                     </div>
                 </div>
 
