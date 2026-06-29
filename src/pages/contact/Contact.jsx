@@ -19,7 +19,6 @@ const Contact = () => {
             <div className="contact__container container">
 
                 <div className="contact__head">
-                    <span className="contact__eyebrow">Contact</span>
                     <h1 className="contact__title">
                         Let's talk <span>lubricants.</span>
                     </h1>

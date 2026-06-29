@@ -1,7 +1,7 @@
 .contact {
     width: 100%;
     background-color: #ffffff;
-    padding: 46px 0 120px;
+    padding: 36px 0 120px;
 
     @media (max-width: 768px) {
         padding: 64px 0 80px;
@@ -15,7 +15,7 @@
 
     &__head {
         max-width: 640px;
-        margin-bottom: 64px;
+        margin-bottom: 24px;
 
         @media (max-width: 768px) {
             margin-bottom: 48px;

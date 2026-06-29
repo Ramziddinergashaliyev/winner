@@ -1,0 +1,223 @@
+$bg-page: #ffffff;
+$bg-field: #ffffff;
+$border: #d9d9d7;
+$border-focus: #9a9a98;
+
+$text-heading: #1a1a1a;
+$text-body: #2e2e2c;
+$text-label: #56564f;
+$text-faint: #8a8a86;
+
+$button-bg: #232323;
+$button-bg-hover: #3a3a3a;
+$button-text: #ffffff;
+
+$radius: 8px;
+
+$container-max: 1280px;
+$gutter: 24px;
+
+@mixin container {
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 0 $gutter;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    .site-footer a,
+    .site-footer button,
+    .site-footer input,
+    .site-footer textarea {
+        transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+    }
+}
+
+.site-footer {
+    background: $bg-page;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: $text-body;
+    padding: 64px 0 56px;
+
+    &__container {
+        @include container;
+    }
+
+    &__sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1.3fr 200px 1.5fr 1.2fr;
+        gap: 40px;
+
+        @media (max-width: 1100px) {
+            grid-template-columns: 1fr 1fr;
+            row-gap: 48px;
+        }
+
+        @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__heading {
+        font-size: 22px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2px;
+        color: $text-heading;
+        margin: 0 0 28px;
+    }
+
+    &__col {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        a {
+            color: $text-body;
+            text-decoration: none;
+            font-size: 17px;
+            line-height: 1.4;
+
+            &:hover,
+            &:focus-visible {
+                color: $text-heading;
+                text-decoration: underline;
+            }
+
+            &:focus-visible {
+                outline: 2px solid $border-focus;
+                outline-offset: 3px;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__label {
+        font-size: 16px;
+        color: $text-label;
+    }
+
+    &__value {
+        font-size: 18px;
+        font-weight: 700;
+        color: $text-heading;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+            text-decoration: underline;
+        }
+    }
+
+    &__address {
+        font-size: 16px;
+        line-height: 1.55;
+        color: $text-body;
+        margin: 0;
+        max-width: 320px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__form>input,
+    &__form>textarea {
+        width: 100%;
+        background: $bg-field;
+        border: 1px solid $border;
+        border-radius: $radius;
+        padding: 12px 18px;
+        font-size: 15px;
+        font-family: inherit;
+        color: $text-heading;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: $text-faint;
+        }
+
+        &:focus-visible {
+            outline: none;
+            border-color: $border-focus;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 96px;
+    }
+
+    &__phone {
+        .site-footer__phone-input {
+            --react-international-phone-height: 43.5px;
+            --react-international-phone-background-color: #{$bg-field};
+            --react-international-phone-text-color: #{$text-heading};
+            --react-international-phone-font-size: 15px;
+            --react-international-phone-border-radius: #{$radius};
+            --react-international-phone-border-color: #{$border};
+
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .react-international-phone-input {
+            flex: 1;
+            width: 100%;
+        }
+
+        .react-international-phone-input-container:focus-within {
+            border-color: $border-focus !important;
+        }
+    }
+
+    &__submit {
+        align-self: flex-center;
+        margin-top: 4px;
+        padding: 14px 30px;
+        border: none;
+        border-radius: $radius;
+        background: $button-bg;
+        color: $button-text;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover,
+        &:focus-visible {
+            background: $button-bg-hover;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $button-bg;
+            outline-offset: 2px;
+        }
+    }
+}
