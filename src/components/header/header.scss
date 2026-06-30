@@ -5,6 +5,11 @@
     position: relative;
     padding: 16px 0;
     background-color: #181818;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
 
     &::before {
         content: "";

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./distrbut.scss"
 
 import car from "../../assets/images/dist.png"
 import global from "../../assets/images/glob.png"
 
 const Distrbut = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className="dist">
             <section className="distrbut">

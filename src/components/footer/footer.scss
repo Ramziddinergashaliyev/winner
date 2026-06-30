@@ -35,7 +35,6 @@ $gutter: 24px;
 
 .site-footer {
     background: $bg-page;
-    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
     color: $text-body;
     padding: 64px 0 56px;
 
@@ -183,7 +182,6 @@ $gutter: 24px;
             --react-international-phone-font-size: 15px;
             --react-international-phone-border-radius: #{$radius};
             --react-international-phone-border-color: #{$border};
-
             width: 100%;
             font-family: inherit;
         }

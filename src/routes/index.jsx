@@ -5,6 +5,8 @@ import About from "../pages/about/About";
 import Contact from "../pages/contact/Contact";
 import Catalog from "../pages/catalog/Catalog";
 import Distrbut from "../pages/distrbut/Distrbut";
+import Details from "../pages/details/Details";
+import SinglePage from "../pages/singlePage/SinglePage";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
             {
                 path: "/distrbuter",
                 element: <Distrbut />
+            },
+            {
+                path: "/details",
+                element: <Details />
+            },
+            {
+                path: "/single-products",
+                element: <SinglePage />
             }
         ]
     }

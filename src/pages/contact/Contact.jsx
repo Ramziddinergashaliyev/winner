@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./contact.scss"
 
 const Contact = () => {
     const [form, setForm] = useState({ name: "", phone: "", message: "" })
     const [submitted, setSubmitted] = useState(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -22,6 +26,7 @@ const Contact = () => {
                     <h1 className="contact__title">
                         Let's talk <span>lubricants.</span>
                     </h1>
+
                     <p className="contact__subtitle">
                         Questions about products, distribution, or partnership —
                         our team replies within one business day.
@@ -35,9 +40,11 @@ const Contact = () => {
                             <span className="contact__card-mark" />
                             <div className="contact__card-body">
                                 <span className="contact__card-label">Address</span>
+
                                 <p className="contact__card-text">
                                     Яккасарайский р-н, "Мухандислар МФЙ", <br /> ул.Мукими дом 2
                                 </p>
+
                             </div>
                         </div>
 
@@ -46,7 +53,8 @@ const Contact = () => {
                             <div className="contact__card-body">
                                 <span className="contact__card-label">Phone</span>
                                 <p className="contact__card-text">
-                                    <a href="tel:+998712001122">+998 71 200 11 22</a>
+                                    <a href="tel:+998 71 281 49 30">+998 71 281 49 30</a>
+                                    <a href="tel:+998 71 203 20 31">+998 71 203 20 31</a>
                                 </p>
                             </div>
                         </div>
@@ -56,22 +64,13 @@ const Contact = () => {
                             <div className="contact__card-body">
                                 <span className="contact__card-label">Email</span>
                                 <p className="contact__card-text">
-                                    <a href="mailto:info@winner-lubricants.com">
-                                        info@winner-lubricants.com
+                                    <a href="mailto:info@gpggroup.uz">
+                                        info@gpggroup.uz
                                     </a>
                                 </p>
                             </div>
                         </div>
 
-                        <div className="contact__card">
-                            <span className="contact__card-mark" />
-                            <div className="contact__card-body">
-                                <span className="contact__card-label">Working hours</span>
-                                <p className="contact__card-text">
-                                    Mon – Sat, 09:00 – 18:00
-                                </p>
-                            </div>
-                        </div>
                     </div>
 
                     <div className="contact__form-wrap">
