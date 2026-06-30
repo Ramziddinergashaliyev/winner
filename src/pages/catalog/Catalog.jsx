@@ -131,7 +131,7 @@ const Catalog = () => {
     return (
         <section className="pit" ref={sectionRef}>
 
-            <div className="pit__container">
+            <div className="container">
                 <header className={`pit__head${sectionVisible ? " pit__head--in" : ""}`}>
                     <div className="pit__head-row">
                         <span className="pit__flag" aria-hidden="true">
