@@ -138,7 +138,7 @@ const Details = () => {
                 </div>
             </div>
 
-            <div className="details__body">
+            <div className="details__body container">
                 <aside className="details__sidebar" aria-label="Filters">
                     <div className="filter-block">
                         <button className="filter-block__head" type="button">

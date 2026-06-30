@@ -778,10 +778,6 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 }
 
-// ---------------------------------------------------------------------
-// Recurring structural motif: technical corner brackets, like a stamped
-// inspection mark on a measured part.
-// ---------------------------------------------------------------------
 .brackets {
     position: absolute;
     inset: 10px;
@@ -861,9 +857,6 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         color: $c-red;
     }
 
-    // -------------------------------------------------------------
-    // HERO — dark blueprint panel with ruler ticks + spec readout
-    // -------------------------------------------------------------
     &__hero {
         position: relative;
         margin-top: 72px;
@@ -1155,9 +1148,6 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
     }
 
-    // -------------------------------------------------------------
-    // MISSION — asymmetric stagger, ghost numerals, corner brackets
-    // -------------------------------------------------------------
     &__mission {
         position: relative;
         @include container;

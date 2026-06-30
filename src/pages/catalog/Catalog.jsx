@@ -110,6 +110,7 @@ const Catalog = () => {
             (entries) => entries.forEach((e) => e.isIntersecting && setSectionVisible(true)),
             { threshold: 0.15 }
         );
+
         if (sectionRef.current) sectionObserver.observe(sectionRef.current);
 
         return () => {

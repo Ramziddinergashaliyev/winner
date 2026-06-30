@@ -7,9 +7,6 @@ $c-red: #c81f23;
 $c-red-dark: #9c1518;
 $c-gold: #b8923a;
 
-$font-display: "Barlow Condensed", "Oswald", sans-serif;
-$font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
-
 $radius: 14px;
 $shadow-card: 0 6px 24px rgba(23, 20, 15, 0.06);
 $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
@@ -31,7 +28,6 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 .single {
     background: $c-bg;
     color: $c-ink;
-    font-family: $font-body;
     min-height: 100vh;
     padding: 72px 0 72px;
 
@@ -185,7 +181,6 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 }
 
 .single__title {
-    font-family: $font-display;
     text-transform: uppercase;
     font-weight: 600;
     font-size: clamp(2rem, 4vw, 2rem);
@@ -205,7 +200,6 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 }
 
 .single__block-title {
-    font-family: $font-display;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     font-size: 1.02rem;
@@ -338,7 +332,6 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 }
 
 .single__related-title {
-    font-family: $font-display;
     text-transform: uppercase;
     font-size: 1.3rem;
     font-weight: 700;
@@ -415,7 +408,6 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
     }
 
     &__name {
-        font-family: $font-display;
         text-transform: uppercase;
         font-size: 1.32rem;
         font-weight: 700;
