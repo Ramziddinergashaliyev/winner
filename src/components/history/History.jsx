@@ -26,7 +26,7 @@ const cards = [
 const History = () => {
     return (
         <section className="history">
-            <div className="history__container">
+            <div className="history__container container">
                 <div className="history__intro">
                     <span className="history__eyebrow">Brand History</span>
 

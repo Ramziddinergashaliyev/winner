@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import bg from "../../assets/images/bg.webp"
 import cons from "../../assets/images/winner.webp"
