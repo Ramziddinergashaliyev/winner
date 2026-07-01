@@ -17,12 +17,6 @@ $radius: 8px;
 $container-max: 1280px;
 $gutter: 24px;
 
-@mixin container {
-    max-width: $container-max;
-    margin: 0 auto;
-    padding: 0 $gutter;
-}
-
 @media (prefers-reduced-motion: no-preference) {
 
     .site-footer a,
@@ -37,10 +31,6 @@ $gutter: 24px;
     background: $bg-page;
     color: $text-body;
     padding: 64px 0 56px;
-
-    &__container {
-        @include container;
-    }
 
     &__sr-only {
         position: absolute;

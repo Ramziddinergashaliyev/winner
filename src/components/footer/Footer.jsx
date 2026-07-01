@@ -33,7 +33,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="site-footer">
+        <footer className="site-footer container">
             <div className="site-footer__container site-footer__grid">
                 <nav className="site-footer__col" aria-label="Продукция">
                     <h3 className="site-footer__heading">Продукция</h3>
