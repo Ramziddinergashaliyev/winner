@@ -68,8 +68,8 @@ const Catalog = () => {
 
             <div className="catalog__grid">
                 {categories.map((item, index) => (
-                    <a href="#" className="catalog-card" key={index}>
-                        <div className="catalog-card__text">
+                    <a href="#" className="catalog-card" style={{ backgroundImage: `url(${item.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} key={index}>
+                        {/* <div className="catalog-card__text">
                             <h3>{item.title}</h3>
                             {item.subtitle && <span>{item.subtitle}</span>}
                             <div className="catalog-card__arrow">
@@ -77,15 +77,7 @@ const Catalog = () => {
                                     <path d="M1 1L7 7L1 13" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
-                        </div>
-
-                        <div className="catalog-card__image">
-                            {item.image ? (
-                                <img src={item.image} alt={item.title} />
-                            ) : (
-                                <BottleIcon color={item.color} />
-                            )}
-                        </div>
+                        </div> */}
                     </a>
                 ))}
             </div>
