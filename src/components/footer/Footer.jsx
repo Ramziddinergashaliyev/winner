@@ -65,6 +65,7 @@ export default function Footer() {
                         <a className="site-footer__value" href="tel:+998712814930">
                             +998 71 281 49 30
                         </a>
+
                         <a className="site-footer__value" href="tel:+998712032031">
                             +998 71 203 20 31
                         </a>
@@ -92,6 +93,7 @@ export default function Footer() {
                         <label className="site-footer__sr-only" htmlFor="footer-name">
                             Имя
                         </label>
+
                         <input
                             id="footer-name"
                             type="text"
@@ -105,6 +107,7 @@ export default function Footer() {
                             <label className="site-footer__sr-only" htmlFor="footer-phone">
                                 Номер телефона
                             </label>
+
                             <PhoneInput
                                 defaultCountry="uz"
                                 value={form.phone}
@@ -117,6 +120,7 @@ export default function Footer() {
                         <label className="site-footer__sr-only" htmlFor="footer-email">
                             Электронная почта
                         </label>
+
                         <input
                             id="footer-email"
                             type="email"
@@ -129,6 +133,7 @@ export default function Footer() {
                         <label className="site-footer__sr-only" htmlFor="footer-message">
                             Сообщение
                         </label>
+
                         <textarea
                             id="footer-message"
                             placeholder="Сообщение"

@@ -58,6 +58,7 @@ const SinglePage = () => {
 
                     <div className="single__info">
                         <h1 className="single__title">WINNER 75W-90 API GL-4/5</h1>
+
                         <p className="single__desc">
                             WINNER Conecto 75W-90 is a high-performance synthetic transmission oil designed for use in manual gearboxes, differentials, and final drives operating under moderate to heavy loads. Formulated to meet both API GL-4 and GL-5 specifications, it offers excellent versatility and compatibility across a wide range of passenger cars and commercial vehicles. This advanced lubricant provides outstanding wear protection, ensuring longer service life of gears and bearings even under extreme pressure conditions. Its optimized viscosity ensures smooth gear shifting and reliable performance in both low and high temperature environments. WINNER Conecto 75W-90 also delivers strong resistance to oxidation and thermal degradation, helping to maintain oil stability over extended service intervals. Additionally, it protects against rust and corrosion, keeping transmission components clean and efficient.
                         </p>
@@ -117,6 +118,7 @@ const SinglePage = () => {
                                 </svg>
                                 Download TDS PDF
                             </button>
+
                             <button type="button" className="single__download">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -125,6 +127,7 @@ const SinglePage = () => {
                                 Download MSDS PDF
                             </button>
                         </div>
+
                     </div>
                 </div>
 

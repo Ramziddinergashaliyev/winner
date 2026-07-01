@@ -1,5 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./catalog.scss";
+import antif from "../../assets/images/catalog/antif.webp"
+import gidrav from "../../assets/images/catalog/gidrav.webp"
+import leghavoy from "../../assets/images/catalog/leghavoy.webp"
+import matorMasla from "../../assets/images/catalog/matorMasla.webp"
+import trans from "../../assets/images/catalog/trans.webp"
+import washer from "../../assets/images/catalog/washer.webp"
 
 const catalogData = [
     {
@@ -7,6 +13,7 @@ const catalogData = [
         index: "01",
         title: "Motor oils for passenger cars and light commercial vehicles",
         sub: "Passenger & Light Commercial",
+        img: leghavoy,
         icon: (
             <svg viewBox="0 0 48 48" fill="none">
                 <path d="M18 7h12l3 6v5H15v-5l3-6Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
@@ -20,6 +27,7 @@ const catalogData = [
         index: "02",
         title: "Motor oils for diesel engines",
         sub: "Heavy-Duty & Fleet",
+        img: matorMasla,
         icon: (
             <svg viewBox="0 0 48 48" fill="none">
                 <rect x="7" y="16" width="24" height="15" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
@@ -34,6 +42,7 @@ const catalogData = [
         index: "03",
         title: "Transmission oils",
         sub: "Manual & Automatic",
+        img: trans,
         icon: (
             <svg viewBox="0 0 48 48" fill="none">
                 <circle cx="17" cy="24" r="6.5" stroke="currentColor" strokeWidth="1.6" />
@@ -48,6 +57,7 @@ const catalogData = [
         index: "04",
         title: "Hydraulic oils",
         sub: "Industrial & Heavy Equipment",
+        img: gidrav,
         icon: (
             <svg viewBox="0 0 48 48" fill="none">
                 <path d="M10 33l12-16 6 7 8-11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -61,6 +71,7 @@ const catalogData = [
         index: "06",
         title: "Antifreeze",
         sub: "Long-Life Coolant",
+        img: antif,
         icon: (
             <svg viewBox="0 0 48 48" fill="none">
                 <path d="M24 5v38M11 12l26 24M37 12 11 36" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
@@ -73,13 +84,14 @@ const catalogData = [
         index: "08",
         title: "Washer Fluid",
         sub: "Seasonal Formulas",
+        img: washer,
         icon: (
             <svg viewBox="0 0 48 48" fill="none">
                 <path d="M24 6c6 6.5 11 13.5 11 20.5a11 11 0 1 1-22 0C13 19.5 18 12.5 24 6Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
                 <path d="M16 30c2.5 4.5 6.5 7 11 7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
             </svg>
         ),
-    },
+    }
 ];
 
 const Catalog = () => {
@@ -131,7 +143,6 @@ const Catalog = () => {
 
     return (
         <section className="pit" ref={sectionRef}>
-
             <div className="container">
                 <header className={`pit__head${sectionVisible ? " pit__head--in" : ""}`}>
                     <div className="pit__head-row">
@@ -145,14 +156,16 @@ const Catalog = () => {
 
                 <div className="pit__grid">
                     {catalogData.map((item, i) => (
-                        <a
-                            href="/details"
-                            key={item.id}
-                            data-id={item.id}
+                        <a href="/details" key={item.id} data-id={item.id}
                             ref={(el) => (refs.current[i] = el)}
                             onMouseMove={(e) => handleMove(e, i)}
                             className={`pit__card${visible.includes(item.id) ? " pit__card--in" : ""}`}
-                            style={{ "--d": `${i * 90}ms` }}
+                            style={{
+                                "--d": `${i * 90}ms`,
+                                backgroundImage: `url(${item.img})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                            }}
                         >
                             <span className="pit__card-glow" aria-hidden="true" />
                             <span className="pit__stripe" aria-hidden="true" />
@@ -167,7 +180,7 @@ const Catalog = () => {
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

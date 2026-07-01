@@ -18,12 +18,12 @@ export const MENU = [
     },
     {
         id: 4,
-        title: "Contact",
-        path: ROUTES.CONTACT,
-    },
-    {
-        id: 5,
         title: "Distrbuter",
         path: ROUTES.DISTR,
     },
+    {
+        id: 5,
+        title: "Contact",
+        path: ROUTES.CONTACT,
+    }
 ];

@@ -3,8 +3,10 @@ import "./distrbut.scss"
 
 import car from "../../assets/images/dist.png"
 import global from "../../assets/images/glob.png"
+import DistributorSection from '../../components/distributorSection/DistributorSection'
 
 const Distrbut = () => {
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -40,6 +42,8 @@ const Distrbut = () => {
                     style={{ backgroundImage: `url(${car})` }}
                 />
             </section>
+
+            <DistributorSection />
         </div>
     )
 }

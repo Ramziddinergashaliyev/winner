@@ -1,0 +1,296 @@
+$red: #b5262b;
+
+.ds {
+    background: #fff;
+    padding: 620px 0px;
+
+    @media (max-width: 768px) {
+        padding: 64px 20px;
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        gap: 120px;
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+    }
+
+    &__left {
+        @media (max-width: 900px) {
+            position: static;
+        }
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: $red;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    &__pulse {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $red;
+        animation: dsPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes dsPulse {
+
+        0%,
+        100% {
+            box-shadow: 0 0 0 0 rgba($red, 0.5);
+        }
+
+        50% {
+            box-shadow: 0 0 0 8px rgba($red, 0);
+        }
+    }
+
+    &__title {
+        font-size: clamp(38px, 4vw, 56px);
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 60px;
+        color: #111;
+        margin-bottom: 22px;
+        letter-spacing: 1px;
+
+        em {
+            display: block;
+            font-style: normal;
+            color: transparent;
+            -webkit-text-stroke: 2px $red;
+        }
+    }
+
+    &__redline {
+        width: 44px;
+        height: 3px;
+        background: $red;
+        border-radius: 2px;
+        margin-bottom: 32px;
+    }
+
+    &__stat {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 36px;
+    }
+
+    &__stat-num {
+        font-size: 52px;
+        font-weight: 700;
+        color: #111;
+        line-height: 1;
+    }
+
+    &__stat-label {
+        font-size: 12px;
+        color: #aaa;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin-top: 2px;
+    }
+
+    &__track {
+        height: 2px;
+        background: #eee;
+        border-radius: 2px;
+        margin-bottom: 8px;
+        overflow: hidden;
+    }
+
+    &__track-fill {
+        height: 100%;
+        background: $red;
+        border-radius: 2px;
+        transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &__track-label {
+        font-size: 11px;
+        color: #bbb;
+        font-weight: 500;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__item {
+        border: 1.5px solid #eee;
+        border-radius: 14px;
+        background: #fff;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity 0.5s ease,
+            transform 0.5s ease,
+            border-color 0.3s,
+            box-shadow 0.25s;
+
+        &--show {
+            opacity: 1;
+            transform: none;
+        }
+
+        &:hover:not(&--open) {
+            border-color: #ddd;
+            box-shadow: 0 6px 28px rgba(0, 0, 0, 0.07);
+            transform: translateY(-2px);
+        }
+
+        &--open {
+            border-color: $red;
+            box-shadow: 0 10px 40px rgba($red, 0.12);
+            transform: translateY(-2px);
+        }
+    }
+
+    &__head {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 19px 22px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        transition: background 0.2s;
+
+        &:hover {
+            background: #fafafa;
+        }
+
+        .ds__item--open & {
+            background: none;
+        }
+    }
+
+    &__num {
+        font-size: 13px;
+        font-weight: 600;
+        color: #ddd;
+        min-width: 26px;
+        transition: color 0.3s;
+
+        .ds__item--open & {
+            color: $red;
+        }
+    }
+
+    &__country {
+        flex: 1;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: #222;
+        transition: color 0.3s;
+
+        .ds__item--open & {
+            color: $red;
+        }
+    }
+
+    &__arrow {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1.5px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ccc;
+        flex-shrink: 0;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .ds__item--open & {
+            background: $red;
+            border-color: $red;
+            color: #fff;
+            transform: rotate(180deg);
+        }
+    }
+
+    &__body {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &--open {
+            grid-template-rows: 1fr;
+        }
+    }
+
+    &__body-inner {
+        overflow: hidden;
+    }
+
+    &__body-pad {
+        padding: 0 22px 22px;
+    }
+
+    &__firm {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #bbb;
+        margin-bottom: 12px;
+        padding-left: 42px;
+    }
+
+    &__card {
+        background: #fafafa;
+        border: 1px solid #f0f0f0;
+        border-radius: 10px;
+        padding: 15px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+    }
+
+    &__row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 13px;
+        color: #555;
+        line-height: 1.55;
+    }
+
+    &__ico {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        &--pin {
+            background: #fff0f0;
+        }
+
+        &--phone {
+            background: #f0fff5;
+        }
+    }
+}

@@ -54,7 +54,7 @@ $gutter: 24px;
     &__grid {
         display: grid;
         grid-template-columns: 1.3fr 200px 1.5fr 1.2fr;
-        gap: 40px;
+        gap: 25px;
 
         @media (max-width: 1100px) {
             grid-template-columns: 1fr 1fr;

@@ -201,13 +201,16 @@ $accent-dim: rgba(216, 31, 36, 0.1);
         isolation: isolate;
         --mx: 50%;
         --my: 50%;
-
         opacity: 0;
         transform: translateY(24px);
         transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
             transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
             background 0.3s ease;
         transition-delay: var(--d, 0ms);
+
+        @media (max-width:1500px) {
+            height: 270px;
+        }
 
         &--in {
             opacity: 1;
@@ -293,6 +296,7 @@ $accent-dim: rgba(216, 31, 36, 0.1);
         letter-spacing: 0.01em;
         line-height: 24px;
         margin: 0 0 8px;
+        color: white;
         transition: color 0.3s ease;
     }
 
@@ -344,23 +348,15 @@ $accent-dim: rgba(216, 31, 36, 0.1);
             height: 100%;
         }
 
-        .pit__num {
-            color: $accent;
-        }
-
         .pit__icon {
-            color: $accent;
+            color: white;
             transform: translateY(-3px) rotate(-6deg) scale(1.08);
-        }
-
-        .pit__card-title {
-            color: $accent;
         }
 
         .pit__arrow {
             opacity: 1;
             transform: translate(0, 0);
-            color: $accent;
+            color: white;
         }
 
         .pit__bolt {
@@ -375,3 +371,356 @@ $accent-dim: rgba(216, 31, 36, 0.1);
 
     @include focus-ring;
 }
+
+
+// $bg: #f7f6f4;
+// $surface: #ffffff;
+// $line: #e4e0db;
+// $ink: #16140f;
+// $muted: #756e63;
+// $accent: #d81f24;
+// $accent-dim: rgba(216, 31, 36, 0.1);
+
+// @mixin focus-ring {
+//     &:focus-visible {
+//         outline: 2px solid $accent;
+//         outline-offset: 3px;
+//     }
+// }
+
+// @keyframes scanSweep {
+//     0% {
+//         transform: translateX(-120%) skewX(-12deg);
+//     }
+
+//     100% {
+//         transform: translateX(220%) skewX(-12deg);
+//     }
+// }
+
+// @keyframes ghostDrift {
+//     0% {
+//         transform: translateX(0);
+//     }
+
+//     100% {
+//         transform: translateX(-50%);
+//     }
+// }
+
+// @keyframes flagPulse {
+
+//     0%,
+//     100% {
+//         opacity: 0.25;
+//     }
+
+//     50% {
+//         opacity: 1;
+//     }
+// }
+
+// @keyframes pop {
+//     0% {
+//         opacity: 0;
+//         transform: translateY(28px) scale(0.97);
+//     }
+
+//     100% {
+//         opacity: 1;
+//         transform: translateY(0) scale(1);
+//     }
+// }
+
+// @media (prefers-reduced-motion: reduce) {
+//     * {
+//         animation-duration: 0.001ms !important;
+//         transition-duration: 0.001ms !important;
+//     }
+// }
+
+// .pit {
+//     position: relative;
+//     background: $bg;
+//     color: $ink;
+//     padding: 96px 0 100px;
+//     overflow: hidden;
+//     isolation: isolate;
+
+//     &::before {
+//         content: "";
+//         position: absolute;
+//         inset: 0;
+//         z-index: 0;
+//         background:
+//             radial-gradient(ellipse 60% 50% at 85% 0%, rgba(216, 31, 36, 0.07), transparent 60%),
+//             radial-gradient(ellipse 50% 40% at 5% 100%, rgba(216, 31, 36, 0.05), transparent 60%);
+//         pointer-events: none;
+//     }
+
+//     &::after {
+//         content: "";
+//         position: absolute;
+//         inset: 0;
+//         z-index: 0;
+//         opacity: 0.035;
+//         background-image: repeating-linear-gradient(135deg,
+//                 $ink 0,
+//                 $ink 1px,
+//                 transparent 1px,
+//                 transparent 14px);
+//         pointer-events: none;
+//     }
+
+//     &__ghost {
+//         position: absolute;
+//         top: 6%;
+//         left: 0;
+//         z-index: 0;
+//         font-size: clamp(7rem, 18vw, 15rem);
+//         letter-spacing: 0.02em;
+//         color: transparent;
+//         -webkit-text-stroke: 1px rgba(22, 20, 15, 0.05);
+//         white-space: nowrap;
+//         animation: ghostDrift 38s linear infinite;
+//         pointer-events: none;
+//         user-select: none;
+//     }
+
+//     &__head {
+//         max-width: 720px;
+//         margin-bottom: 26px;
+//         opacity: 0;
+//         transform: translateY(20px);
+//         transition: opacity 0.7s ease, transform 0.7s ease;
+
+//         &--in {
+//             opacity: 1;
+//             transform: translateY(0);
+//         }
+//     }
+
+//     &__head-row {
+//         display: flex;
+//         align-items: center;
+//         gap: 12px;
+//         margin-bottom: 18px;
+//     }
+
+//     &__flag {
+//         display: inline-grid;
+//         grid-template-columns: repeat(2, 7px);
+//         grid-template-rows: repeat(2, 7px);
+//         gap: 2px;
+
+//         span {
+//             background: $accent;
+//             animation: flagPulse 1.8s ease-in-out infinite;
+
+//             &:nth-child(2),
+//             &:nth-child(3) {
+//                 background: $ink;
+//                 animation-delay: 0.45s;
+//             }
+
+//             &:nth-child(4) {
+//                 animation-delay: 0.9s;
+//             }
+//         }
+//     }
+
+//     &__eyebrow {
+//         font-size: 12.5px;
+//         font-weight: 700;
+//         letter-spacing: 2.5px;
+//         text-transform: uppercase;
+//         color: $muted;
+//     }
+
+//     &__title {
+//         font-weight: 400;
+//         font-size: clamp(3rem, 7vw, 5.4rem);
+//         line-height: 0.92;
+//         text-transform: uppercase;
+//         color: $accent;
+//         margin: 0;
+//     }
+
+//     &__grid {
+//         display: grid;
+//         grid-template-columns: repeat(3, 1fr);
+//         gap: 2px;
+//         background: $line;
+//         border: 1px solid $line;
+
+//         @media (max-width: 1000px) {
+//             grid-template-columns: repeat(2, 1fr);
+//         }
+
+//         @media (max-width: 520px) {
+//             grid-template-columns: 1fr;
+//         }
+//     }
+
+//     &__card {
+//         position: relative;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: flex-end;
+//         background: $surface;
+//         padding: 0;
+//         height: 270px;
+//         text-decoration: none;
+//         color: inherit;
+//         overflow: hidden;
+//         isolation: isolate;
+//         --mx: 50%;
+//         --my: 50%;
+//         opacity: 0;
+//         transform: translateY(24px);
+//         transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+//             transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+//         transition-delay: var(--d, 0ms);
+
+//         @media (max-width: 1500px) {
+//             height: 270px;
+//         }
+
+//         &--in {
+//             opacity: 1;
+//             transform: translateY(0);
+//             animation: pop 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms) both;
+//         }
+
+//         &::after {
+//             content: "";
+//             position: absolute;
+//             inset: 0;
+//             z-index: 1;
+//             background: linear-gradient(to top,
+//                     rgba(0, 0, 0, 0.82) 0%,
+//                     rgba(0, 0, 0, 0.55) 45%,
+//                     rgba(0, 0, 0, 0.10) 75%,
+//                     transparent 100%);
+//             transform: translateY(101%);
+//             transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+//             pointer-events: none;
+//         }
+
+//         &:hover::after,
+//         &:focus-visible::after {
+//             transform: translateY(0);
+//         }
+//     }
+
+//     &__card-glow {
+//         position: absolute;
+//         inset: 0;
+//         z-index: 2;
+//         background: radial-gradient(220px circle at var(--mx) var(--my), $accent-dim, transparent 70%);
+//         opacity: 0;
+//         transition: opacity 0.35s ease;
+//         pointer-events: none;
+//     }
+
+//     &__card:hover .pit__card-glow,
+//     &__card:focus-visible .pit__card-glow {
+//         opacity: 1;
+//     }
+
+//     &__stripe {
+//         position: absolute;
+//         top: 0;
+//         left: -1px;
+//         width: 4px;
+//         height: 0%;
+//         background: $accent;
+//         transition: height 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+//         z-index: 3;
+//     }
+
+//     &__card:hover .pit__stripe,
+//     &__card:focus-visible .pit__stripe {
+//         height: 100%;
+//     }
+
+//     &__icon {
+//         position: absolute;
+//         top: 24px;
+//         left: 24px;
+//         z-index: 2;
+//         width: 40px;
+//         height: 40px;
+//         color: rgba(255, 255, 255, 0.85);
+//         filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+//         transition: color 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+
+//         svg {
+//             width: 100%;
+//             height: 100%;
+//         }
+//     }
+
+//     &__card:hover .pit__icon,
+//     &__card:focus-visible .pit__icon {
+//         transform: translateY(-3px) rotate(-6deg) scale(1.08);
+//     }
+
+//     &__card-title {
+//         position: relative;
+//         z-index: 3;
+//         text-transform: uppercase;
+//         font-size: 18px;
+//         font-weight: 400;
+//         letter-spacing: 0.01em;
+//         line-height: 24px;
+//         margin: 0;
+//         padding: 0 24px 24px;
+//         color: #ffffff;
+
+//         opacity: 0;
+//         transform: translateY(22px);
+//         transition:
+//             opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.08s,
+//             transform 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+//     }
+
+//     &__card:hover .pit__card-title,
+//     &__card:focus-visible .pit__card-title {
+//         opacity: 1;
+//         transform: translateY(0);
+//     }
+
+//     &__bolt {
+//         position: absolute;
+//         width: 12px;
+//         height: 12px;
+//         z-index: 3;
+//         opacity: 0;
+//         transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+//         &--tl {
+//             top: 12px;
+//             left: 12px;
+//             border-top: 1.5px solid $accent;
+//             border-left: 1.5px solid $accent;
+//             transform: translate(-5px, -5px);
+//         }
+
+//         &--br {
+//             bottom: 12px;
+//             right: 12px;
+//             border-bottom: 1.5px solid $accent;
+//             border-right: 1.5px solid $accent;
+//             transform: translate(5px, 5px);
+//         }
+//     }
+
+//     &__card:hover .pit__bolt,
+//     &__card:focus-visible .pit__bolt {
+//         opacity: 1;
+//         transform: translate(0, 0);
+//     }
+
+//     @include focus-ring;
+// }

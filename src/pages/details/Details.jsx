@@ -149,6 +149,7 @@ const Details = () => {
                                 Category
                             </span>
                         </button>
+
                         <ul className="filter-block__list">
                             {CATEGORIES.map((cat) => (
                                 <li key={cat.id}>
@@ -169,6 +170,7 @@ const Details = () => {
                     </div>
 
                     <div className="filter-block">
+
                         <button className="filter-block__head" type="button">
                             <span className="filter-block__head-text">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -177,6 +179,7 @@ const Details = () => {
                                 Volume
                             </span>
                         </button>
+
                         <ul className="filter-block__checks">
                             {VOLUMES.map((vol) => (
                                 <li key={vol}>
@@ -192,6 +195,7 @@ const Details = () => {
                                 </li>
                             ))}
                         </ul>
+
                     </div>
 
                     <button
@@ -204,6 +208,7 @@ const Details = () => {
                         </svg>
                         Clear filters
                     </button>
+
                 </aside>
 
                 <div className="details__main">
