@@ -6,9 +6,6 @@ $color-crimson: #b5262b;
 $color-text-muted: #b3aca0;
 $color-text-light: #f6f3ec;
 
-$font-display: 'Oswald', 'Arial Narrow', sans-serif;
-$font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-
 .distrbut {
     position: relative;
     display: flex;
@@ -58,7 +55,6 @@ $font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 
     &__title {
         margin: 0;
-        font-family: $font-display;
         font-weight: 700;
         text-transform: uppercase;
         font-size: clamp(22px, 3.2vw, 58px);
@@ -87,7 +83,6 @@ $font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     &__text {
         margin: 0;
         max-width: 380px;
-        font-family: $font-body;
         font-size: clamp(12px, 1.3vw, 18px);
         line-height: 1.55;
         color: $color-text-muted;
@@ -131,4 +126,3 @@ $font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
         display: none;
     }
 }
-

@@ -1,187 +1,207 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./catalog.scss";
-import antif from "../../assets/images/catalog/antif.webp"
-import gidrav from "../../assets/images/catalog/gidrav.webp"
-import leghavoy from "../../assets/images/catalog/leghavoy.webp"
-import matorMasla from "../../assets/images/catalog/matorMasla.webp"
-import trans from "../../assets/images/catalog/trans.webp"
-import washer from "../../assets/images/catalog/washer.webp"
 
-const catalogData = [
+
+import React from 'react'
+import bg from "../../assets/images/bg.webp"
+import cons from "../../assets/images/winner.webp"
+import './catalog.scss'
+
+import motorOilCar from "../../assets/images/catalog/antif.webp"
+import motorOilTruck from "../../assets/images/catalog/antif.webp"
+import transmissionOil from "../../assets/images/catalog/antif.webp"
+import hydraulicOil from "../../assets/images/catalog/antif.webp"
+import antifreeze from "../../assets/images/catalog/antif.webp"
+import washerFluid from "../../assets/images/catalog/antif.webp"
+
+const categories = [
     {
-        id: 1,
-        index: "01",
-        title: "Motor oils for passenger cars and light commercial vehicles",
-        sub: "Passenger & Light Commercial",
-        img: leghavoy,
-        icon: (
-            <svg viewBox="0 0 48 48" fill="none">
-                <path d="M18 7h12l3 6v5H15v-5l3-6Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                <path d="M14 18h20v17a5 5 0 0 1-5 5H19a5 5 0 0 1-5-5V18Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                <path d="M14 24h20" stroke="currentColor" strokeWidth="1.6" />
-            </svg>
-        ),
+        title: "MOTOR OILS",
+        subtitle: "FOR PASSENGER CARS",
+        color: "gold",
+        image: cons,
     },
     {
-        id: 2,
-        index: "02",
-        title: "Motor oils for diesel engines",
-        sub: "Heavy-Duty & Fleet",
-        img: matorMasla,
-        icon: (
-            <svg viewBox="0 0 48 48" fill="none">
-                <rect x="7" y="16" width="24" height="15" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
-                <path d="M31 21h6l4 5v6h-10" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                <circle cx="15" cy="34" r="3.4" stroke="currentColor" strokeWidth="1.6" />
-                <circle cx="35" cy="34" r="3.4" stroke="currentColor" strokeWidth="1.6" />
-            </svg>
-        ),
+        title: "MOTOR OILS",
+        subtitle: "FOR DIESEL ENGINES",
+        color: "blue",
+        image: cons,
     },
     {
-        id: 3,
-        index: "03",
-        title: "Transmission oils",
-        sub: "Manual & Automatic",
-        img: trans,
-        icon: (
-            <svg viewBox="0 0 48 48" fill="none">
-                <circle cx="17" cy="24" r="6.5" stroke="currentColor" strokeWidth="1.6" />
-                <circle cx="34" cy="15" r="4.5" stroke="currentColor" strokeWidth="1.6" />
-                <circle cx="34" cy="33" r="4.5" stroke="currentColor" strokeWidth="1.6" />
-                <path d="M22.5 21l7-4M22.5 27l7 4" stroke="currentColor" strokeWidth="1.6" />
-            </svg>
-        ),
+        title: "TRANSMISSION OILS",
+        subtitle: "",
+        color: "red",
+        image: cons,
     },
     {
-        id: 4,
-        index: "04",
-        title: "Hydraulic oils",
-        sub: "Industrial & Heavy Equipment",
-        img: gidrav,
-        icon: (
-            <svg viewBox="0 0 48 48" fill="none">
-                <path d="M10 33l12-16 6 7 8-11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                <circle cx="36" cy="13" r="2.5" fill="currentColor" />
-                <path d="M7 37h34" stroke="currentColor" strokeWidth="1.6" />
-            </svg>
-        ),
+        title: "HYDRAULIC OILS",
+        subtitle: "",
+        color: "graphite",
+        image: cons,
     },
     {
-        id: 6,
-        index: "06",
-        title: "Antifreeze",
-        sub: "Long-Life Coolant",
-        img: antif,
-        icon: (
-            <svg viewBox="0 0 48 48" fill="none">
-                <path d="M24 5v38M11 12l26 24M37 12 11 36" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                <path d="M17 10l7-6 7 6M17 38l7 6 7-6M10 17l-6 7 6 7M38 17l6 7-6 7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-        ),
+        title: "ANTIFREEZE",
+        subtitle: "",
+        color: "pink",
+        image: cons,
     },
     {
-        id: 8,
-        index: "08",
-        title: "Washer Fluid",
-        sub: "Seasonal Formulas",
-        img: washer,
-        icon: (
-            <svg viewBox="0 0 48 48" fill="none">
-                <path d="M24 6c6 6.5 11 13.5 11 20.5a11 11 0 1 1-22 0C13 19.5 18 12.5 24 6Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                <path d="M16 30c2.5 4.5 6.5 7 11 7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-            </svg>
-        ),
-    }
-];
+        title: "WASHER FLUID",
+        subtitle: "",
+        color: "skyblue",
+        image: cons,
+    },
+]
+
+const BottleIcon = ({ color }) => (
+    <svg className={`bottle bottle--${color}`} viewBox="0 0 60 140" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="0" width="24" height="14" rx="3" className="bottle__cap" />
+        <path
+            className="bottle__body"
+            d="M14 18 h32 a4 4 0 0 1 4 4 v90 a8 8 0 0 1 -8 8 H18 a8 8 0 0 1 -8 -8 V22 a4 4 0 0 1 4 -4 Z"
+        />
+        <rect x="10" y="55" width="40" height="34" rx="2" className="bottle__label" />
+    </svg>
+)
 
 const Catalog = () => {
-    const [visible, setVisible] = useState([]);
-    const [sectionVisible, setSectionVisible] = useState(false);
-    const refs = useRef([]);
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    useEffect(() => {
-        const itemObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const id = Number(entry.target.dataset.id);
-                        setVisible((prev) => (prev.includes(id) ? prev : [...prev, id]));
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
-        refs.current.forEach((el) => el && itemObserver.observe(el));
-
-        const sectionObserver = new IntersectionObserver(
-            (entries) => entries.forEach((e) => e.isIntersecting && setSectionVisible(true)),
-            { threshold: 0.15 }
-        );
-
-        if (sectionRef.current) sectionObserver.observe(sectionRef.current);
-
-        return () => {
-            itemObserver.disconnect();
-            sectionObserver.disconnect();
-        };
-    }, []);
-
-    const handleMove = (e, i) => {
-        const el = refs.current[i];
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        el.style.setProperty("--mx", `${x}px`);
-        el.style.setProperty("--my", `${y}px`);
-    };
-
     return (
-        <section className="pit" ref={sectionRef}>
-            <div className="container">
-                <header className={`pit__head${sectionVisible ? " pit__head--in" : ""}`}>
-                    <div className="pit__head-row">
-                        <span className="pit__flag" aria-hidden="true">
-                            <span /><span /><span /><span />
-                        </span>
-                        <span className="pit__eyebrow">Full Product Line</span>
-                    </div>
-                    <h2 className="pit__title">Catalog</h2>
-                </header>
+        <section className="catalog">
 
-                <div className="pit__grid">
-                    {catalogData.map((item, i) => (
-                        <a href="/details" key={item.id} data-id={item.id}
-                            ref={(el) => (refs.current[i] = el)}
-                            onMouseMove={(e) => handleMove(e, i)}
-                            className={`pit__card${visible.includes(item.id) ? " pit__card--in" : ""}`}
-                            style={{
-                                "--d": `${i * 90}ms`,
-                                backgroundImage: `url(${item.img})`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                            }}
-                        >
-                            <span className="pit__card-glow" aria-hidden="true" />
-                            <span className="pit__stripe" aria-hidden="true" />
+            <div className="catalog__grid">
+                {categories.map((item, index) => (
+                    <a href="#" className="catalog-card" key={index}>
+                        <div className="catalog-card__text">
+                            <h3>{item.title}</h3>
+                            {item.subtitle && <span>{item.subtitle}</span>}
+                            <div className="catalog-card__arrow">
+                                <svg viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L7 7L1 13" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
 
-                            <div className="pit__icon">{item.icon}</div>
-
-                            <h3 className="pit__card-title">{item.title}</h3>
-
-                            <span className="pit__bolt pit__bolt--tl" aria-hidden="true" />
-                            <span className="pit__bolt pit__bolt--br" aria-hidden="true" />
-                        </a>
-                    ))}
-                </div>
+                        <div className="catalog-card__image">
+                            {item.image ? (
+                                <img src={item.image} alt={item.title} />
+                            ) : (
+                                <BottleIcon color={item.color} />
+                            )}
+                        </div>
+                    </a>
+                ))}
             </div>
-        </section >
-    );
-};
+        </section>
+    )
+}
 
-export default Catalog;
+export default Catalog
+
+
+
+// import React from 'react'
+// import './catalog.scss'
+
+// const categories = [
+//     {
+//         title: "MOTOR OILS",
+//         subtitle: "FOR PASSENGER CARS",
+//         color: "gold",
+//     },
+//     {
+//         title: "MOTOR OILS",
+//         subtitle: "FOR DIESEL ENGINES",
+//         color: "blue",
+//     },
+//     {
+//         title: "TRANSMISSION OILS",
+//         subtitle: "",
+//         color: "red",
+//     },
+//     {
+//         title: "HYDRAULIC OILS",
+//         subtitle: "",
+//         color: "graphite",
+//     },
+//     {
+//         title: "ANTIFREEZE",
+//         subtitle: "",
+//         color: "pink",
+//     },
+//     {
+//         title: "WASHER FLUID",
+//         subtitle: "",
+//         color: "skyblue",
+//     },
+// ]
+
+// const BottleIcon = ({ color }) => (
+//     <svg className={`bottle bottle--${color}`} viewBox="0 0 60 140" xmlns="http://www.w3.org/2000/svg">
+//         <rect x="18" y="0" width="24" height="14" rx="3" className="bottle__cap" />
+//         <path
+//             className="bottle__body"
+//             d="M14 18 h32 a4 4 0 0 1 4 4 v90 a8 8 0 0 1 -8 8 H18 a8 8 0 0 1 -8 -8 V22 a4 4 0 0 1 4 -4 Z"
+//         />
+//         <rect x="10" y="55" width="40" height="34" rx="2" className="bottle__label" />
+//     </svg>
+// )
+
+// const Catalog = () => {
+//     return (
+//         <section className="catalog">
+//             <div className="catalog__inner">
+
+//                 <div className="catalog__hero">
+//                     <div className="catalog__hero-inner">
+//                         <div className="catalog__logo">
+//                             <span className="catalog__logo-mark">W</span>
+//                             <span className="catalog__logo-text">WINNER</span>
+//                         </div>
+
+//                         <div className="catalog__heading">
+//                             <span className="catalog__divider" />
+//                             <h1>CATALOG</h1>
+//                             <p className="catalog__subtitle">
+//                                 LUBRICANTS, FLUIDS<br />
+//                                 AND AUTOMOTIVE CARE
+//                             </p>
+//                         </div>
+
+//                         <div className="catalog__car" aria-hidden="true">
+//                             <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+//                                 <path
+//                                     d="M20 150 Q40 90 100 80 L160 60 Q220 55 260 75 L340 90 Q370 100 375 130 L375 150"
+//                                     stroke="rgba(255,255,255,0.15)"
+//                                     strokeWidth="2"
+//                                 />
+//                                 <circle cx="90" cy="155" r="28" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
+//                                 <circle cx="300" cy="155" r="28" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
+//                             </svg>
+//                         </div>
+//                     </div>
+//                 </div>
+
+//                 <div className="catalog__grid container">
+//                     {categories.map((item, index) => (
+//                         <a href="#" className="catalog-card" key={index}>
+//                             <div className="catalog-card__text">
+//                                 <h3>{item.title}</h3>
+//                                 {item.subtitle && <span>{item.subtitle}</span>}
+//                                 <div className="catalog-card__arrow">
+//                                     <svg viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg">
+//                                         <path d="M1 1L7 7L1 13" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+//                                     </svg>
+//                                 </div>
+//                             </div>
+
+//                             <div className="catalog-card__image">
+//                                 <BottleIcon color={item.color} />
+//                             </div>
+//                         </a>
+//                     ))}
+//                 </div>
+
+//             </div>
+//         </section>
+//     )
+// }
+
+// export default Catalog
