@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+
 import "./footer.scss";
 
 const PRODUCT_LINKS = [
@@ -35,6 +36,7 @@ export default function Footer() {
     return (
         <footer className="site-footer container">
             <div className="site-footer__container site-footer__grid">
+
                 <nav className="site-footer__col" aria-label="Продукция">
                     <h3 className="site-footer__heading">Продукция</h3>
                     <ul>
@@ -62,6 +64,7 @@ export default function Footer() {
 
                     <div className="site-footer__group">
                         <span className="site-footer__label">Номер телефона</span>
+
                         <a className="site-footer__value" href="tel:+998712814930">
                             +998 71 281 49 30
                         </a>
@@ -69,6 +72,7 @@ export default function Footer() {
                         <a className="site-footer__value" href="tel:+998712032031">
                             +998 71 203 20 31
                         </a>
+
                     </div>
 
                     <div className="site-footer__group">

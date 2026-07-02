@@ -44,7 +44,6 @@ const Contact = () => {
                                 <p className="contact__card-text">
                                     Яккасарайский р-н, "Мухандислар МФЙ", <br /> ул.Мукими дом 2
                                 </p>
-
                             </div>
                         </div>
 

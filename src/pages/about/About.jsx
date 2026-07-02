@@ -305,9 +305,11 @@ const About = () => {
                     <RevealBlock as="span" className="about__eyebrow about__eyebrow--dark" variant="left">
                         Our mission — 01
                     </RevealBlock>
+
                     <RevealBlock as="h2" className="about__mission-title" delay={100} variant="left">
                         Quality isn't<br />an accident.<br /><em>It's a system.</em>
                     </RevealBlock>
+                    
                     <RevealBlock as="p" className="about__mission-note" delay={180} variant="left">
                         Three principles run through every batch that leaves the plant. None
                         of them are negotiable, and each one shows up somewhere in the
