@@ -74,14 +74,7 @@ const Details = () => {
     return (
         <section className="details">
             <div className="details__hero">
-                <div className="details__hero-inner container">
-                    <Reveal as="h1" className="details__title" variant="up">
-                        Products
-                    </Reveal>
-                    <Reveal as="p" className="details__subtitle" variant="up" delay={80}>
-                        Winner Quality — In Every Drop
-                    </Reveal>
-                </div>
+
             </div>
 
             <div className="details__body container">

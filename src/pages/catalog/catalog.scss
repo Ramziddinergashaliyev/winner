@@ -18,7 +18,7 @@ $skyblue: #2f6fa8;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    min-height: 800px;
+    height: 780px;
     padding-bottom: 40px;
 
     &--embedded {
@@ -27,7 +27,7 @@ $skyblue: #2f6fa8;
     }
 
     @media (max-width:1500px) {
-        min-height: 590px;
+        height: 600px;
 
         &--embedded {
             min-height: 520px;
@@ -94,58 +94,6 @@ $skyblue: #2f6fa8;
         }
     }
 }
-
-// .catalog-card {
-//     position: relative;
-//     display: flex;
-//     align-items: flex-end;
-//     justify-content: space-between;
-//     border-radius: $radius;
-//     padding: 20px 20px 16px;
-//     min-height: 290px;
-//     text-decoration: none;
-//     box-shadow: 1px 1px 10px #7d7d7d;
-//     transition: box-shadow 0.2s ease, transform 0.2s ease;
-
-//     @media (max-width:1500px) {
-//         min-height: 190px;
-//     }
-
-//     &:hover {
-//         box-shadow: 0 10px 24px $black;
-//         transform: translateY(-2px);
-//     }
-
-//     &__info {
-//         display: flex;
-//         flex-direction: column;
-//         gap: 6px;
-
-//         &-text {
-//             margin: 0;
-//             font-size: 14px;
-//             font-weight: 800;
-//             letter-spacing: 0.3px;
-//             color: $primary;
-//             text-transform: uppercase;
-//         }
-//     }
-
-//     &__image {
-//         position: absolute;
-//         right: 14px;
-//         bottom: 20px;
-//         height: 92%;
-//         display: flex;
-//         align-items: flex-end;
-
-//         img {
-//             max-height: 80%;
-//             width: auto;
-//             object-fit: contain;
-//         }
-//     }
-// }
 
 .catalog-card {
     position: relative;
