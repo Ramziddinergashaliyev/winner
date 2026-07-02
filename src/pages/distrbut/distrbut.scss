@@ -1,10 +1,8 @@
-$color-bg-deep: #0a0908;
-$color-bg-panel: #161310;
+@use "../../styles/variables" as *;
+
 $color-gold: #d4a843;
 $color-gold-light: #f0cf7a;
-$color-crimson: #b5262b;
 $color-text-muted: #b3aca0;
-$color-text-light: #f6f3ec;
 
 .distrbut {
     position: relative;
@@ -13,7 +11,7 @@ $color-text-light: #f6f3ec;
     height: 420px;
     overflow: hidden;
     isolation: isolate;
-    background: $color-bg-deep;
+    background: $black;
     margin-top: 72px;
 
     @media (max-width:1500px) {
@@ -37,11 +35,15 @@ $color-text-light: #f6f3ec;
         position: absolute;
         inset: 0;
         z-index: 1;
-        background: linear-gradient(100deg, rgba($color-bg-deep, 0.92) 0%, rgba($color-bg-deep, 0.78) 55%, rgba($color-bg-deep, 0.55) 100%);
+        background: linear-gradient(100deg, rgba($black, 0.92) 0%, rgba($black, 0.78) 55%, rgba($black, 0.55) 100%);
     }
 
     &__panel--car {
         background-position: center left;
+
+        &.distrbut__panel--reveal.reveal--visible {
+            clip-path: inset(0 0 0 0);
+        }
     }
 
     &__content {
@@ -60,11 +62,11 @@ $color-text-light: #f6f3ec;
         font-size: clamp(22px, 3.2vw, 58px);
         line-height: 1.08;
         letter-spacing: 0.5px;
-        color: $color-text-light;
+        color: $white;
 
         span {
             display: inline-block;
-            background: linear-gradient(90deg, $color-gold-light, $color-gold);
+            background: linear-gradient(90deg, $white, $primary);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -76,7 +78,7 @@ $color-text-light: #f6f3ec;
             width: 56px;
             height: 3px;
             margin-top: 14px;
-            background: linear-gradient(90deg, $color-crimson, transparent);
+            background: linear-gradient(90deg, $primary, transparent);
         }
     }
 
@@ -97,9 +99,9 @@ $color-text-light: #f6f3ec;
         height: 100%;
         z-index: 3;
         pointer-events: none;
-        background: linear-gradient(180deg, transparent 0%, $color-crimson 18%, $color-crimson 82%, transparent 100%);
+        background: linear-gradient(180deg, transparent 0%, $primary 18%, $primary 82%, transparent 100%);
         filter: blur(7px);
-        box-shadow: 0 0 36px 4px rgba($color-crimson, 0.65);
+        box-shadow: 0 0 36px 4px rgba($primary, 0.65);
     }
 }
 

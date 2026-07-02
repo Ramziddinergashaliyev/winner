@@ -1,8 +1,6 @@
-$color-bg-deep: #060505;
-$color-card-bg: #121110;
+@use "../../styles/variables" as *;
 $color-border: rgba(255, 255, 255, 0.08);
 $color-border-hover: rgba(255, 42, 42, 0.4);
-$color-accent: #ff2a2a;
 $color-text-muted: #9a9a9a;
 $color-text-muted-soft: #b3b3b3;
 
@@ -13,7 +11,7 @@ $color-text-muted-soft: #b3b3b3;
     background:
         radial-gradient(120% 100% at 12% 0%, rgba(168, 24, 20, 0.55) 0%, rgba(168, 24, 20, 0) 55%),
         radial-gradient(80% 60% at 92% 8%, rgba(120, 18, 16, 0.35) 0%, rgba(120, 18, 16, 0) 60%),
-        $color-bg-deep;
+        $black;
 
     &__container {
         display: flex;
@@ -33,7 +31,7 @@ $color-text-muted-soft: #b3b3b3;
         font-weight: 700;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: $color-accent;
+        color: $primary;
     }
 
     &__title {
@@ -43,11 +41,11 @@ $color-text-muted-soft: #b3b3b3;
         line-height: 1.25;
         letter-spacing: 0.01em;
         text-transform: uppercase;
-        color: #fff;
+        color: $white;
 
         &-accent {
             display: block;
-            color: $color-accent;
+            color: $primary;
         }
     }
 
@@ -72,7 +70,7 @@ $color-text-muted-soft: #b3b3b3;
     flex-direction: column;
     overflow: hidden;
     border-radius: 18px;
-    background: $color-card-bg;
+    background: $black;
     border: 1px solid $color-border;
     transition: transform 0.35s ease, border-color 0.35s ease;
 
@@ -102,7 +100,7 @@ $color-text-muted-soft: #b3b3b3;
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(6, 5, 5, 0) 45%, $color-card-bg 100%);
+            background: linear-gradient(to bottom, rgba(6, 5, 5, 0) 45%, $black 100%);
         }
     }
 
@@ -116,7 +114,7 @@ $color-text-muted-soft: #b3b3b3;
         font-weight: 800;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: #fff;
+        color: $white;
     }
 
     &__text {

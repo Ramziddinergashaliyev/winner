@@ -1,25 +1,24 @@
-import React, { useState } from "react";
-import { PhoneInput } from "react-international-phone";
-import "react-international-phone/style.css";
-
-import "./footer.scss";
+import React, { useState } from 'react'
+import { PhoneInput } from 'react-international-phone'
+import { NavLink } from 'react-router-dom'
+import 'react-international-phone/style.css'
+import Reveal from '../reveal/Reveal'
+import './footer.scss'
 
 const PRODUCT_LINKS = [
-    { label: "Antifreeze", href: "/catalog/motor-oils-light" },
-    { label: "Motor oils for passenger cars and light commercial vehicles", href: "/catalog/motor-oils-diesel" },
-    { label: "Motor oils for diesel engines", href: "/catalog/transmission-oils" },
-    { label: "Brake fluid", href: "/catalog/hydraulic-oils" },
-    { label: "Transmission oils", href: "/catalog/brake-fluid" },
-    { label: "Hydraulic oils", href: "/catalog/antifreeze" },
-];
+    { label: 'Antifreeze', href: '/catalog' },
+    { label: 'Motor oils for passenger cars', href: '/catalog' },
+    { label: 'Motor oils for diesel engines', href: '/catalog' },
+    { label: 'Transmission oils', href: '/catalog' },
+    { label: 'Hydraulic oils', href: '/catalog' },
+]
 
 const COMPANY_LINKS = [
-    { label: "About", href: "/about" },
-    { label: "Catalog", href: "/news" },
-    { label: "Distrbuter", href: "/distributors" },
-    { label: "Contact", href: "/contact" },
-    { label: "News", href: "/news" },
-];
+    { label: 'About', href: '/about' },
+    { label: 'Catalog', href: '/catalog' },
+    { label: 'Distrbuter', href: '/distrbuter' },
+    { label: 'Contact', href: '/contact' },
+]
 
 export default function Footer() {
     const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
@@ -35,14 +34,14 @@ export default function Footer() {
 
     return (
         <footer className="site-footer container">
-            <div className="site-footer__container site-footer__grid">
+            <Reveal as="div" className="site-footer__container site-footer__grid" variant="up">
 
                 <nav className="site-footer__col" aria-label="Продукция">
                     <h3 className="site-footer__heading">Продукция</h3>
                     <ul>
                         {PRODUCT_LINKS.map((link) => (
                             <li key={link.label}>
-                                <a href={link.href}>{link.label}</a>
+                                <NavLink to={link.href}>{link.label}</NavLink>
                             </li>
                         ))}
                     </ul>
@@ -53,7 +52,7 @@ export default function Footer() {
                     <ul>
                         {COMPANY_LINKS.map((link) => (
                             <li key={link.label}>
-                                <a href={link.href}>{link.label}</a>
+                                <NavLink to={link.href}>{link.label}</NavLink>
                             </li>
                         ))}
                     </ul>
@@ -151,7 +150,7 @@ export default function Footer() {
                         </button>
                     </form>
                 </div>
-            </div>
+            </Reveal>
         </footer>
     );
 }

@@ -1,14 +1,9 @@
-$c-bg: #f7f6f4;
-$c-surface: #ffffff;
-$c-border: #e7e3df;
-$c-ink: #17140f;
-$c-ink-soft: #6b6258;
-$c-red: #c81f23;
-$c-red-dark: #9c1518;
-$c-gold: #b8923a;
+@use "../../styles/variables" as *;
 
-$font-display: "Barlow Condensed", "Oswald", sans-serif;
-$font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+$c-bg: #f7f6f4;
+$c-border: #e7e3df;
+$c-ink-soft: #6b6258;
+$c-gold: #b8923a;
 
 $radius: 14px;
 $shadow-card: 0 6px 24px rgba(23, 20, 15, 0.06);
@@ -16,7 +11,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 
 @mixin focus-ring {
     &:focus-visible {
-        outline: 2px solid $c-red;
+        outline: 2px solid $primary;
         outline-offset: 3px;
     }
 }
@@ -30,8 +25,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 
 .details {
     background: $c-bg;
-    color: $c-ink;
-    font-family: $font-body;
+    color: $black;
     min-height: 100vh;
     padding-bottom: 64px;
 
@@ -66,7 +60,6 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
     }
 
     &__title {
-        font-family: $font-display;
         font-weight: 600;
         text-transform: uppercase;
         font-size: clamp(2.2rem, 6vw, 4.2rem);
@@ -74,15 +67,14 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
         line-height: 1;
         -webkit-background-clip: text;
         background-clip: text;
-        color: white;
+        color: $white;
     }
 
     &__subtitle {
-        font-family: $font-display;
         text-transform: uppercase;
         letter-spacing: 0.22em;
         font-size: 0.85rem;
-        color: white;
+        color: $white;
         font-weight: 600;
     }
 
@@ -118,7 +110,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
     }
 
     &__empty {
-        background: $c-surface;
+        background: $white;
         border: 1px dashed $c-border;
         border-radius: $radius;
         padding: 48px 24px;
@@ -131,17 +123,17 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        background: $c-surface;
+        background: $white;
         border: 1px solid $c-border;
         border-radius: 999px;
         padding: 8px 16px;
         font-size: 0.85rem;
-        color: $c-ink;
+        color: $black;
         cursor: pointer;
         transition: border-color 0.2s ease;
 
         &:hover {
-            border-color: $c-red;
+            border-color: $primary;
         }
 
         @include focus-ring;
@@ -149,7 +141,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 }
 
 .filter-block {
-    background: $c-surface;
+    background: $white;
     border: 1px solid $c-border;
     border-radius: $radius;
     padding: 18px 18px 14px;
@@ -165,7 +157,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
         align-items: center;
         justify-content: space-between;
         cursor: pointer;
-        color: $c-ink;
+        color: $black;
         @include focus-ring;
     }
 
@@ -173,12 +165,11 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        font-family: $font-display;
         text-transform: uppercase;
         letter-spacing: 0.06em;
         font-weight: 600;
         font-size: 0.95rem;
-        color: $c-red;
+        color: $primary;
     }
 
     &__list {
@@ -209,12 +200,12 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 
         &:hover {
             background: #fbeceb;
-            color: $c-ink;
+            color: $black;
         }
 
         &--active {
             background: #fbeceb;
-            color: $c-red-dark;
+            color: $primary;
             font-weight: 600;
         }
     }
@@ -254,13 +245,13 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
         height: 1px;
 
         &:focus-visible+.checkbox__box {
-            outline: 2px solid $c-red;
+            outline: 2px solid $primary;
             outline-offset: 2px;
         }
 
         &:checked+.checkbox__box {
-            background: $c-red;
-            border-color: $c-red;
+            background: $primary;
+            border-color: $primary;
 
             &::after {
                 opacity: 1;
@@ -300,13 +291,13 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: $c-surface;
+    background: $white;
     border: 1px solid $c-border;
     border-radius: 999px;
     padding: 12px;
     font-size: 0.88rem;
     font-weight: 600;
-    color: $c-red-dark;
+    color: $primary;
     cursor: pointer;
     transition: background 0.18s ease, border-color 0.18s ease;
 
@@ -314,7 +305,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 
     &:hover {
         background: #fbeceb;
-        border-color: $c-red;
+        border-color: $primary;
     }
 }
 
@@ -334,7 +325,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
 
 .product-card {
     position: relative;
-    background: $c-surface;
+    background: $white;
     border: 1px solid $c-border;
     border-radius: $radius;
     padding: 18px 16px 16px;
@@ -362,7 +353,6 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
     }
 
     &__name {
-        font-family: $font-display;
         text-transform: uppercase;
         font-size: 1.08rem;
         font-weight: 700;
@@ -407,7 +397,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
     }
 
     &__cta {
-        background: $c-red;
+        background: $primary;
         color: #fff;
         border: 0;
         border-radius: 999px;
@@ -422,7 +412,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
         @include focus-ring;
 
         &:hover {
-            background: $c-red-dark;
+            background: $primary;
         }
 
         &:active {
@@ -444,8 +434,8 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
         height: 38px;
         border-radius: 50%;
         border: 1px solid $c-border;
-        background: $c-surface;
-        color: $c-ink;
+        background: $white;
+        color: $black;
         display: grid;
         place-items: center;
         cursor: pointer;
@@ -462,17 +452,17 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
     }
 
     &__arrow:hover:not(:disabled) {
-        border-color: $c-red;
-        color: $c-red;
+        border-color: $primary;
+        color: $primary;
     }
 
     &__page:hover {
-        border-color: $c-red;
+        border-color: $primary;
     }
 
     &__page--active {
-        background: $c-red;
-        border-color: $c-red;
-        color: #fff;
+        background: $primary;
+        border-color: $primary;
+        color: $white;
     }
 }

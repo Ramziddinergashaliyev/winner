@@ -1,31 +1,32 @@
 import React from 'react'
-import "./info.scss"
+import './info.scss'
+import Reveal from '../reveal/Reveal'
 
-import img1 from "../../assets/images/info.png"
-import img2 from "../../assets/images/info2.png"
-import img3 from "../../assets/images/info3.png"
+import img1 from '../../assets/images/info.png'
+import img2 from '../../assets/images/info2.png'
+import img3 from '../../assets/images/info3.png'
 
 const cards = [
     {
-        number: "01",
+        number: '01',
         image: img1,
-        title: ["Built For", "Victory"],
-        text: "WINNER is a high-tech motor oil engineered for extreme conditions and maximum performance.",
-        link: "Learn More",
+        title: ['Built For', 'Victory'],
+        text: 'WINNER is a high-tech motor oil engineered for extreme conditions and maximum performance.',
+        link: 'Learn More',
     },
     {
-        number: "02",
+        number: '02',
         image: img2,
-        title: ["Technology", "That Leads"],
-        text: "Advanced formulas and strict quality control deliver engine protection, power, and reliability — mile after.",
-        link: "Our Technology",
+        title: ['Technology', 'That Leads'],
+        text: 'Advanced formulas and strict quality control deliver engine protection, power, and reliability — mile after.',
+        link: 'Our Technology',
     },
     {
-        number: "03",
+        number: '03',
         image: img3,
-        title: ["Trusted By", "Champions"],
-        text: "WINNER is chosen by professional racers and teams worldwide. Winners choose the best.",
-        link: "Our Partners",
+        title: ['Trusted By', 'Champions'],
+        text: 'WINNER is chosen by professional racers and teams worldwide. Winners choose the best.',
+        link: 'Our Partners',
     },
 ]
 
@@ -66,9 +67,12 @@ const Info = () => {
         <section className="info container">
             <div className="info__container">
                 {cards.map((card, index) => (
-                    <div
+                    <Reveal
+                        as="div"
                         className="info-card"
                         key={card.number}
+                        variant="up"
+                        delay={index * 120}
                         style={{
                             backgroundImage: `linear-gradient(100deg, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.85) 35%, rgba(8,8,8,0.4) 65%, rgba(8,8,8,0.05) 100%), url(${card.image})`,
                         }}
@@ -94,7 +98,7 @@ const Info = () => {
                                 <ArrowIcon />
                             </a>
                         </div>
-                    </div>
+                    </Reveal>
                 ))}
             </div>
         </section>

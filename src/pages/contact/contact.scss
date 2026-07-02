@@ -1,6 +1,8 @@
+@use "../../styles/variables" as *;
+
 .contact {
     width: 100%;
-    background-color: #ffffff;
+    background-color: $white;
     padding: 96px 0 40px;
 
     @media (max-width: 768px) {
@@ -30,14 +32,14 @@
         font-weight: 600;
         letter-spacing: 2px;
         text-transform: uppercase;
-        color: #c0282d;
+        color: $primary;
         margin-bottom: 18px;
 
         &::before {
             content: "";
             width: 28px;
             height: 2px;
-            background-color: #c0282d;
+            background-color: $primary;
         }
     }
 
@@ -238,6 +240,10 @@
         align-items: flex-start;
         gap: 6px;
         padding: 24px 0;
+
+        &--in {
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
 
         h3 {
             margin: 12px 0 0;

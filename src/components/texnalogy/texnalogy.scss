@@ -1,14 +1,11 @@
-$bg-dark: #0b0a0a;
-$card-bg: #121010;
+@use "../../styles/variables" as *;
+
 $card-border: rgba(196, 162, 92, 0.18);
-$ring-color: #8a2e2c;
-$gold: #c9a35c;
-$white: #f2f0ec;
 $gray-text: #9b9690;
 $gap: 14px;
 
 .texnalogy {
-    background-color: $bg-dark;
+    background-color: $black;
     padding: 40px 0px 40px;
 
     &__inner {
@@ -27,7 +24,7 @@ $gap: 14px;
         display: flex;
         align-items: center;
         gap: 14px;
-        background-color: $card-bg;
+        background-color: $black;
         border: 1px solid $card-border;
         border-radius: 6px;
         padding: 22px 18px;
@@ -45,7 +42,7 @@ $gap: 14px;
         width: 96px;
         height: 96px;
         border-radius: 50%;
-        border: 1.5px solid $ring-color;
+        border: 1.5px solid $primary;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -54,7 +51,7 @@ $gap: 14px;
     .icon-svg {
         width: 56px;
         height: 56px;
-        color: $gold;
+        color: $primary;
     }
 
     .icon-stroke {
@@ -66,17 +63,17 @@ $gap: 14px;
     }
 
     .leaf {
-        fill: $gold;
+        fill: $primary;
     }
 
     .node {
         fill: none;
-        stroke: $gold;
+        stroke: $primary;
         stroke-width: 1.6;
     }
 
     .icon-number {
-        fill: $gold;
+        fill: $primary;
         font-size: 9px;
         font-weight: 700;
         font-family: inherit;
@@ -101,7 +98,7 @@ $gap: 14px;
 
     &__text {
         margin: 0;
-        color: $gray-text;
+        color: $white;
         font-size: 14px;
         line-height: 1.6;
     }

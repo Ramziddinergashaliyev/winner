@@ -1,14 +1,11 @@
-$c-white: #ffffff;
+@use "../../styles/variables" as *;
+
 $c-paper: #f3efe4;
 $c-off: #ece6d6;
-$c-ink: #15151a;
 $c-ink-soft: #4a4a52;
-$c-blueprint: #10181a;
 $c-blueprint-soft: #17242a;
 $c-blueprint-line: rgba(207, 232, 222, 0.14);
-$c-gold: #b8842a;
 $c-gold-bg: #fbf3df;
-$c-red: #d8281f;
 $c-line: rgba(21, 21, 26, 0.14);
 
 $ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -77,7 +74,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         position: absolute;
         width: 14px;
         height: 14px;
-        border-color: rgba($c-gold, 0.55);
+        border-color: $primary;
         border-style: solid;
         border-width: 0;
         transition: border-color 0.3s ease;
@@ -112,7 +109,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     &--light .brackets__corner {
-        border-color: rgba($c-white, 0.45);
+        border-color: rgba($white, 0.45);
     }
 
     &--small {
@@ -130,19 +127,19 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         .brackets__corner {
             width: 8px;
             height: 8px;
-            border-color: rgba($c-white, 0.7);
+            border-color: rgba($white, 0.7);
         }
     }
 }
 
 .about {
     background: $c-paper;
-    color: $c-ink;
+    color: $black;
     overflow-x: hidden;
 
     em {
         font-style: normal;
-        color: $c-red;
+        color: $primary;
     }
 
     &__hero {
@@ -152,7 +149,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__hero-bg {
         position: relative;
-        background: linear-gradient(160deg, #15232a 0%, $c-blueprint 55%, #0a1112 100%);
+        background: linear-gradient(160deg, #15232a 0%, $black 55%, #0a1112 100%);
         background-image: url(../../assets/images/aboutbg.png);
         background-repeat: no-repeat;
         background-size: cover;
@@ -182,7 +179,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     &__hero-ruler {
         position: absolute;
         z-index: 1;
-        background-image: repeating-linear-gradient(90deg, rgba($c-gold, 0.45) 0 1px, transparent 1px 40px);
+        background-image: repeating-linear-gradient(90deg, rgba($primary, 0.45) 0 1px, transparent 1px 40px);
         opacity: 0.5;
 
         &--top {
@@ -197,7 +194,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             bottom: 0;
             left: 0;
             width: 1px;
-            background-image: repeating-linear-gradient(180deg, rgba($c-gold, 0.45) 0 1px, transparent 1px 40px);
+            background-image: repeating-linear-gradient(180deg, rgba($primary, 0.45) 0 1px, transparent 1px 40px);
         }
     }
 
@@ -207,7 +204,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         z-index: 1;
         --mx: 50%;
         --my: 50%;
-        background: radial-gradient(420px circle at var(--mx) var(--my), rgba($c-gold, 0.2), transparent 70%);
+        background: radial-gradient(420px circle at var(--mx) var(--my), rgba($primary, 0.2), transparent 70%);
         transition: background 0.1s linear;
         pointer-events: none;
     }
@@ -223,13 +220,13 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         animation: float 9s ease-in-out infinite;
 
         &--gold {
-            background: $c-gold;
+            background: $primary;
             top: -120px;
             left: -80px;
         }
 
         &--red {
-            background: $c-red;
+            background: $primary;
             bottom: -160px;
             right: -100px;
             animation-delay: -4s;
@@ -265,14 +262,14 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         display: flex;
         align-items: center;
         gap: 10px;
-        color: rgba($c-white, 0.55);
+        color: rgba($white, 0.55);
         margin-bottom: 22px;
 
         &-dot {
             width: 3px;
             height: 3px;
             border-radius: 50%;
-            background: rgba($c-white, 0.4);
+            background: rgba($white, 0.4);
         }
 
         &--in {
@@ -295,12 +292,12 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         text-transform: uppercase;
         letter-spacing: 0.28em;
         font-size: 13px;
-        color: $c-gold;
+        color: $primary;
         margin-bottom: 20px;
         display: inline-block;
 
         &--dark {
-            color: $c-red;
+            color: $primary;
         }
 
         &--in {
@@ -324,7 +321,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         line-height: 1.06;
         max-width: 980px;
         letter-spacing: 0.01em;
-        color: $c-white;
+        color: $white;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -348,7 +345,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         &.is-accent {
-            color: $c-gold;
+            color: $primary;
         }
     }
 
@@ -357,7 +354,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         max-width: 560px;
         font-size: 18px;
         line-height: 1.6;
-        color: rgba($c-white, 0.7);
+        color: rgba($white, 0.7);
 
         &--in {
             opacity: 0;
@@ -381,8 +378,8 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__hero-grade {
         @include mono-label;
-        color: rgba($c-white, 0.75);
-        border: 1px solid rgba($c-white, 0.22);
+        color: rgba($white, 0.75);
+        border: 1px solid rgba($white, 0.22);
         padding: 6px 12px;
         border-radius: 2px;
         letter-spacing: 0.08em;
@@ -403,13 +400,13 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         span {
             width: 1px;
             height: 44px;
-            background: linear-gradient(180deg, $c-gold, transparent);
+            background: linear-gradient(180deg, $primary, transparent);
             animation: scrollLine 1.8s ease-in-out infinite;
         }
 
         p {
             @include mono-label;
-            color: rgba($c-white, 0.55);
+            color: rgba($white, 0.55);
         }
     }
 
@@ -477,7 +474,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         font-size: clamp(28px, 3.6vw, 46px);
         line-height: 1.14;
         margin-top: 14px;
-        color: $c-ink;
+        color: $black;
     }
 
     &__mission-note {
@@ -504,7 +501,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__mission-card {
         position: relative;
-        background: $c-white;
+        background: $white;
         border: 1px solid $c-line;
         border-radius: 2px;
         padding: 38px 36px;
@@ -517,11 +514,11 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         transition: transform 0.25s $ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
 
         &:hover {
-            border-color: rgba($c-gold, 0.55);
+            border-color: rgba($primary, 0.55);
             box-shadow: 0 22px 44px rgba(21, 21, 26, 0.1);
 
             .brackets__corner {
-                border-color: $c-gold;
+                border-color: $primary;
             }
         }
 
@@ -530,7 +527,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             text-transform: uppercase;
             letter-spacing: 0.04em;
             font-size: 19px;
-            color: $c-ink;
+            color: $black;
             margin-bottom: 12px;
         }
 
@@ -550,7 +547,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         font-size: 120px;
         font-weight: 600;
         color: transparent;
-        -webkit-text-stroke: 1px rgba($c-ink, 0.08);
+        -webkit-text-stroke: 1px rgba($black, 0.08);
         line-height: 1;
         pointer-events: none;
         z-index: 0;
@@ -560,14 +557,14 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         position: relative;
         display: block;
         @include mono-label;
-        color: $c-gold;
+        color: $primary;
         margin-bottom: 14px;
     }
 
     &__mission-card-glow {
         position: absolute;
         inset: 0;
-        background: radial-gradient(220px circle at var(--glow-x) var(--glow-y), rgba($c-gold, 0.13), transparent 70%);
+        background: radial-gradient(220px circle at var(--glow-x) var(--glow-y), rgba($primary, 0.13), transparent 70%);
         opacity: 0;
         transition: opacity 0.3s ease;
         pointer-events: none;
@@ -609,7 +606,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__process-card {
         position: relative;
-        background: $c-white;
+        background: $white;
         padding: 32px 28px;
         transition: background 0.3s ease;
 
@@ -617,14 +614,14 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             background: $c-off;
 
             .brackets__corner {
-                border-color: $c-gold;
+                border-color: $primary;
             }
         }
 
         h3 {
             text-transform: uppercase;
             font-size: 17px;
-            color: $c-ink;
+            color: $black;
             margin: 10px 0 12px;
         }
 
@@ -637,13 +634,13 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__process-step {
         @include mono-label;
-        color: $c-gold;
+        color: $primary;
         font-size: 12px;
     }
 
     &__stats {
         position: relative;
-        background: $c-blueprint;
+        background: $black;
         padding: 96px 0 88px;
         overflow: hidden;
     }
@@ -675,11 +672,11 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__stats-tag {
         @include mono-label;
-        color: rgba($c-white, 0.45);
+        color: rgba($white, 0.45);
     }
 
     &__stats-intro {
-        color: rgba($c-white, 0.62);
+        color: rgba($white, 0.62);
         font-size: 15px;
         line-height: 1.7;
         max-width: 56ch;
@@ -701,7 +698,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__stat {
         position: relative;
-        background: $c-blueprint;
+        background: $black;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -712,14 +709,14 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__stat-code {
         @include mono-label;
-        color: rgba($c-gold, 0.8);
+        color: rgba($primary, 0.8);
         margin-bottom: 4px;
     }
 
     &__stat-value {
         font-size: clamp(34px, 4vw, 52px);
         font-weight: 600;
-        color: $c-white;
+        color: $white;
         opacity: 0.5;
         transform: translateY(10px);
         transition: opacity 0.6s $ease-out, transform 0.6s $ease-out;
@@ -734,14 +731,14 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-size: 12px;
-        color: rgba($c-white, 0.6);
+        color: rgba($white, 0.6);
     }
 
     &__stat-gauge {
         margin-top: 8px;
         width: 64px;
         height: 2px;
-        background: rgba($c-white, 0.14);
+        background: rgba($white, 0.14);
         border-radius: 2px;
         overflow: hidden;
     }
@@ -749,7 +746,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     &__stat-gauge-fill {
         display: block;
         height: 100%;
-        background: linear-gradient(90deg, $c-gold, $c-red);
+        background: linear-gradient(90deg, $primary, $primary);
         transition: width 1.6s $ease-out;
     }
 
@@ -765,7 +762,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         text-align: center;
         font-size: clamp(30px, 4vw, 48px);
         margin-bottom: 24px;
-        color: $c-ink;
+        color: $black;
     }
 
     &__timeline-intro {
@@ -794,7 +791,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__timeline-line-fill {
         width: 100%;
-        background: linear-gradient(180deg, $c-gold, $c-red);
+        background: linear-gradient(180deg, $primary, $primary);
         transition: height 0.15s linear;
     }
 
@@ -834,7 +831,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         font-size: 96px;
         font-weight: 600;
         color: transparent;
-        -webkit-text-stroke: 1px rgba($c-ink, 0.07);
+        -webkit-text-stroke: 1px rgba($black, 0.07);
         z-index: 0;
         pointer-events: none;
 
@@ -857,7 +854,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: $c-red;
+        background: $primary;
         z-index: 1;
 
         .is-left & {
@@ -878,7 +875,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         position: absolute;
         inset: -6px;
         border-radius: 50%;
-        border: 1px solid rgba($c-red, 0.3);
+        border: 1px solid rgba($primary, 0.3);
         animation: ringPulse 2.4s ease-out infinite;
     }
 
@@ -899,7 +896,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         top: 11px;
         width: 36px;
         height: 1px;
-        background: repeating-linear-gradient(90deg, rgba($c-ink, 0.3) 0 4px, transparent 4px 8px);
+        background: repeating-linear-gradient(90deg, rgba($black, 0.3) 0 4px, transparent 4px 8px);
 
         .is-left & {
             right: -43px;
@@ -916,7 +913,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__timeline-card {
         position: relative;
-        background: $c-white;
+        background: $white;
         border: 1px solid $c-line;
         border-radius: 2px;
         padding: 30px 34px;
@@ -928,7 +925,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             box-shadow: 0 18px 36px rgba(21, 21, 26, 0.1);
 
             .brackets__corner {
-                border-color: $c-gold;
+                border-color: $primary;
             }
         }
 
@@ -936,7 +933,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             text-transform: uppercase;
             font-size: 18px;
             margin: 8px 0 10px;
-            color: $c-ink;
+            color: $black;
         }
 
         p {
@@ -954,14 +951,14 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     &__timeline-year {
-        color: $c-gold;
+        color: $primary;
         font-size: 14px;
         letter-spacing: 0.12em;
     }
 
     &__timeline-code {
         @include mono-label;
-        color: rgba($c-ink, 0.32);
+        color: rgba($black, 0.32);
     }
 
     &__map-section {
@@ -988,7 +985,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__map {
         position: relative;
-        background: $c-blueprint;
+        background: $black;
         border: 1px solid $c-blueprint-line;
         border-radius: 4px;
         padding: 40px;
@@ -998,7 +995,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         position: absolute;
         @include mono-label;
         font-size: 8px;
-        color: rgba($c-white, 0.3);
+        color: rgba($white, 0.3);
         display: flex;
 
         &--x {
@@ -1028,8 +1025,8 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     &__map-shape {
-        fill: rgba($c-gold, 0.05);
-        stroke: rgba($c-gold, 0.35);
+        fill: rgba($primary, 0.05);
+        stroke: rgba($primary, 0.35);
         stroke-width: 0.3;
     }
 
@@ -1052,18 +1049,18 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     &__map-dot {
-        fill: $c-gold;
+        fill: $primary;
         transition: fill 0.25s ease, r 0.25s ease;
 
         .is-active & {
-            fill: $c-red;
+            fill: $primary;
             r: 2;
         }
     }
 
     &__map-pulse {
         fill: transparent;
-        stroke: $c-gold;
+        stroke: $primary;
         stroke-width: 0.3;
         opacity: 0;
         transform-box: fill-box;
@@ -1090,7 +1087,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__map-panel {
         position: relative;
-        background: $c-white;
+        background: $white;
         border: 1px solid $c-line;
         border-radius: 4px;
         padding: 28px;
@@ -1101,19 +1098,19 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &__map-panel-label {
         @include mono-label;
-        color: rgba($c-ink, 0.4);
+        color: rgba($black, 0.4);
         margin-bottom: 18px;
     }
 
     &__map-panel-name {
         text-transform: uppercase;
         font-size: 26px;
-        color: $c-ink;
+        color: $black;
     }
 
     &__map-panel-coord {
         @include mono-label;
-        color: $c-gold;
+        color: $primary;
         margin-top: 6px;
     }
 
@@ -1153,8 +1150,8 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
             &:hover,
             &.is-active {
-                background: $c-gold-bg;
-                color: $c-ink;
+                background: $primary;
+                color: $black;
             }
         }
     }
@@ -1163,7 +1160,7 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         position: relative;
         text-align: center;
         padding: 150px 24px;
-        background: $c-blueprint;
+        background: $black;
         overflow: hidden;
 
         h2 {
@@ -1171,12 +1168,12 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             text-transform: uppercase;
             font-size: clamp(28px, 4.4vw, 50px);
             line-height: 1.15;
-            color: $c-white;
+            color: $white;
         }
 
         p {
             position: relative;
-            color: rgba($c-white, 0.6);
+            color: rgba($white, 0.6);
             margin: 18px auto 36px;
             max-width: 420px;
         }
@@ -1197,8 +1194,8 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         text-transform: uppercase;
         letter-spacing: 0.08em;
         font-size: 14px;
-        background: $c-red;
-        color: $c-white;
+        background: $primary;
+        color: $white;
         border: none;
         padding: 18px 44px;
         border-radius: 2px;
@@ -1215,14 +1212,14 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             position: absolute;
             inset: 0;
             border-radius: 2px;
-            background: $c-gold;
+            background: $primary;
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.35s $ease-out;
         }
 
         &:hover {
-            box-shadow: 0 14px 30px rgba($c-red, 0.35);
+            box-shadow: 0 14px 30px rgba($primary, 0.35);
 
             &::before {
                 transform: scaleX(1);
@@ -1250,13 +1247,13 @@ $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
         p {
             margin: 8px 0 0;
-            color: rgba($c-white, 0.78);
+            color: rgba($white, 0.78);
             font-size: 14px;
         }
     }
 
     &__cta-contact-label {
         @include mono-label;
-        color: rgba($c-gold, 0.85);
+        color: rgba($primary, 0.85);
     }
 }

@@ -1,13 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import "./contact.scss"
+import React, { useState } from 'react'
+import './contact.scss'
+import Reveal from '../../components/reveal/Reveal'
+
+const infoCards = [
+    {
+        label: 'Address',
+        content: (
+            <>
+                Яккасарайский р-н, &quot;Мухандислар МФЙ&quot;, <br /> ул.Мукими дом 2
+            </>
+        ),
+    },
+    {
+        label: 'Phone',
+        content: (
+            <>
+                <a href="tel:+998712814930">+998 71 281 49 30</a>
+                <a href="tel:+998712032031">+998 71 203 20 31</a>
+            </>
+        ),
+    },
+    {
+        label: 'Email',
+        content: <a href="mailto:info@gpggroup.uz">info@gpggroup.uz</a>,
+    },
+]
 
 const Contact = () => {
-    const [form, setForm] = useState({ name: "", phone: "", message: "" })
+    const [form, setForm] = useState({ name: '', phone: '', message: '' })
     const [submitted, setSubmitted] = useState(false)
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -21,60 +42,39 @@ const Contact = () => {
     return (
         <section className="contact">
             <div className="contact__container container">
-
-                <div className="contact__head">
+                <Reveal as="div" className="contact__head" variant="up">
+                    <span className="contact__eyebrow">Get in touch</span>
                     <h1 className="contact__title">
-                        Let's talk <span>lubricants.</span>
+                        Let&apos;s talk <span>lubricants.</span>
                     </h1>
-
                     <p className="contact__subtitle">
                         Questions about products, distribution, or partnership —
                         our team replies within one business day.
                     </p>
-                </div>
+                </Reveal>
 
                 <div className="contact__grid">
-
                     <div className="contact__info">
-                        <div className="contact__card">
-                            <span className="contact__card-mark" />
-                            <div className="contact__card-body">
-                                <span className="contact__card-label">Address</span>
-
-                                <p className="contact__card-text">
-                                    Яккасарайский р-н, "Мухандислар МФЙ", <br /> ул.Мукими дом 2
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="contact__card">
-                            <span className="contact__card-mark" />
-                            <div className="contact__card-body">
-                                <span className="contact__card-label">Phone</span>
-                                <p className="contact__card-text">
-                                    <a href="tel:+998 71 281 49 30">+998 71 281 49 30</a>
-                                    <a href="tel:+998 71 203 20 31">+998 71 203 20 31</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="contact__card">
-                            <span className="contact__card-mark" />
-                            <div className="contact__card-body">
-                                <span className="contact__card-label">Email</span>
-                                <p className="contact__card-text">
-                                    <a href="mailto:info@gpggroup.uz">
-                                        info@gpggroup.uz
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-
+                        {infoCards.map((card, index) => (
+                            <Reveal
+                                as="div"
+                                className="contact__card"
+                                key={card.label}
+                                variant="left"
+                                delay={index * 90}
+                            >
+                                <span className="contact__card-mark" />
+                                <div className="contact__card-body">
+                                    <span className="contact__card-label">{card.label}</span>
+                                    <p className="contact__card-text">{card.content}</p>
+                                </div>
+                            </Reveal>
+                        ))}
                     </div>
 
-                    <div className="contact__form-wrap">
+                    <Reveal as="div" className="contact__form-wrap" variant="right" delay={120}>
                         {submitted ? (
-                            <div className="contact__success">
+                            <div className="contact__success contact__success--in">
                                 <span className="contact__success-mark">✓</span>
                                 <h3>Message sent</h3>
                                 <p>Thanks for reaching out — we&apos;ll get back to you shortly.</p>
@@ -83,7 +83,7 @@ const Contact = () => {
                                     className="contact__form-btn"
                                     onClick={() => {
                                         setSubmitted(false)
-                                        setForm({ name: "", phone: "", message: "" })
+                                        setForm({ name: '', phone: '', message: '' })
                                     }}
                                 >
                                     Send another message
@@ -134,8 +134,7 @@ const Contact = () => {
                                 </button>
                             </form>
                         )}
-                    </div>
-
+                    </Reveal>
                 </div>
             </div>
         </section>

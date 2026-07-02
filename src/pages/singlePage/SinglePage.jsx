@@ -1,49 +1,60 @@
-import React, { useEffect, useState } from "react";
-import "./singlePage.scss";
-import img from "../../assets/images/winner.webp";
+import React, { useState } from 'react'
+import './singlePage.scss'
+import img from '../../assets/images/winner.webp'
+import Reveal from '../../components/reveal/Reveal'
+import { NavLink } from 'react-router-dom'
 
-const THUMBNAILS = [img, img, img];
+const THUMBNAILS = [img, img, img]
 
-const VOLUMES = ["1L", "4L", "10L", "20L"];
+const VOLUMES = ['1L', '4L', '10L', '20L']
 
 const SPECS = [
-    { label: "Viscosity", value: "5W-30" },
-    { label: "API standard", value: "SN" },
-    { label: "ACEA standard", value: "A3/B4" },
-    { label: "Manufactured in", value: "Uzbekistan" },
-];
+    { label: 'Viscosity', value: '5W-30' },
+    { label: 'API standard', value: 'SN' },
+    { label: 'ACEA standard', value: 'A3/B4' },
+    { label: 'Manufactured in', value: 'Uzbekistan' },
+]
 
-const TOLERANCES = ["API SN", "ACEA A3/B4"];
+const TOLERANCES = ['API SN', 'ACEA A3/B4']
 
 const RELATED = [
-    { id: 1, name: "Winner V-City 5W-30", tag: "Synthetic Motor Oil", volumes: ["1L", "4L", "5L"] },
-    { id: 2, name: "Winner V-Pro 5W-40", tag: "Fully Synthetic", volumes: ["1L", "4L", "5L"] },
-    { id: 2, name: "Winner V-Pro 5W-40", tag: "Fully Synthetic", volumes: ["1L", "4L", "5L"] },
-];
+    { id: 1, name: 'Winner V-City 5W-30', tag: 'Synthetic Motor Oil', volumes: ['1L', '4L', '5L'] },
+    { id: 2, name: 'Winner V-Pro 5W-40', tag: 'Fully Synthetic', volumes: ['1L', '4L', '5L'] },
+    { id: 3, name: 'Winner V-Axle 75W-90', tag: 'Fully Synthetic Gear Oil', volumes: ['1L', '4L', '10L'] },
+]
 
 const SinglePage = () => {
-    const [activeThumb, setActiveThumb] = useState(0);
-    const [activeVolume, setActiveVolume] = useState("4L");
+    const [activeThumb, setActiveThumb] = useState(0)
+    const [activeVolume, setActiveVolume] = useState('4L')
+    const [imgChanging, setImgChanging] = useState(false)
+    const [relatedStart, setRelatedStart] = useState(0)
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    const handleThumbChange = (index) => {
+        if (index === activeThumb) return
+        setImgChanging(true)
+        setTimeout(() => {
+            setActiveThumb(index)
+            setImgChanging(false)
+        }, 180)
+    }
+
+    const visibleRelated = RELATED.slice(relatedStart, relatedStart + 3)
+    const canPrev = relatedStart > 0
+    const canNext = relatedStart + 3 < RELATED.length
 
     return (
         <section className="single">
-            <div className="single-bg"></div>
+            <div className="single-bg" />
             <div className="container">
-
                 <div className="single__top">
-                    <div className="single__gallery">
+                    <Reveal as="div" className="single__gallery" variant="left">
                         <div className="single__thumbs">
                             {THUMBNAILS.map((thumb, i) => (
                                 <button
                                     type="button"
                                     key={i}
-                                    className={`single__thumb${activeThumb === i ? " single__thumb--active" : ""
-                                        }`}
-                                    onClick={() => setActiveThumb(i)}
+                                    className={`single__thumb${activeThumb === i ? ' single__thumb--active' : ''}`}
+                                    onClick={() => handleThumbChange(i)}
                                     aria-label={`Show image ${i + 1}`}
                                 >
                                     <img src={thumb} alt="" />
@@ -52,15 +63,19 @@ const SinglePage = () => {
                         </div>
 
                         <div className="single__main-image">
-                            <img src={THUMBNAILS[activeThumb]} alt="WINNER 5W-30" />
+                            <img
+                                src={THUMBNAILS[activeThumb]}
+                                alt="WINNER 5W-30"
+                                className={imgChanging ? 'is-changing' : ''}
+                            />
                         </div>
-                    </div>
+                    </Reveal>
 
-                    <div className="single__info">
+                    <Reveal as="div" className="single__info" variant="right" delay={100}>
                         <h1 className="single__title">WINNER 75W-90 API GL-4/5</h1>
 
                         <p className="single__desc">
-                            WINNER Conecto 75W-90 is a high-performance synthetic transmission oil designed for use in manual gearboxes, differentials, and final drives operating under moderate to heavy loads. Formulated to meet both API GL-4 and GL-5 specifications, it offers excellent versatility and compatibility across a wide range of passenger cars and commercial vehicles. This advanced lubricant provides outstanding wear protection, ensuring longer service life of gears and bearings even under extreme pressure conditions. Its optimized viscosity ensures smooth gear shifting and reliable performance in both low and high temperature environments. WINNER Conecto 75W-90 also delivers strong resistance to oxidation and thermal degradation, helping to maintain oil stability over extended service intervals. Additionally, it protects against rust and corrosion, keeping transmission components clean and efficient.
+                            WINNER Conecto 75W-90 is a high-performance synthetic transmission oil designed for use in manual gearboxes, differentials, and final drives operating under moderate to heavy loads. Formulated to meet both API GL-4 and GL-5 specifications, it offers excellent versatility and compatibility across a wide range of passenger cars and commercial vehicles.
                         </p>
 
                         <div className="single__block">
@@ -70,10 +85,7 @@ const SinglePage = () => {
                                     <button
                                         type="button"
                                         key={vol}
-                                        className={`single__volume${activeVolume === vol
-                                            ? " single__volume--active"
-                                            : ""
-                                            }`}
+                                        className={`single__volume${activeVolume === vol ? ' single__volume--active' : ''}`}
                                         onClick={() => setActiveVolume(vol)}
                                     >
                                         {vol}
@@ -89,7 +101,7 @@ const SinglePage = () => {
                                     {SPECS.map((spec, i) => (
                                         <tr
                                             key={spec.label}
-                                            className={i % 2 === 1 ? "single__specs-row--alt" : ""}
+                                            className={i % 2 === 1 ? 'single__specs-row--alt' : ''}
                                         >
                                             <td>{spec.label}</td>
                                             <td>{spec.value}</td>
@@ -112,35 +124,35 @@ const SinglePage = () => {
 
                         <div className="single__downloads">
                             <button type="button" className="single__download">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M4 19h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                                </svg>
                                 Download TDS PDF
                             </button>
-
                             <button type="button" className="single__download">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M4 19h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                                </svg>
                                 Download MSDS PDF
                             </button>
                         </div>
-
-                    </div>
+                    </Reveal>
                 </div>
 
-                <div className="single__related">
+                <Reveal as="div" className="single__related" variant="up">
                     <div className="single__related-head">
                         <h2 className="single__related-title">Related Products</h2>
                         <div className="single__related-nav">
-                            <button type="button" aria-label="Previous">
+                            <button
+                                type="button"
+                                aria-label="Previous"
+                                disabled={!canPrev}
+                                onClick={() => setRelatedStart((s) => Math.max(0, s - 1))}
+                            >
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
-                            <button type="button" aria-label="Next">
+                            <button
+                                type="button"
+                                aria-label="Next"
+                                disabled={!canNext}
+                                onClick={() => setRelatedStart((s) => s + 1)}
+                            >
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
@@ -149,8 +161,12 @@ const SinglePage = () => {
                     </div>
 
                     <div className="single__related-grid">
-                        {RELATED.map((item) => (
-                            <article className="related-card" key={item.id}>
+                        {visibleRelated.map((item, index) => (
+                            <article
+                                className="related-card"
+                                key={item.id}
+                                style={{ animationDelay: `${index * 80}ms` }}
+                            >
                                 <div className="related-card__image">
                                     <img src={img} alt={item.name} loading="lazy" />
                                 </div>
@@ -163,17 +179,17 @@ const SinglePage = () => {
                                             <li key={v}>{v}</li>
                                         ))}
                                     </ul>
-                                    <button type="button" className="related-card__cta">
+                                    <NavLink to="/single-products" className="related-card__cta">
                                         Details
-                                    </button>
+                                    </NavLink>
                                 </div>
                             </article>
                         ))}
                     </div>
-                </div>
+                </Reveal>
             </div>
         </section>
-    );
-};
+    )
+}
 
-export default SinglePage;
+export default SinglePage

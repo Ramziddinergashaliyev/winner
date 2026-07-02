@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Reveal from '../reveal/Reveal'
 import './distributorSection.scss'
 
 const distributors = [
@@ -65,19 +66,21 @@ export default function DistributorSection() {
         <section className="ds">
             <div className="ds__wrapper container">
                 <aside className="ds__left">
-                    <p className="ds__badge">
-                        <span className="ds__pulse" />
-                        Global Network
-                    </p>
+                    <Reveal variant="left">
+                        <p className="ds__badge">
+                            <span className="ds__pulse" />
+                            Global Network
+                        </p>
 
-                    <h2 className="ds__title">
-                        Our<br /><em>Distributors</em>
-                    </h2>
+                        <h2 className="ds__title">
+                            Our<br /><em>Distributors</em>
+                        </h2>
 
-                    <div className="ds__track">
-                        <div className="ds__track-fill" style={{ width: `${progress}%` }} />
-                    </div>
-                    <p className="ds__track-label">{trackText}</p>
+                        <div className="ds__track">
+                            <div className="ds__track-fill" style={{ width: `${progress}%` }} />
+                        </div>
+                        <p className="ds__track-label">{trackText}</p>
+                    </Reveal>
                 </aside>
 
                 <div className="ds__list">
