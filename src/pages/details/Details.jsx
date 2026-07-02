@@ -79,17 +79,11 @@ const Details = () => {
 
             <div className="details__body container">
                 <Reveal as="aside" className="details__sidebar" variant="left" aria-label="Filters">
-                    <div className="filter-block">
-                        <button className="filter-block__head" type="button">
-                            <span className="filter-block__head-text">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M3 4h18l-7 9v6l-4 2v-8L3 4z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                                </svg>
-                                Category
-                            </span>
-                        </button>
+                    <h1 className="filter-block__title">
+                        Category
+                    </h1>
 
-                        <ul className="filter-block__list">
+                    {/* <ul className="filter-block__list">
                             {CATEGORIES.map((cat) => (
                                 <li key={cat.id}>
                                     <button
@@ -102,8 +96,7 @@ const Details = () => {
                                     </button>
                                 </li>
                             ))}
-                        </ul>
-                    </div>
+                        </ul> */}
 
                     <div className="filter-block">
                         <button className="filter-block__head" type="button">
