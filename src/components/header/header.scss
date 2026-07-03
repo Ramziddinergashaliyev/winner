@@ -3,7 +3,7 @@
 
 .header {
     position: relative;
-    padding: 16px 0;
+    padding: 24px 0;
     background-color: $black;
     position: fixed;
     top: 0;
@@ -27,7 +27,7 @@
     }
 
     &-logo {
-        width: 170px;
+        width: 200px;
         flex-shrink: 0;
 
         img {

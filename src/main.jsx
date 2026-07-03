@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
+import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+const App = lazy(() => import("./App.jsx"))
 import "./styles/index.scss"
+import Leazy from './components/leazy/Leazy.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <Suspense fallback={<Leazy />}>
+      <App />
+    </Suspense>
   </StrictMode>,
 )

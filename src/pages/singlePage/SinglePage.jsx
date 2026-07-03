@@ -110,26 +110,6 @@ const SinglePage = () => {
                                 </tbody>
                             </table>
                         </div>
-
-                        <div className="single__block">
-                            <h2 className="single__block-title">International Approvals</h2>
-                            <div className="single__tolerances">
-                                {TOLERANCES.map((t) => (
-                                    <span className="single__tolerance" key={t}>
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="single__downloads">
-                            <button type="button" className="single__download">
-                                Download TDS PDF
-                            </button>
-                            <button type="button" className="single__download">
-                                Download MSDS PDF
-                            </button>
-                        </div>
                     </Reveal>
                 </div>
 

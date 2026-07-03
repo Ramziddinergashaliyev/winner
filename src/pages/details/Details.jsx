@@ -73,30 +73,13 @@ const Details = () => {
 
     return (
         <section className="details">
-            <div className="details__hero">
-
-            </div>
+            <div className="details__hero"></div>
 
             <div className="details__body container">
                 <Reveal as="aside" className="details__sidebar" variant="left" aria-label="Filters">
                     <h1 className="filter-block__title">
                         Category
                     </h1>
-
-                    {/* <ul className="filter-block__list">
-                            {CATEGORIES.map((cat) => (
-                                <li key={cat.id}>
-                                    <button
-                                        type="button"
-                                        className={`filter-block__item${activeCategory === cat.id ? ' filter-block__item--active' : ''}`}
-                                        onClick={() => handleCategory(cat.id)}
-                                    >
-                                        <span className="filter-block__dot" aria-hidden="true" />
-                                        {cat.label}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul> */}
 
                     <div className="filter-block">
                         <button className="filter-block__head" type="button">
