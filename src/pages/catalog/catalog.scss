@@ -180,8 +180,12 @@ $skyblue: #2f6fa8;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 600px;
+    height: 780px;
     padding-bottom: 40px;
+
+    @media (max-width: 1500px) {
+        height: 600px;
+    }
 
     &--embedded {
         margin-top: 0;
@@ -202,7 +206,11 @@ $skyblue: #2f6fa8;
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    padding: 90px 0;
+    padding: 110px 0;
+
+    @media (max-width:1500px) {
+        padding: 90px 0;
+    }
 
     @media (max-width: 900px) {
         flex-direction: column;
