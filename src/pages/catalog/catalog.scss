@@ -72,7 +72,7 @@ $skyblue: #2f6fa8;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        padding: 100px 0px 100px 450px;
+        padding: 100px 0px 100px 400px;
         gap: 16px;
 
         @media (max-width:1500px) {
@@ -101,7 +101,7 @@ $skyblue: #2f6fa8;
     align-items: flex-end;
     border-radius: $radius;
     background: $white;
-    min-height: 290px;
+    min-height: 240px;
     text-decoration: none;
     box-shadow: 1px 1px 10px #7d7d7d;
     overflow: hidden;
