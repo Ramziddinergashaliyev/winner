@@ -7,13 +7,13 @@ import logo from "../../assets/icons/logo.webp"
 
 const LANGUAGES = [
     { code: "uz", label: "UZ", flag: "https://flagcdn.com/w40/uz.png" },
-    { code: "ru", label: "RU", flag: "https://flagcdn.com/w40/ru.png" },
     { code: "en", label: "EN", flag: "https://flagcdn.com/w40/gb.png" },
+    { code: "ru", label: "RU", flag: "https://flagcdn.com/w40/ru.png" },
 ];
 
 function Header() {
     const [isLangOpen, setIsLangOpen] = useState(false);
-    const [activeLang, setActiveLang] = useState(LANGUAGES[0]);
+    const [activeLang, setActiveLang] = useState(LANGUAGES[1]);
 
     const handleSelectLang = (lang) => {
         setActiveLang(lang);

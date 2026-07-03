@@ -7,7 +7,7 @@ $c-gold: #b8923a;
 
 $radius: 14px;
 $shadow-card: 0 6px 24px rgba(23, 20, 15, 0.06);
-$shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
+$shadow-card-hover: 1px 1px 20px rgba(101, 101, 101, 0.14);
 
 @mixin focus-ring {
     &:focus-visible {
@@ -344,7 +344,7 @@ $shadow-card-hover: 0 16px 36px rgba(200, 31, 35, 0.14);
     &:hover {
         transform: translateY(-4px);
         box-shadow: $shadow-card-hover;
-        border-color: rgba(200, 31, 35, 0.35);
+        border-color: #aaa4;
     }
 
     &__image {
