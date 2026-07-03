@@ -40,7 +40,7 @@ const categories = [
 const Catalog = ({ embedded = false }) => {
     return (
         <section className={`catalog ${embedded ? 'catalog--embedded' : ''}`}>
-            <div className="catalog__grid">
+            <div className="catalog__grid container">
                 {categories.map((item, index) => (
                     <Reveal
                         as={NavLink}

@@ -109,6 +109,7 @@ const useCountUp = (target, duration = 1600, trigger = false) => {
             setValue(Math.round(eased * target))
             if (progress < 1) requestAnimationFrame(tick)
         }
+
         requestAnimationFrame(tick)
     }, [trigger, target, duration])
 
