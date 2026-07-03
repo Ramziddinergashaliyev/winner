@@ -238,8 +238,6 @@ const About = () => {
                 </div>
 
                 <div className="about__hero-inner container">
-                    <span className="about__eyebrow about__eyebrow--in">Since 2011 — Tashkent, Uzbekistan</span>
-
                     <h1 className="about__hero-title">
                         {heroWords.map((word, i) => (
                             <span className="about__hero-word-mask" key={word + i}>
