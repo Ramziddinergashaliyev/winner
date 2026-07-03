@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { MENU } from "../../constants"
-import "./header.scss"
 import { IoSearch, IoChevronDown } from "react-icons/io5";
 import logo from "../../assets/icons/logo.webp"
+
+import "./header.scss"
 
 const LANGUAGES = [
     { code: "uz", label: "UZ", flag: "https://flagcdn.com/w40/uz.png" },

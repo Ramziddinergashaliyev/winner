@@ -131,8 +131,8 @@ $skyblue: #2f6fa8;
         justify-content: center;
         gap: 6px;
         width: 100%;
-        padding: 6px 20px;
-        height: 50px;
+        padding: 4px 10px;
+        height: 40px;
         background: $primary;
         border-radius: 0 0 $radius $radius;
         transform: translateY(70px);
@@ -144,7 +144,7 @@ $skyblue: #2f6fa8;
 
         &-text {
             margin: 0;
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 500;
             letter-spacing: 0.3px;
             color: #fff;
