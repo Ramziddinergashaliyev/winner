@@ -127,6 +127,7 @@ const SinglePage = () => {
                                     <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
+
                             <button
                                 type="button"
                                 aria-label="Next"
@@ -159,6 +160,7 @@ const SinglePage = () => {
                                             <li key={v}>{v}</li>
                                         ))}
                                     </ul>
+
                                     <NavLink to="/single-products" className="related-card__cta">
                                         Details
                                     </NavLink>

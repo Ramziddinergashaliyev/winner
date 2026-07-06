@@ -6,7 +6,7 @@ import Catalog from "../pages/catalog/Catalog";
 import Distrbut from "../pages/distrbut/Distrbut";
 import Details from "../pages/details/Details";
 import SinglePage from "../pages/singlePage/SinglePage";
-import About from "../pages/files/About";
+import About from "../pages/about/About";
 
 export const router = createBrowserRouter([
     {

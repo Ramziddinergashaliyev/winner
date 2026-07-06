@@ -140,6 +140,7 @@ const Details = () => {
                                                 <li key={v}>{v}</li>
                                             ))}
                                         </ul>
+
                                         <NavLink to="/single-products" className="product-card__cta">
                                             Details
                                         </NavLink>
@@ -161,6 +162,7 @@ const Details = () => {
                                 <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </button>
+
                         {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
                             <button
                                 type="button"
@@ -171,6 +173,7 @@ const Details = () => {
                                 {n}
                             </button>
                         ))}
+
                         <button
                             type="button"
                             className="pagination__arrow"
