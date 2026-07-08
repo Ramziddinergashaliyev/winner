@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Reveal from '../reveal/Reveal'
+
 import './distributorSection.scss'
 
 const distributors = [
@@ -79,6 +80,7 @@ export default function DistributorSection() {
                         <div className="ds__track">
                             <div className="ds__track-fill" style={{ width: `${progress}%` }} />
                         </div>
+
                         <p className="ds__track-label">{trackText}</p>
                     </Reveal>
                 </aside>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import './singlePage.scss'
 import img from '../../assets/images/winner.webp'
 import Reveal from '../../components/reveal/Reveal'
 import { NavLink } from 'react-router-dom'
+
+import './singlePage.scss'
 
 const THUMBNAILS = [img, img, img]
 

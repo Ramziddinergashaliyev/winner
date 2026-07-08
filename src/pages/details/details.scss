@@ -308,7 +308,6 @@ $shadow-card-hover: 1px 1px 20px rgba(101, 101, 101, 0.14);
     color: $primary;
     cursor: pointer;
     transition: background 0.18s ease, border-color 0.18s ease;
-
     @include focus-ring;
 
     &:hover {
@@ -416,7 +415,6 @@ $shadow-card-hover: 1px 1px 20px rgba(101, 101, 101, 0.14);
         letter-spacing: 0.04em;
         cursor: pointer;
         transition: background 0.18s ease, transform 0.18s ease;
-
         @include focus-ring;
 
         &:hover {

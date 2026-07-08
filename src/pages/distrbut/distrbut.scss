@@ -25,7 +25,6 @@
 
     &__label {
         display: inline-block;
-        font-family: "Barlow Condensed", sans-serif;
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0.12em;
@@ -35,7 +34,6 @@
     }
 
     &__title {
-        font-family: "Barlow Condensed", sans-serif;
         font-weight: 600;
         font-size: 46px;
         line-height: 1.08;
@@ -86,7 +84,6 @@
         }
 
         &-value {
-            font-family: "Barlow Condensed", sans-serif;
             font-size: 28px;
             font-weight: 700;
             color: #101010;
@@ -118,77 +115,6 @@
         flex-direction: column;
         gap: 12px;
     }
-
-    // &__item {
-    //     border: 1px solid #ececec;
-    //     border-radius: 4px;
-    //     background: #ffffff;
-    //     transition: border-color 0.2s ease;
-
-    //     &:hover {
-    //         border-color: #E5121D;
-    //     }
-
-    //     &--active {
-    //         border-color: #E5121D;
-
-    //         .distrbut__item-toggle-line--v {
-    //             transform: translate(-50%, -50%) rotate(90deg);
-    //             opacity: 0;
-    //         }
-    //     }
-
-    //     &-head {
-    //         width: 100%;
-    //         display: flex;
-    //         align-items: center;
-    //         gap: 20px;
-    //         padding: 20px 28px;
-    //         background: none;
-    //         border: none;
-    //         cursor: pointer;
-    //         text-align: left;
-    //     }
-
-    //     &-index {
-    //         font-family: "Barlow Condensed", sans-serif;
-    //         font-size: 15px;
-    //         font-weight: 700;
-    //         color: #E5121D;
-    //         min-width: 20px;
-    //     }
-
-    //     &-name {
-    //         flex: 1;
-    //         font-size: 14px;
-    //         font-weight: 600;
-    //         letter-spacing: 0.03em;
-    //         text-transform: uppercase;
-    //         color: #1a1a1a;
-    //     }
-
-    //     &-toggle {
-    //         position: relative;
-    //         width: 16px;
-    //         height: 16px;
-    //         flex-shrink: 0;
-
-    //         &-line {
-    //             position: absolute;
-    //             top: 50%;
-    //             left: 50%;
-    //             width: 14px;
-    //             height: 1.5px;
-    //             background: #b3b3b3;
-    //             transform: translate(-50%, -50%);
-    //             transition: transform 0.25s ease, opacity 0.2s ease;
-
-    //             &--v {
-    //                 transform: translate(-50%, -50%) rotate(90deg);
-    //             }
-    //         }
-    //     }
-    // }
 
     &__item {
         border: 1px solid #ececec;
@@ -227,7 +153,6 @@
         }
 
         &-index {
-            font-family: "Barlow Condensed", sans-serif;
             font-size: 15px;
             font-weight: 700;
             color: #E5121D;
@@ -265,7 +190,6 @@
             }
         }
 
-        // Accordion body — grid-template-rows animatsiya trigi
         &-body {
             display: grid;
             grid-template-rows: 0fr;
@@ -281,7 +205,6 @@
         }
     }
 
-    // Ochilganda chiqadigan panel (rasmdagi dizayn)
     &__panel {
         padding: 24px 28px 28px;
         border-top: 1px solid #ececec;
@@ -295,7 +218,6 @@
     }
 
     &__panel-title {
-        font-family: "Barlow Condensed", sans-serif;
         font-size: 22px;
         font-weight: 700;
         color: #101010;

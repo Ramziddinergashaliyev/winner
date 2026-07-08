@@ -1,10 +1,10 @@
 import React from 'react'
-import './history.scss'
 import Reveal from '../reveal/Reveal'
-
 import img1 from '../../assets/images/history1.webp'
 import img2 from '../../assets/images/history2.webp'
 import img3 from '../../assets/images/history3.webp'
+
+import './history.scss'
 
 const cards = [
     {
@@ -21,7 +21,7 @@ const cards = [
         image: img3,
         title: 'Victory',
         text: 'Trusted by champions and professionals worldwide.',
-    },
+    }
 ]
 
 const History = () => {

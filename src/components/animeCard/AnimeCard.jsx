@@ -108,6 +108,7 @@ const AnimeCard = () => {
     return (
         <section className="anime-wrapper" ref={wrapperRef}>
             <div className="anime-sticky">
+
                 <header className="anime-head">
                     <span className="anime-head__label">Product Range</span>
                     <h2 className="anime-head__title">Engineered to Win</h2>
@@ -118,24 +119,26 @@ const AnimeCard = () => {
                         <div className="anime-grid__row" key={row.left.id} ref={setRowRef(index)}>
                             <div className="anime-row">
                                 <div className="anime-row__side anime-row__side--left">
+
                                     <div
                                         ref={setTextRef(row.left.id)}
-                                        className="anime-piece__text anime-piece__text--right"
-                                    >
+                                        className="anime-piece__text anime-piece__text--right">
                                         <h3>{row.left.title}</h3>
                                         <p>{row.left.desc}</p>
                                     </div>
+
                                     <div className="anime-piece__img-wrap">
                                         <img
                                             src={row.left.img}
                                             alt={row.left.title}
                                             className="anime-piece__img"
-                                            loading="lazy"
-                                        />
+                                            loading="lazy" />
                                     </div>
+
                                 </div>
 
                                 <div className="anime-row__side anime-row__side--right">
+
                                     <div className="anime-piece__img-wrap">
                                         <img
                                             src={row.right.img}
@@ -144,6 +147,7 @@ const AnimeCard = () => {
                                             loading="lazy"
                                         />
                                     </div>
+
                                     <div
                                         ref={setTextRef(row.right.id)}
                                         className="anime-piece__text anime-piece__text--left"
@@ -151,6 +155,7 @@ const AnimeCard = () => {
                                         <h3>{row.right.title}</h3>
                                         <p>{row.right.desc}</p>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

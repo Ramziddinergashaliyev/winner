@@ -105,6 +105,7 @@ const Texnalogy = () => {
                         <div className="texnalogy__icon">
                             <Icon />
                         </div>
+
                         <div className="texnalogy__content">
                             <h3 className="texnalogy__title">{title}</h3>
                             <span className="texnalogy__divider" />

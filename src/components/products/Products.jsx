@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import "./products.scss";
 import img from "../../assets/images/winner.webp";
+
+import "./products.scss";
 
 const productsData = [
     { id: 1, name: "WINNER", type: "5W-30 | SP | C3" },
