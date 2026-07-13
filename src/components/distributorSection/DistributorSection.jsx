@@ -119,6 +119,7 @@ export default function DistributorSection() {
                                                     <span className="ds__ico ds__ico--pin"><PinIcon /></span>
                                                     <span>{d.addr}</span>
                                                 </div>
+
                                                 <div className="ds__row">
                                                     <span className="ds__ico ds__ico--phone"><PhoneIcon /></span>
                                                     <span>{d.phone}</span>

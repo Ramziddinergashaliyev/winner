@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import './contact.scss'
 import Reveal from '../../components/reveal/Reveal'
+import { useGetProductsQuery } from '../../services/productApi'
+
+import './contact.scss'
 
 const infoCards = [
     {
@@ -29,6 +31,8 @@ const infoCards = [
 const Contact = () => {
     const [form, setForm] = useState({ name: '', phone: '', message: '' })
     const [submitted, setSubmitted] = useState(false)
+
+    const { data } = useGetProductsQuery()
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })

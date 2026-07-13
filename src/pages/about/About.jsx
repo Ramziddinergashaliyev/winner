@@ -344,9 +344,11 @@ const About = () => {
 
             <section className="about__values container">
                 <RevealBlock as="span" className="about__eyebrow" variant="left">What we stand for</RevealBlock>
+
                 <RevealBlock as="h2" className="about__section-title" delay={60} variant="left">
                     Quality isn't an accident
                 </RevealBlock>
+
                 <div className="about__values-grid">
                     {values.map((v, i) => <ValueCard key={v.title} index={i} {...v} />)}
                 </div>

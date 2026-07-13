@@ -1,12 +1,7 @@
 export const API = {
-    BASE_URL: "https://api.yoursite.com",
+    BASE_URL: "https://backend.gpggroup.uz",
 
+    CONTACT: "/contact",
     PRODUCTS: "/products",
     CATEGORIES: "/categories",
-    NEWS: "/news",
-
-    LOGIN: "/auth/login",
-    REGISTER: "/auth/register",
-
-    PROFILE: "/user/profile",
 };

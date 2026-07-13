@@ -4,67 +4,158 @@ import './distrbut.scss'
 const countries = [
     {
         id: '01',
-        name: 'Uzbekistan',
+        name: 'УЗБЕКИСТАН',
         distributors: [
             {
-                company: 'ООО "WINNER OIL DISTRIBUTION"',
-                address: 'Toshkent shahri, Chilonzor tumani, Bunyodkor shoh ko\'chasi 12',
-                phone: '+998 90 123 45 67',
+                company: 'ООО «ЮНИМАКС ТЕХНИКС»',
+                address: 'Узбекистан, Ташкент Регион ул 4K 744A, Зангиота, 100000, (EXZAP Автозапчасти и Масла)',
+                phone: '+998712033344',
             },
         ],
     },
     {
         id: '02',
-        name: 'Kazakhstan',
+        name: 'КАЗАХСТАН',
         distributors: [
             {
-                company: 'TOO "OIL PARTNER KZ"',
-                address: 'Almaty sh., Abay ko\'chasi 45',
-                phone: '+7 701 234 56 78',
+                company: 'TOO «AVTODETAIL»',
+                address: 'Казахстан, Южно-Казахстанская область, 160021, город Шымкент, Абайский район, ул Байтулы баба 14А',
+                phone: '77022837999',
             },
         ],
     },
     {
         id: '03',
-        name: 'Tajikistan',
+        name: 'ТАДЖИКИСТАН',
         distributors: [
             {
-                company: 'ООО "ТОСОЛ-ПЛЮС"',
-                address: 'Tajikistan, Sog\'diy viloyati, J. Rasulov tumani, Mehrobod qishlog\'i, I.Nurmatov ko\'chasi 45/4',
+                company: 'ООО «ТОСОЛ-ПЛЮС»',
+                address: 'Таджикистан, Согдийская область, Дж. Расуловский район, пгт Мехробод ул. И. Нурматов 45/4',
                 phone: '+992 92 707 49 86',
             },
         ],
     },
     {
         id: '04',
-        name: 'Turkmenistan',
+        name: 'ТУРКМЕНИСТАН',
         distributors: [
             {
-                company: '"TÜRKMEN OIL SERVICE" MHK',
-                address: 'Ashgabat sh., Andalib ko\'chasi 88',
-                phone: '+993 12 34 56 78',
+                company: 'ИП «НУРЫЕВ ГУВАНЧ ТАГАНДУРДЫЕВИЧ»',
+                address: 'Туркменистан, Марыйский велаят, Векилбазар Этрап, Акгонур',
+                phone: '+993 65 551008',
             },
         ],
     },
     {
         id: '05',
-        name: 'Azerbaijan',
+        name: 'АЗЕРБАЙДЖАН',
         distributors: [
             {
-                company: 'MMC "AZ PARTNER OIL"',
-                address: 'Baku sh., Nizami ko\'chasi 21',
-                phone: '+994 50 123 45 67',
+                company: 'OOO «ILKIN-N»',
+                address: 'Респ. Азербайджан, Сальянский район д. Карабаглы',
+                phone: '+99 450 321 44 72',
             },
         ],
     },
     {
         id: '06',
-        name: 'Kyrgyzstan',
+        name: 'КАЗАХСТАН',
         distributors: [
             {
-                company: 'OsOO "KG OIL TRADE"',
-                address: 'Bishkek sh., Chuy prospekti 154',
-                phone: '+996 555 12 34 56',
+                company: 'TOO «TANAUTO KAZAKHSTAN»',
+                address: 'г. Алматы пр. Райымбека д. 169 А',
+                phone: '+7 701 711 0430',
+            },
+        ],
+    },
+    {
+        id: '07',
+        name: 'КЫРГЫЗСТАН',
+        distributors: [
+            {
+                company: 'ООО «КАРД ГРУПП»',
+                address: 'Кыргызская Республика, г г.Бишкек, ул.Садыгалиева 1',
+                phone: '+996 702 676 514',
+            },
+        ],
+    },
+]
+
+const countriesEN = [
+    {
+        id: '01',
+        name: 'UZBEKISTAN',
+        distributors: [
+            {
+                company: 'LLC «UNIMAX TECHNICS»',
+                address: 'Узбекистан, Ташкент Регион ул 4K 744A, Зангиота, 100000, (EXZAP Автозапчасти и Масла)',
+                phone: '+998712033344',
+            },
+        ],
+    },
+    {
+        id: '02',
+        name: 'KAZAKHSTAN',
+        distributors: [
+            {
+                company: 'LLP «AVTODETAIL»',
+                address: 'Kazakhstan, South Kazakhstan Region, 160021, Shymkent City, Abai District, 14A Baituly Baba St',
+                phone: '77022837999',
+            },
+        ],
+    },
+    {
+        id: '03',
+        name: 'TAJIKISTAN',
+        distributors: [
+            {
+                company: 'LLC «TOSOL-PLUS»',
+                address: 'Tajikistan, Sughd Region, J. Rasulov District, Mehrobod Settlement, 45/4 I. Nurmatov St',
+                phone: '+992 92 707 49 86',
+            },
+        ],
+    },
+    {
+        id: '04',
+        name: 'TURKMENISTAN',
+        distributors: [
+            {
+                company: 'IE «NURYYEV GUVANCH TAGANDURDYEVICH»',
+                address: 'Turkmenistan, Mary Region, Vekilbazar District, Akgonur',
+                phone: '+993 65 551008',
+            },
+        ],
+    },
+    {
+        id: '05',
+        name: 'AZERBAIJAN',
+        distributors: [
+            {
+                company: 'LIC «ILKIN-N»',
+                address: 'Salyansk area, Karabagly h',
+                phone: '+99 450 321 4472',
+            },
+        ],
+    },
+    {
+        id: '06',
+        name: 'KAZAKHSTAN',
+        distributors: [
+            {
+                company: 'TOO «Tanauto Kazakhstan»',
+                address: 'Almaty. Raimbek avenue 169 A',
+                phone: '+7 701 711 0430',
+            },
+        ],
+    },
+    {
+        id: '07',
+        name: 'KYRGYZSTAN',
+        distributors: [
+            {
+                company: 'LLC «KARD GROUP»',
+                address: 'Kyrgyz Republic, Bishkek city, Sadygalieva str. 1',
+                phone: '+996 702 676 514',
             },
         ],
     },

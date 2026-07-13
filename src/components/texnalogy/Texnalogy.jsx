@@ -118,4 +118,5 @@ const Texnalogy = () => {
     )
 }
 
+
 export default Texnalogy
