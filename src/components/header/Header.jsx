@@ -5,6 +5,7 @@ import { IoSearch, IoChevronDown } from "react-icons/io5";
 import logo from "../../assets/icons/logo.webp"
 
 import "./header.scss"
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const LANGUAGES = [
     { code: "uz", label: "UZ", flag: "https://flagcdn.com/w40/uz.png" },
@@ -15,6 +16,7 @@ const LANGUAGES = [
 function Header() {
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [activeLang, setActiveLang] = useState(LANGUAGES[1]);
+    const [hide, setHide] = useState(false)
 
     const handleSelectLang = (lang) => {
         setActiveLang(lang);
@@ -28,7 +30,8 @@ function Header() {
                     <img src={logo} alt="Header Logo" />
                 </NavLink>
 
-                <nav className="header__nav">
+                <nav className={`header__nav ${hide ? "header__nav-hide" : ""}`}>
+                    <button onClick={() => setHide(false)} className="header__nav-search"><AiOutlineClose /></button>
                     {MENU.map((item) => (
                         <NavLink
                             key={item.id}
@@ -78,6 +81,8 @@ function Header() {
                         <input placeholder="Search" type="text" />
                         <button><IoSearch /></button>
                     </div>
+
+                    <button onClick={() => setHide(true)} className="header-right-btns-menu"><AiOutlineMenu /></button>
                 </div>
             </div>
         </div>

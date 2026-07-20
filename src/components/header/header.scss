@@ -59,6 +59,19 @@
                 color: $white;
             }
         }
+
+        &-search {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: transparent;
+            border: none;
+            display: none;
+
+            svg {
+                font-size: 24px;
+            }
+        }
     }
 
     &-right {
@@ -162,7 +175,6 @@
             overflow: hidden;
 
             input {
-                width: 220px;
                 height: 100%;
                 padding: 0 14px;
                 border: none;
@@ -196,6 +208,76 @@
                     background-color: $primary;
                 }
             }
+        }
+
+        &-btns-menu {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            display: none;
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width: 1210px) {
+        padding: 18px 0px;
+
+        &__nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            padding-left: 30px;
+            justify-content: start;
+            padding-top: 90px;
+            background-color: #fff;
+            box-shadow: 1px 1px 10px #aaa6;
+            transition: .6s;
+            z-index: 1000;
+
+            &-link {
+                color: #2c2c2c;
+
+                &:hover {
+                    color: #2c2c2c;
+                }
+
+                &.active {
+                    color: #2c2c2c;
+                }
+            }
+
+
+        }
+
+        &__nav-hide {
+            left: 0;
+            transition: .6s;
+        }
+
+        &-right-btns-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__nav-search {
+            display: flex;
+        }
+    }
+
+    @media (max-width: 700px) {
+        &-logo {
+            width: 130px;
+        }
+
+        &-right-search {
+            display: none;
         }
     }
 }

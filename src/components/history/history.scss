@@ -128,7 +128,7 @@ $color-text-muted-soft: #b3b3b3;
 @media (max-width: 1024px) {
     .history__container {
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
     }
 
     .history__intro {
@@ -139,16 +139,28 @@ $color-text-muted-soft: #b3b3b3;
 
 @media (max-width: 768px) {
     .history {
-        padding: 64px 0;
-    }
-
-    .history__container {
-        padding: 0 20px;
+        padding: 34px 0;
     }
 
     .history__cards {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .history__title {
+        font-size: 18px;
+        line-height: 26px;
+        margin: 0px 0px 10px;
+    }
+
+    .history__eyebrow {
+        margin-bottom: 10px;
+    }
+
+    .history__text {
+        line-height: 1.6;
     }
 }
 

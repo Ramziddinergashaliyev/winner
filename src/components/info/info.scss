@@ -84,6 +84,10 @@ $color-border: #ebe7e5;
         position: relative;
         z-index: 1;
         padding: 26px 26px 28px;
+
+        @media (max-width: 600px) {
+            padding: 16px 16px 18px;
+        }
     }
 
     &__title {
@@ -128,16 +132,12 @@ $color-border: #ebe7e5;
         color: $white;
         text-decoration: none;
         transition: color 0.25s ease;
-
-        &:hover {
-            color: $primary;
-        }
     }
 
     &__arrow {
         width: 14px;
         height: 14px;
-        color: $primary;
+        color: white;
         transition: transform 0.25s ease;
     }
 }
@@ -149,11 +149,12 @@ $color-border: #ebe7e5;
     }
 
     .info-card {
-        min-height: 260px;
+        min-height: 240px;
     }
 
     .info-card__text {
-        max-width: 88%;
+        max-width: 100%;
+        margin: 0px 0px 10px;
     }
 }
 
@@ -162,8 +163,12 @@ $color-border: #ebe7e5;
         padding: 56px 0;
     }
 
-    .info__container {
-        padding: 0 20px;
+    .info-card__number {
+        height: 28px;
+    }
+
+    .info-card__title {
+        font-size: 18px;
     }
 }
 

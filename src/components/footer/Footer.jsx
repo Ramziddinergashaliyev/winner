@@ -39,6 +39,7 @@ export default function Footer() {
 
                     <nav className="site-footer__col" aria-label="Продукция">
                         <h3 className="site-footer__heading">Продукция</h3>
+
                         <ul>
                             {PRODUCT_LINKS.map((link) => (
                                 <li key={link.label}>
@@ -46,10 +47,12 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
+
                     </nav>
 
                     <nav className="site-footer__col" aria-label="Компания">
                         <h3 className="site-footer__heading">Компания</h3>
+
                         <ul>
                             {COMPANY_LINKS.map((link) => (
                                 <li key={link.label}>
@@ -57,6 +60,7 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
+
                     </nav>
 
                     <div className="site-footer__col">

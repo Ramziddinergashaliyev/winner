@@ -34,11 +34,11 @@ export const router = createBrowserRouter([
                 element: <Distrbut />
             },
             {
-                path: "/details",
+                path: "/categories/:id",
                 element: <Details />
             },
             {
-                path: "/single-products",
+                path: "/single-products/:id",
                 element: <SinglePage />
             }
         ]

@@ -1,38 +1,21 @@
 import React, { useMemo, useState } from 'react'
 import './details.scss'
 import img from '../../assets/images/winner.webp'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import Reveal from '../../components/reveal/Reveal'
-
-const CATEGORIES = [
-    { id: 'all', label: 'All Products' },
-    { id: 'engine', label: 'Engine Oil' },
-    { id: 'transmission', label: 'Transmission Oil' },
-    { id: 'industrial', label: 'Industrial Oils' },
-    { id: 'grease', label: 'Grease' },
-    { id: 'special', label: 'Special Fluids' },
-]
+import { useGetCategoriesByIdQuery } from '../../services/categoryApi'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 const VOLUMES = ['1L', '4L', '5L', '10L']
-
-const PRODUCTS = [
-    { id: 1, name: 'Winner V-City 5W-30', tag: 'Synthetic Motor Oil', category: 'engine', volumes: ['1L', '4L', '5L'] },
-    { id: 2, name: 'Winner V-Pro 5W-40', tag: 'Fully Synthetic', category: 'engine', volumes: ['1L', '4L', '5L'] },
-    { id: 3, name: 'Winner V-Axle 75W-90', tag: 'Fully Synthetic Gear Oil', category: 'transmission', volumes: ['1L', '4L', '10L'] },
-    { id: 4, name: 'Winner V-Trans ATF VI', tag: 'Fully Synthetic', category: 'transmission', volumes: ['1L', '4L', '10L'] },
-    { id: 5, name: 'Winner V-Industry 46', tag: 'Machine Oil', category: 'industrial', volumes: ['4L', '5L', '10L'] },
-    { id: 6, name: 'Winner V-Grease EP 2', tag: 'Lithium Grease', category: 'grease', volumes: ['1L', '4L'] },
-    { id: 7, name: 'Winner V-Cool Concentrate', tag: 'Coolant', category: 'special', volumes: ['1L', '4L', '10L'] },
-    { id: 8, name: 'Winner V-Brake DOT 4', tag: 'Brake Fluid', category: 'special', volumes: ['1L', '4L'] },
-    { id: 9, name: 'Winner V-Gear 80W-90', tag: 'Mineral Gear Oil', category: 'transmission', volumes: ['1L', '5L', '10L'] },
-]
 
 const PER_PAGE = 6
 
 const Details = () => {
-    const [activeCategory, setActiveCategory] = useState('all')
     const [selectedVolumes, setSelectedVolumes] = useState([])
     const [page, setPage] = useState(1)
+    const { id } = useParams()
+    const { data, isLoading, isError } = useGetCategoriesByIdQuery(id)
+    console.log(data)
 
     const toggleVolume = (vol) => {
         setSelectedVolumes((prev) =>
@@ -41,26 +24,21 @@ const Details = () => {
         setPage(1)
     }
 
-    const handleCategory = (id) => {
-        setActiveCategory(id)
-        setPage(1)
-    }
-
     const clearFilters = () => {
-        setActiveCategory('all')
         setSelectedVolumes([])
         setPage(1)
     }
 
     const filteredProducts = useMemo(() => {
-        return PRODUCTS.filter((product) => {
-            const matchesCategory = activeCategory === 'all' || product.category === activeCategory
+        if (!data?.products) return []
+
+        return data.products.filter((product) => {
             const matchesVolume =
                 selectedVolumes.length === 0 ||
-                selectedVolumes.some((v) => product.volumes.includes(v))
-            return matchesCategory && matchesVolume
+                selectedVolumes.some((v) => product.volumes?.includes(v))
+            return matchesVolume
         })
-    }, [activeCategory, selectedVolumes])
+    }, [data, selectedVolumes])
 
     const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PER_PAGE))
 
@@ -69,7 +47,27 @@ const Details = () => {
         return filteredProducts.slice(start, start + PER_PAGE)
     }, [filteredProducts, page])
 
-    const gridKey = `${activeCategory}-${selectedVolumes.join(',')}-${page}`
+    const gridKey = `${selectedVolumes.join(',')}-${page}`
+
+    if (isLoading) {
+        return (
+            <section className="details">
+                <div className="details__body container">
+                    <p className='details__body-title'>Loading...</p>
+                </div>
+            </section>
+        )
+    }
+
+    if (isError) {
+        return (
+            <section className="details">
+                <div className="details__body container">
+                    <p className='details__body-title'>An error occurred while loading the data.</p>
+                </div>
+            </section>
+        )
+    }
 
     return (
         <section className="details">
@@ -77,11 +75,13 @@ const Details = () => {
 
             <div className="details__body container">
                 <Reveal as="aside" className="details__sidebar" variant="left" aria-label="Filters">
+
                     <h1 className="filter-block__title">
-                        Category
+                        {data?.name?.ru || data?.name?.en || 'Category'}
                     </h1>
 
                     <div className="filter-block">
+
                         <button className="filter-block__head" type="button">
                             <span className="filter-block__head-text">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -106,6 +106,7 @@ const Details = () => {
                                 </li>
                             ))}
                         </ul>
+
                     </div>
 
                     <button type="button" className="filter-clear" onClick={clearFilters}>
@@ -114,6 +115,7 @@ const Details = () => {
                         </svg>
                         Clear filters
                     </button>
+
                 </Reveal>
 
                 <div className="details__main">
@@ -128,20 +130,29 @@ const Details = () => {
                                     style={{ animationDelay: `${index * 70}ms` }}
                                 >
                                     <div className="product-card__image">
-                                        <img src={img} alt={product.name} loading="lazy" />
+                                        <img
+                                            src={product?.images?.[0] || img}
+                                            alt={product?.name?.ru || product?.name?.en}
+                                            loading="lazy"
+                                        />
                                     </div>
 
-                                    <h3 className="product-card__name">{product.name}</h3>
-                                    <p className="product-card__tag"></p>
+                                    <h3 className="product-card__name">
+                                        {product?.name?.ru || product?.name?.en}
+                                    </h3>
+
+                                    <p className="product-card__tag">
+                                        {product?.tag?.ru || product?.tag?.en}
+                                    </p>
 
                                     <div className="product-card__footer">
                                         <ul className="product-card__volumes">
-                                            {product.volumes.map((v) => (
+                                            {product?.volumes?.map((v) => (
                                                 <li key={v}>{v}</li>
                                             ))}
                                         </ul>
 
-                                        <NavLink to="/single-products" className="product-card__cta">
+                                        <NavLink to={`/single-products/${product.id}`} className="product-card__cta">
                                             Details
                                         </NavLink>
                                     </div>
@@ -150,42 +161,40 @@ const Details = () => {
                         </div>
                     )}
 
-                    <Reveal as="nav" className="pagination" variant="up" delay={200} aria-label="Pagination">
-                        <button
-                            type="button"
-                            className="pagination__arrow"
-                            disabled={page === 1}
-                            onClick={() => setPage((p) => Math.max(1, p - 1))}
-                            aria-label="Previous page"
-                        >
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </button>
-
-                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+                    {totalPages > 1 && (
+                        <Reveal as="nav" className="pagination" variant="up" delay={200} aria-label="Pagination">
                             <button
                                 type="button"
-                                key={n}
-                                className={`pagination__page${page === n ? ' pagination__page--active' : ''}`}
-                                onClick={() => setPage(n)}
+                                className="pagination__arrow"
+                                disabled={page === 1}
+                                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                                aria-label="Previous page"
                             >
-                                {n}
+                                <FaAngleLeft />
                             </button>
-                        ))}
 
-                        <button
-                            type="button"
-                            className="pagination__arrow"
-                            disabled={page === totalPages}
-                            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                            aria-label="Next page"
-                        >
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </button>
-                    </Reveal>
+                            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+                                <button
+                                    type="button"
+                                    key={n}
+                                    className={`pagination__page${page === n ? ' pagination__page--active' : ''}`}
+                                    onClick={() => setPage(n)}
+                                >
+                                    {n}
+                                </button>
+                            ))}
+
+                            <button
+                                type="button"
+                                className="pagination__arrow"
+                                disabled={page === totalPages}
+                                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                                aria-label="Next page"
+                            >
+                                <FaAngleRight />
+                            </button>
+                        </Reveal>
+                    )}
                 </div>
             </div>
         </section>

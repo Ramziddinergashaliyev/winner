@@ -58,7 +58,7 @@ const AnimeCard = () => {
                 const rowProgress = clamp((progress - rowDelay) / (1 - rowDelay * 2), 0, 1)
                 const eased = smoothstep(rowProgress)
                 const textEased = smoothstep(clamp((rowProgress - 0.28) / 0.72, 0, 1))
-                
+
                 const leftEl = rowEl.querySelector('.anime-row__side--left')
                 const rightEl = rowEl.querySelector('.anime-row__side--right')
 

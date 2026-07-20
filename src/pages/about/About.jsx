@@ -29,7 +29,7 @@ const values = [
         title: "Nationwide trust",
         text: "120+ trained dealers give the same recommendation whether you're in Tashkent or Nukus, backed by a distribution network built to keep stock close to demand.",
         icon: "map",
-    },
+    }
 ]
 
 const processSteps = [
@@ -94,8 +94,10 @@ const useReveal = (options = {}) => {
                     observer.unobserve(node)
                 }
             },
+
             { threshold: 0.2, ...options }
         )
+
         observer.observe(node)
         return () => observer.disconnect()
     }, [])
@@ -109,8 +111,7 @@ const RevealBlock = ({ as: Tag = "div", className = "", delay = 0, variant = "up
         <Tag
             ref={ref}
             className={`${className} reveal reveal--${variant} ${visible ? "reveal--visible" : ""}`}
-            style={{ transitionDelay: `${delay}ms` }}
-        >
+            style={{ transitionDelay: `${delay}ms` }}>
             {children}
         </Tag>
     )
@@ -351,26 +352,6 @@ const About = () => {
 
                 <div className="about__values-grid">
                     {values.map((v, i) => <ValueCard key={v.title} index={i} {...v} />)}
-                </div>
-            </section>
-
-            <section className="about__process">
-                <div className="container">
-                    <RevealBlock as="span" className="about__eyebrow about__eyebrow--light" variant="left">How it's made</RevealBlock>
-
-                    <RevealBlock as="h2" className="about__section-title about__section-title--light" delay={60} variant="left">
-                        From base oil to bottle
-                    </RevealBlock>
-
-                    <div className="about__process-grid">
-                        {processSteps.map((step, i) => (
-                            <RevealBlock key={step.title} className="about__process-card" delay={i * 100} variant="up">
-                                <span className="about__process-step">{String(i + 1).padStart(2, '0')}</span>
-                                <h3>{step.title}</h3>
-                                <p>{step.text}</p>
-                            </RevealBlock>
-                        ))}
-                    </div>
                 </div>
             </section>
 

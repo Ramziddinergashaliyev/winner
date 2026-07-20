@@ -10,6 +10,7 @@ import leg from '../../assets/images/catalog/leg.webp'
 import mM from '../../assets/images/catalog/mM.webp'
 import trans from '../../assets/images/catalog/trans.webp'
 import washer from '../../assets/images/catalog/washer.webp'
+import { useGetCategoriesQuery } from '../../services/categoryApi'
 
 const categories = [
     {
@@ -39,6 +40,8 @@ const categories = [
 ]
 
 const Catalog = ({ embedded = false }) => {
+    const { data } = useGetCategoriesQuery()
+
     return (
         <section className={`catalog ${embedded ? 'catalog--embedded' : ''}`}>
             <div className="container">
@@ -49,16 +52,16 @@ const Catalog = ({ embedded = false }) => {
                     </div>
 
                     <div className="catalog__grid">
-                        {categories.map((item, index) => (
+                        {data?.map((item, index) => (
                             <Reveal
                                 as={NavLink}
-                                to="/details"
+                                to={`/categories/${item?.id}`}
                                 className="catalog-card"
-                                key={item.title}
+                                key={item?.title?.en}
                                 variant="scale"
                                 delay={index * 80}
                                 style={{
-                                    backgroundImage: `url(${item.image})`,
+                                    backgroundImage: `url(${item?.images?.[0]})`,
                                     backgroundRepeat: 'no-repeat',
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
@@ -66,7 +69,7 @@ const Catalog = ({ embedded = false }) => {
                             >
                                 <div className="catalog-card__overlay" />
                                 <div className="catalog-card__info">
-                                    <h3 className="catalog-card__info-text">{item.title}</h3>
+                                    <h3 className="catalog-card__info-text">{item?.title?.en}</h3>
                                 </div>
                             </Reveal>
                         ))}

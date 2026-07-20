@@ -5,6 +5,10 @@
     margin-top: 90px;
     position: relative;
 
+    @media (max-width: 1210px) {
+        margin-top: 73.5px;
+    }
+
     &__swiper {
         width: 100%;
     }
