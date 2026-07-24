@@ -1,382 +1,3 @@
-// $color-black: #141416;
-// $color-red: #e2231a;
-// $color-red-dark: #c41e16;
-// $color-bg-light: #f1efec;
-// $color-white: #ffffff;
-// $color-gray-text: #74767b;
-// $color-gray-border: #e2e0dc;
-
-// $container-width: 1280px;
-// $container-pad: 40px;
-
-// $ease: cubic-bezier(0.4, 0, 0.2, 1);
-
-// @mixin flex($justify: flex-start, $align: center) {
-//     display: flex;
-//     justify-content: $justify;
-//     align-items: $align;
-// }
-
-// [data-reveal] {
-//     --i: 0;
-//     opacity: 0;
-//     transform: translateY(14px);
-//     transition: opacity 0.4s $ease calc(var(--i) * 60ms),
-//         transform 0.4s $ease calc(var(--i) * 60ms);
-
-//     &.is-visible {
-//         opacity: 1;
-//         transform: translateY(0);
-//     }
-// }
-
-// @media (prefers-reduced-motion: reduce) {
-//     [data-reveal] {
-//         transition: none !important;
-//         transform: none !important;
-//         opacity: 1 !important;
-//     }
-// }
-
-// .btn {
-//     display: inline-flex;
-//     align-items: center;
-//     justify-content: center;
-//     padding: 15px 30px;
-//     font-size: 11px;
-//     font-weight: 800;
-//     letter-spacing: 1.5px;
-//     text-transform: uppercase;
-//     border-radius: 0;
-//     cursor: pointer;
-//     background: transparent;
-//     transition: background-color 0.2s $ease, color 0.2s $ease, border-color 0.2s $ease;
-
-//     &:focus-visible {
-//         outline: 2px solid currentColor;
-//         outline-offset: 3px;
-//     }
-// }
-
-// .btn--dark {
-//     color: $color-black;
-//     border: 1px solid $color-black;
-
-//     &:hover {
-//         background: $color-black;
-//         color: $color-white;
-//     }
-// }
-
-// .btn--light {
-//     color: $color-red-dark;
-//     border: 1px solid $color-white;
-//     background: $color-white;
-
-//     &:hover {
-//         background: transparent;
-//         color: $color-white;
-//         border-color: $color-white;
-//     }
-// }
-
-// .about {
-//     width: 100%;
-//     overflow-x: hidden;
-
-//     &-hero {
-//         padding-top: 90.74px;
-
-//         &__container {
-//             display: grid;
-//             grid-template-columns: 1fr 1fr;
-//             padding: 0;
-//             height: 500px;
-
-//             @media (max-width:1500px) {
-//                 height: 400px;
-//             }
-//         }
-
-//         &__content {
-//             padding: 54px 40px 54px $container-pad;
-//             @include flex(center, flex-start);
-//             flex-direction: column;
-
-//             &-eyebrow {
-//                 color: $color-red;
-//                 font-size: 11px;
-//                 font-weight: 700;
-//                 letter-spacing: 1.5px;
-//                 margin-bottom: 16px;
-//                 padding-left: 16px;
-//                 border-left: 2px solid $color-red;
-//             }
-
-//             &-title {
-//                 font-size: 32px;
-//                 font-weight: 800;
-//                 line-height: 1.22;
-//                 letter-spacing: -0.2px;
-//                 margin-bottom: 18px;
-//                 max-width: 420px;
-//                 text-transform: uppercase;
-//             }
-
-//             &-text {
-//                 color: $color-gray-text;
-//                 font-size: 13px;
-//                 line-height: 1.75;
-//                 max-width: 340px;
-//                 margin-bottom: 22px;
-//             }
-
-//             .link-arrow {
-//                 font-size: 11px;
-//                 font-weight: 700;
-//                 letter-spacing: 1px;
-//                 color: $color-black;
-//                 @include flex(flex-start);
-//                 gap: 8px;
-//                 border-bottom: 1px solid transparent;
-//                 padding-bottom: 3px;
-//                 transition: border-color 0.2s $ease, color 0.2s $ease;
-
-//                 &__glyph {
-//                     transition: transform 0.2s $ease;
-//                 }
-
-//                 &:hover {
-//                     color: $color-red;
-//                     border-color: $color-red;
-
-//                     .link-arrow__glyph {
-//                         transform: translateX(3px);
-//                     }
-//                 }
-//             }
-//         }
-
-//         &__image {
-//             background: url(../../assets/images/about1.webp);
-//             background-repeat: no-repeat;
-//             background-size: cover;
-//             background-position: center;
-//         }
-//     }
-
-//     &-band {
-//         background: $color-black;
-//         color: $color-white;
-
-//         &-container {
-//             @include flex(space-between);
-//             padding-top: 40px;
-//             padding-bottom: 40px;
-//             gap: 36px;
-//         }
-
-//         &__title {
-//             font-size: 21px;
-//             font-weight: 800;
-//             line-height: 1.35;
-//             letter-spacing: -0.2px;
-//             text-transform: uppercase;
-//             max-width: 230px;
-//             flex-shrink: 0;
-//         }
-
-//         &__desc {
-//             color: #9a9ca1;
-//             font-size: 12.5px;
-//             line-height: 1.75;
-//             max-width: 330px;
-//             border-left: 2px solid $color-red;
-//             padding-left: 22px;
-//         }
-
-//         &__numbers {
-//             @include flex(flex-end);
-//             gap: 50px;
-//             flex-shrink: 0;
-//         }
-
-//         &__stat {
-//             text-align: center;
-
-//             .num {
-//                 font-size: 30px;
-//                 font-weight: 800;
-//                 color: $color-white;
-//                 letter-spacing: -0.5px;
-//                 font-variant-numeric: tabular-nums;
-//             }
-
-//             .label {
-//                 font-size: 10px;
-//                 letter-spacing: 1.5px;
-//                 color: #8f9095;
-//                 margin-top: 6px;
-//                 text-transform: uppercase;
-//             }
-//         }
-//     }
-
-//     &-defines {
-//         background: $color-white;
-
-//         &-container {
-//             padding-top: 50px;
-//             padding-bottom: 50px;
-//             display: grid;
-//             grid-template-columns: 0.85fr 1fr 1fr 1fr;
-//             gap: 32px;
-//             align-items: start;
-//         }
-
-//         &__title {
-//             font-size: 21px;
-//             font-weight: 800;
-//             letter-spacing: -0.2px;
-//             text-transform: uppercase;
-//             line-height: 1.3;
-//             padding-top: 4px;
-//         }
-
-//         &__item {
-//             .num {
-//                 color: $color-red;
-//                 font-size: 11px;
-//                 font-weight: 700;
-//                 margin-bottom: 8px;
-//             }
-
-//             &-title {
-//                 font-size: 15px;
-//                 font-weight: 800;
-//                 letter-spacing: 0.3px;
-//                 text-transform: uppercase;
-//                 padding-bottom: 10px;
-//                 margin-bottom: 10px;
-//                 border-bottom: 2px solid $color-gray-border;
-//                 position: relative;
-
-//                 &::after {
-//                     content: '';
-//                     position: absolute;
-//                     bottom: -2px;
-//                     left: 0;
-//                     width: 34px;
-//                     height: 2px;
-//                     background: $color-red;
-//                 }
-//             }
-
-//             &-text {
-//                 color: $color-gray-text;
-//                 font-size: 12.5px;
-//                 line-height: 1.7;
-//             }
-//         }
-//     }
-
-//     &-quality {
-//         background: $color-bg-light;
-
-//         &-container {
-//             display: grid;
-//             grid-template-columns: 1fr 1fr;
-//             align-items: stretch;
-//             height: 500px;
-//             padding: 0;
-
-//             @media (max-width:1500px) {
-//                 height: 400px;
-//             }
-//         }
-
-//         &__image {
-//             background: url(../../assets/images/about2.webp);
-//             background-position: center;
-//             background-repeat: no-repeat;
-//             background-size: cover;
-//         }
-
-//         &__content {
-//             padding: 50px $container-pad;
-//             @include flex(center, flex-start);
-//             flex-direction: column;
-
-//             &-title {
-//                 font-size: 21px;
-//                 font-weight: 800;
-//                 letter-spacing: -0.2px;
-//                 text-transform: uppercase;
-//                 margin-bottom: 14px;
-//             }
-
-//             &-text {
-//                 color: $color-gray-text;
-//                 font-size: 12.5px;
-//                 line-height: 1.8;
-//                 max-width: 340px;
-//                 margin-bottom: 22px;
-//             }
-//         }
-//     }
-
-//     &-banner {
-//         background: $color-red;
-//         color: $color-white;
-
-//         &-container {
-//             @include flex(space-between);
-//             padding-top: 22px;
-//             padding-bottom: 22px;
-//         }
-
-//         &-title {
-//             font-size: 14px;
-//             font-weight: 800;
-//             letter-spacing: 1px;
-//         }
-//     }
-// }
-
-// @media (max-width: 900px) {
-
-//     .about-hero__container,
-//     .about-quality-container {
-//         grid-template-columns: 1fr;
-//         height: auto;
-//     }
-
-//     .about-hero__image,
-//     .about-quality__image {
-//         height: 260px;
-//     }
-
-//     .about-band-container {
-//         flex-direction: column;
-//         align-items: flex-start;
-//     }
-
-//     .about-band__numbers {
-//         align-self: stretch;
-//         justify-content: space-between;
-//         gap: 24px;
-//     }
-
-//     .about-defines-container {
-//         grid-template-columns: 1fr;
-//     }
-
-//     .about-banner-container {
-//         flex-direction: column;
-//         gap: 14px;
-//         text-align: center;
-//     }
-// }
 $color-black: #141416;
 $color-red: #e2231a;
 $color-red-dark: #c41e16;
@@ -385,16 +6,11 @@ $color-white: #ffffff;
 $color-gray-text: #74767b;
 $color-gray-border: #e2e0dc;
 
-// .container'ning haqiqiy ta'rifiga mos: width:85%, max-width:1440px, margin:auto
 $container-max-width: 1440px;
 $container-width-pct: 85vw;
-$inner-pad: 40px; // ustun ichidagi qo'shimcha bo'shliq (matn bilan konteyner qirrasi orasida)
-
+$inner-pad: 40px;
 $ease: cubic-bezier(0.4, 0, 0.2, 1);
 
-// .container chap/o'ng chetigacha bo'lgan aniq masofani hisoblaydi:
-// (100vw - min(85vw, 1440px)) / 2 — bu .container klassi hosil qiladigan
-// bo'sh joyning aynan o'zi, chunki .container'ning o'zida padding yo'q.
 @function edge-pad() {
     @return calc((100vw - min(#{$container-width-pct}, #{$container-max-width})) / 2);
 }
@@ -487,8 +103,6 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         &__content {
-            // Chap padding global .container chap chetiga aniq moslanadi,
-            // o'ng padding esa ustun ichidagi bo'shliq bo'lib qoladi
             padding: 54px $inner-pad 54px edge-pad();
             @include flex(center, flex-start);
             flex-direction: column;
@@ -548,8 +162,6 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         &__image {
-            // Rasm hech qanday konteyner bilan cheklanmaydi —
-            // grid ustunini to'liq, ya'ni ekran chetigacha egallaydi
             background: url(../../assets/images/about1.webp);
             background-repeat: no-repeat;
             background-size: cover;
@@ -688,7 +300,6 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         &__image {
-            // Rasm chap tomonda ekran chetigacha to'liq cho'ziladi
             background: url(../../assets/images/about2.webp);
             background-position: center;
             background-repeat: no-repeat;
@@ -696,8 +307,6 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         &__content {
-            // Matn o'ng tomonda, uning o'ng cheti global .container
-            // o'ng chetiga aniq moslanadi
             padding: 50px edge-pad() 50px $inner-pad;
             @include flex(center, flex-start);
             flex-direction: column;

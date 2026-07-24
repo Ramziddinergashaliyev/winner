@@ -24,7 +24,7 @@ const infoCards = [
     },
     {
         label: 'Email',
-        content: <a href="mailto:info@gpggroup.uz">info@gpggroup.uz</a>,
+        content: <a href="mailto:infowin@gpggroup.uz">infowin@gpggroup.uz</a>,
     },
 ]
 
@@ -46,11 +46,13 @@ const Contact = () => {
     return (
         <section className="contact">
             <div className="contact__container container">
+
                 <Reveal as="div" className="contact__head" variant="up">
                     <span className="contact__eyebrow">Get in touch</span>
                     <h1 className="contact__title">
                         Let&apos;s talk <span>lubricants.</span>
                     </h1>
+
                     <p className="contact__subtitle">
                         Questions about products, distribution, or partnership —
                         our team replies within one business day.
@@ -58,6 +60,7 @@ const Contact = () => {
                 </Reveal>
 
                 <div className="contact__grid">
+
                     <div className="contact__info">
                         {infoCards.map((card, index) => (
                             <Reveal

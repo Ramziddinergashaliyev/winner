@@ -76,7 +76,6 @@ export default function Footer() {
                             <a className="site-footer__value" href="tel:+998712032031">
                                 +998 71 203 20 31
                             </a>
-
                         </div>
 
                         <div className="site-footer__group">
@@ -88,8 +87,8 @@ export default function Footer() {
 
                         <div className="site-footer__group">
                             <span className="site-footer__label">Электронная почта</span>
-                            <a className="site-footer__value" href="mailto:info@gpggroup.uz">
-                                info@gpggroup.uz
+                            <a className="site-footer__value" href="mailto:infowin@gpggroup.uz">
+                                infowin@gpggroup.uz
                             </a>
                         </div>
                     </div>
