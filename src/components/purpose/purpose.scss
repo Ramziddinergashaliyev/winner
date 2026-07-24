@@ -1,0 +1,201 @@
+$red: #c81f23;
+$red-light: #e5121d;
+$ink: #16181c;
+$ink-soft: #63666b;
+$border: #e6e6e8;
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+.purpose {
+    padding: 80px 0;
+    background: #fff;
+    overflow: hidden;
+
+    &__container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: grid;
+        grid-template-columns: 0.85fr auto 1.6fr;
+        align-items: center;
+        gap: 48px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+    }
+
+    &__intro {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s $ease, transform 0.7s $ease;
+    }
+
+    &__title {
+        margin: 0 0 20px;
+        font-size: 34px;
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: $ink;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        gap: 8px;
+
+        span {
+            display: block;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: transform 0.7s $ease, opacity 0.7s $ease;
+
+            &:nth-child(2) {
+                transition-delay: 0.08s;
+            }
+        }
+    }
+
+    &__desc {
+        margin: 0 0 24px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: $ink-soft;
+        max-width: 340px;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: $red;
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 4px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: $red;
+            transform: scaleX(0.3);
+            transform-origin: left;
+            transition: transform 0.4s $ease;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
+
+        &:hover .purpose__link-arrow {
+            transform: translateX(5px);
+        }
+    }
+
+    &__link-arrow {
+        width: 20px;
+        height: 9px;
+        transition: transform 0.35s $ease;
+    }
+
+    &__divider {
+        width: 1px;
+        height: 0%;
+        background: $border;
+        justify-self: center;
+        transition: height 0.9s $ease 0.3s;
+
+        @media (max-width: 992px) {
+            display: none;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+    }
+
+    &__item {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s $ease, transform 0.6s $ease;
+    }
+
+    &__icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 18px;
+        color: $red;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            stroke: currentColor;
+            fill: none;
+        }
+
+        .purpose__icon-check {
+            stroke-dasharray: 20;
+            stroke-dashoffset: 20;
+            transition: stroke-dashoffset 0.5s $ease 0.5s;
+        }
+    }
+
+    &__item:hover &__icon {
+        transform: translateY(-3px);
+        transition: transform 0.3s $ease;
+    }
+
+    &__item-title {
+        margin: 0 0 8px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: $ink;
+        text-transform: uppercase;
+    }
+
+    &__item-desc {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: $ink-soft;
+    }
+
+    &--visible {
+        .purpose__intro {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .purpose__title span {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .purpose__divider {
+            height: 100%;
+        }
+
+        .purpose__item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .purpose__icon-check {
+            stroke-dashoffset: 0;
+        }
+    }
+}

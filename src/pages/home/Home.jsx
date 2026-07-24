@@ -4,15 +4,17 @@ import History from '../../components/history/History'
 import Info from '../../components/info/Info'
 import Catalog from '../catalog/Catalog'
 import AnimeCard from '../../components/animeCard/AnimeCard'
+import Purpose from '../../components/purpose/Purpose'
 
 const Home = () => {
     return (
         <>
             <Hero />
             <Info />
-            {/* <AnimeCard /> */}
             <Catalog embedded />
+            <AnimeCard />
             <History />
+            <Purpose />
         </>
     )
 }

@@ -1,168 +1,129 @@
-import React, { useEffect, useRef, useCallback } from 'react'
-import './animeCard.scss'
+import React, { useState } from 'react'
 
-import leg from '../../assets/images/winner.webp'
-import mM from '../../assets/images/winner.webp'
-import trans from '../../assets/images/winner.webp'
-import gid from '../../assets/images/winner.webp'
-import ant from '../../assets/images/winner.webp'
-import washer from '../../assets/images/winner.webp'
+import img from "../../assets/images/winner.webp"
 
-const rows = [
+import "./animeCard.scss"
+
+const TABS = [
     {
-        left: { id: 1, img: leg, title: 'Passenger Cars', desc: 'Light commercial oils' },
-        right: { id: 2, img: mM, title: 'Diesel Engines', desc: 'Heavy-duty protection' },
+        id: "engine",
+        label: "Motor oils for passenger cars",
+        tag: "Engine Oil",
+        title: ["Power that", "never quits."],
+        text: "Yuqori haroratda ham dvigatelni ishqalanishdan himoya qiluvchi, quvvatni saqlab qoluvchi ilg'or motor moyi.",
+        badges: ["Fully Synthetic", "5W-30", "API SN"],
+        image: img,
     },
     {
-        left: { id: 3, img: trans, title: 'Transmission', desc: 'Smooth gear shifts' },
-        right: { id: 4, img: gid, title: 'Hydraulic Oils', desc: 'Industrial performance' },
+        id: "diesel",
+        label: "Motor oils for diesel",
+        tag: "diesel",
+        title: ["Confidence in", "every shift."],
+        text: "Advanced transmission fluid engineered for smooth operation, excellent thermal stability, and reliable protection in every driving condition.",
+        badges: ["Fully Synthetic", "4 L", "DEX VI"],
+        image: img,
     },
     {
-        left: { id: 5, img: ant, title: 'Antifreeze', desc: 'All-season cooling' },
-        right: { id: 6, img: washer, title: 'Window Washers', desc: 'Crystal-clear vision' },
+        id: "transmission",
+        label: "Transmission",
+        tag: "Transmission Fluid",
+        title: ["Confidence in", "every shift."],
+        text: "Advanced transmission fluid engineered for smooth operation, excellent thermal stability, and reliable protection in every driving condition.",
+        badges: ["Fully Synthetic", "4 L", "DEX VI"],
+        image: img,
+    },
+    {
+        id: "cooling",
+        label: "Hydraulic oils",
+        tag: "Coolant",
+        title: ["Stay cool,", "stay steady."],
+        text: "Har qanday ob-havo sharoitida dvigatelni qizib ketishdan va muzlab qolishdan himoya qiluvchi antifriz.",
+        badges: ["Long Life", "1 L", "G12+"],
+        image: img,
+    },
+    {
+        id: "industrial",
+        label: "Antifreeze",
+        tag: "Industrial Oil",
+        title: ["Built for", "heavy duty."],
+        text: "Sanoat uskunalari uchun mo'ljallangan, yuqori bosim va yukga bardosh beruvchi kuchli moylash mahsuloti.",
+        badges: ["Heavy Duty", "20 L", "ISO VG 68"],
+        image: img,
+    },
+    {
+        id: "industrial",
+        label: "Windscreen washer",
+        tag: "Industrial Oil",
+        title: ["Built for", "heavy duty."],
+        text: "Sanoat uskunalari uchun mo'ljallangan, yuqori bosim va yukga bardosh beruvchi kuchli moylash mahsuloti.",
+        badges: ["Heavy Duty", "20 L", "ISO VG 68"],
+        image: img,
     },
 ]
 
-const smoothstep = (t) => t * t * (3 - 2 * t)
-const clamp = (value, min, max) => Math.max(min, Math.min(max, value))
-
 const AnimeCard = () => {
-    const wrapperRef = useRef(null)
-    const rowRefs = useRef([])
-    const textRefs = useRef({})
-    const rafId = useRef(null)
-    const isActive = useRef(false)
-
-    const setRowRef = (index) => (el) => {
-        rowRefs.current[index] = el
-    }
-
-    const setTextRef = (id) => (el) => {
-        textRefs.current[id] = el
-    }
-
-    const render = useCallback(() => {
-        const wrapper = wrapperRef.current
-
-        if (wrapper && isActive.current) {
-            const rect = wrapper.getBoundingClientRect()
-            const scrollable = rect.height - window.innerHeight
-            const progress = scrollable > 0 ? clamp(-rect.top / scrollable, 0, 1) : 0
-            const spread = Math.min(window.innerWidth * 0.14, 168)
-
-            rows.forEach((row, index) => {
-                const rowEl = rowRefs.current[index]
-                if (!rowEl) return
-
-                const rowDelay = index * 0.07
-                const rowProgress = clamp((progress - rowDelay) / (1 - rowDelay * 2), 0, 1)
-                const eased = smoothstep(rowProgress)
-                const textEased = smoothstep(clamp((rowProgress - 0.28) / 0.72, 0, 1))
-
-                const leftEl = rowEl.querySelector('.anime-row__side--left')
-                const rightEl = rowEl.querySelector('.anime-row__side--right')
-
-                if (leftEl) {
-                    leftEl.style.transform = `translateX(${-eased * spread}px)`
-                }
-
-                if (rightEl) {
-                    rightEl.style.transform = `translateX(${eased * spread}px)`
-                }
-
-                ;[row.left.id, row.right.id].forEach((id) => {
-                    const textEl = textRefs.current[id]
-                    if (!textEl) return
-
-                    textEl.style.opacity = textEased
-                    textEl.style.transform = `translateY(${(1 - textEased) * 10}px)`
-                })
-            })
-
-            wrapper.style.setProperty('--head-opacity', smoothstep(clamp(progress / 0.35, 0, 1)))
-        }
-
-        rafId.current = requestAnimationFrame(render)
-    }, [])
-
-    useEffect(() => {
-        const wrapper = wrapperRef.current
-        if (!wrapper) return
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                isActive.current = entry.isIntersecting
-            },
-            { rootMargin: '20% 0px' }
-        )
-
-        observer.observe(wrapper)
-        rafId.current = requestAnimationFrame(render)
-
-        return () => {
-            observer.disconnect()
-            cancelAnimationFrame(rafId.current)
-        }
-    }, [render])
+    const [activeId, setActiveId] = useState(TABS[1].id)
+    const active = TABS.find((t) => t.id === activeId)
 
     return (
-        <section className="anime-wrapper" ref={wrapperRef}>
-            <div className="anime-sticky">
+        <div className="anime-card">
+            <nav className="anime-card__nav">
+                <div className="anime-card__nav-inner">
+                    <ul className="anime-card__tabs container">
+                        {TABS.map((tab) => (
+                            <li key={tab.id}>
+                                <button
+                                    type="button"
+                                    className={
+                                        "anime-card__tab" +
+                                        (tab.id === activeId ? " anime-card__tab--active" : "")
+                                    }
+                                    onClick={() => setActiveId(tab.id)}>
+                                    {tab.label}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </nav>
 
-                <header className="anime-head">
-                    <span className="anime-head__label">Product Range</span>
-                    <h2 className="anime-head__title">Engineered to Win</h2>
-                </header>
+            <div className="anime-card__body">
+                <div className="anime-card__image-wrap">
+                    <span className="anime-card__blob" aria-hidden="true" />
 
-                <div className="anime-grid">
-                    {rows.map((row, index) => (
-                        <div className="anime-grid__row" key={row.left.id} ref={setRowRef(index)}>
-                            <div className="anime-row">
-                                <div className="anime-row__side anime-row__side--left">
+                    <img
+                        key={active.id}
+                        src={active.image}
+                        alt={active.label}
+                        className="anime-card__image"
+                    />
+                </div>
 
-                                    <div
-                                        ref={setTextRef(row.left.id)}
-                                        className="anime-piece__text anime-piece__text--right">
-                                        <h3>{row.left.title}</h3>
-                                        <p>{row.left.desc}</p>
-                                    </div>
+                <div key={active.id + "-content"} className="anime-card__content">
+                    <span className="anime-card__tag">{active.tag}</span>
 
-                                    <div className="anime-piece__img-wrap">
-                                        <img
-                                            src={row.left.img}
-                                            alt={row.left.title}
-                                            className="anime-piece__img"
-                                            loading="lazy" />
-                                    </div>
+                    <h1 className="anime-card__title">
+                        {active.title[0]} <br /> {active.title[1]}
+                    </h1>
 
-                                </div>
+                    <p className="anime-card__text">{active.text}</p>
 
-                                <div className="anime-row__side anime-row__side--right">
+                    <div className="anime-card__specs">
+                        {active.badges.map((badge, i) => (
+                            <React.Fragment key={badge}>
+                                {i !== 0 && <span className="anime-card__divider" />}
+                                <span className="anime-card__spec">{badge}</span>
+                            </React.Fragment>
+                        ))}
+                    </div>
 
-                                    <div className="anime-piece__img-wrap">
-                                        <img
-                                            src={row.right.img}
-                                            alt={row.right.title}
-                                            className="anime-piece__img"
-                                            loading="lazy"
-                                        />
-                                    </div>
+                    <button type="button" className="anime-card__btn">
+                        View {active.label} Range
+                    </button>
 
-                                    <div
-                                        ref={setTextRef(row.right.id)}
-                                        className="anime-piece__text anime-piece__text--left"
-                                    >
-                                        <h3>{row.right.title}</h3>
-                                        <p>{row.right.desc}</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    ))}
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 

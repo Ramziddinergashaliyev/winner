@@ -1,227 +1,282 @@
-@use "../../styles/variables" as *;
-
-.anime-wrapper {
-    --head-opacity: 0;
-    position: relative;
-    height: 280vh;
-    background: $white;
-}
-
-.anime-sticky {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 0 4vw;
-}
-
-.anime-head {
-    text-align: center;
-    margin-bottom: clamp(28px, 5vh, 52px);
-    opacity: var(--head-opacity);
-    transform: translateY(calc((1 - var(--head-opacity)) * 18px));
-    transition: none;
-    pointer-events: none;
-
-    &__label {
-        display: inline-block;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: $primary;
-        margin-bottom: 10px;
-    }
-
-
-    &__title {
-        font-size: clamp(28px, 4vw, 44px);
-        font-weight: 700;
-        color: $black;
-        margin: 0;
-        letter-spacing: -0.03em;
-        line-height: 1.1;
-    }
-}
-
-.anime-grid {
+.anime-card {
     width: 100%;
-    max-width: 980px;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(14px, 2.8vh, 28px);
+    color: #1a1a1a;
 
-    &__row {
+    &__nav {
         display: flex;
         justify-content: center;
+        padding: 0px 0px;
     }
-}
 
-.anime-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &__nav-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #eeeeee8e;
+        padding: 28px;
+        border-radius: 8px;
+        width: 100%;
+    }
 
-    &__side {
+    &__nav-label {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #333;
+        text-transform: uppercase;
+    }
+
+    &__tabs {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        gap: 36px;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__tab {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding-bottom: 6px;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: #555;
+        position: relative;
+        transition: color 0.25s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #c81e1e;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        &:hover {
+            color: #c81e1e;
+        }
+
+        &--active {
+            color: #c81e1e;
+
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    &__body {
+        position: relative;
         display: flex;
         align-items: center;
-        will-change: transform;
-
-        &--left {
-            justify-content: flex-end;
-        }
-
-        &--right {
-            justify-content: flex-start;
-        }
-    }
-}
-
-.anime-piece {
-    &__img-wrap {
-        width: clamp(96px, 11vw, 130px);
-        height: clamp(118px, 14vw, 160px);
-        border-radius: 16px;
-        overflow: hidden;
-        flex-shrink: 0;
-        background: linear-gradient(160deg, #fafafa 0%, #f0f0f0 100%);
-        box-shadow:
-            0 2px 6px rgba(0, 0, 0, 0.05),
-            0 18px 36px -16px rgba(0, 0, 0, 0.22);
+        gap: 60px;
+        padding: 0px 60px;
+        z-index: 10;
+        background: linear-gradient(180deg, #f6f5f3 0%, #efeeec 100%);
+        min-height: 480px;
     }
 
-    &__img {
-        width: 100%;
-        height: 100%;
+    &__image-wrap {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+        overflow: visible;
+    }
+
+    &__blob {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(circle at 35% 30%, rgba(200, 30, 30, 0.16), rgba(200, 30, 30, 0) 70%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(2px);
+        animation: blob-pulse 6s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    &__image {
+        position: relative;
+        z-index: 20;
+        max-height: 420px;
+        width: auto;
         object-fit: contain;
-        padding: 8px;
+        transform: scale(1.08);
+        filter: drop-shadow(0 30px 30px rgba(0, 0, 0, 0.16));
+    }
+
+    &__content {
+        flex: 1;
+        position: relative;
+        z-index: 1;
+        animation: content-fade 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &__tag {
+        display: inline-block;
+        color: #c81e1e;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        font-size: 44px;
+        line-height: 1.15;
+        font-weight: 800;
+        margin: 0 0 20px;
+        text-transform: uppercase;
     }
 
     &__text {
-        opacity: 0;
-        width: clamp(110px, 14vw, 180px);
-        pointer-events: none;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #555;
+        max-width: 440px;
+        margin-bottom: 28px;
+    }
 
-        h3 {
-            font-size: clamp(14px, 1.4vw, 17px);
-            font-weight: 600;
-            color: $black;
-            margin: 0 0 4px;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
+    &__specs {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 32px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
 
-        p {
-            font-size: clamp(11px, 1.1vw, 13px);
-            color: rgba($text-color, 0.55);
-            margin: 0;
-            line-height: 1.4;
-        }
+    &__divider {
+        width: 1px;
+        height: 16px;
+        background: #ccc;
+    }
 
-        &--right {
-            margin-right: clamp(12px, 2vw, 22px);
-            text-align: right;
-        }
+    &__btn {
+        border: 1px solid #1a1a1a;
+        background: transparent;
+        padding: 14px 28px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
 
-        &--left {
-            margin-left: clamp(12px, 2vw, 22px);
-            text-align: left;
+        &:hover {
+            background: #1a1a1a;
+            color: #fff;
+            transform: translateY(-2px);
         }
     }
 }
 
-@media (max-width: $laptop) {
-    .anime-wrapper {
-        height: 240vh;
+@keyframes image-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(24px);
     }
 
-    .anime-piece__text {
-        width: clamp(90px, 18vw, 140px);
+    to {
+        opacity: 1;
+        transform: scale(1.08) translateY(0);
+    }
+}
+
+@keyframes image-float {
+
+    0%,
+    100% {
+        transform: scale(1.08) translateY(-6px);
+    }
+
+    50% {
+        transform: scale(1.08) translateY(6px);
+    }
+}
+
+@keyframes blob-pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.12);
+        opacity: 0.8;
+    }
+}
+
+@keyframes content-fade {
+    from {
+        opacity: 0;
+        transform: translateX(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
 @media (max-width: 900px) {
-    .anime-wrapper {
-        height: auto;
-        padding: 56px 0 64px;
-    }
-
-    .anime-sticky {
-        position: static;
-        height: auto;
-        padding: 0 20px;
-    }
-
-    .anime-head {
-        opacity: 1;
-        transform: none;
-        margin-bottom: 32px;
-    }
-
-    .anime-grid {
-        gap: 20px;
-    }
-
-    .anime-row {
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-        max-width: 420px;
-
-        &__side {
-            transform: none !important;
-            width: 100%;
-            justify-content: center !important;
+    .anime-card {
+        &__body {
+            flex-direction: column;
+            padding: 60px 24px;
+            gap: 40px;
         }
-    }
 
-    .anime-piece {
+        &__image {
+            transform: scale(1.1);
+            max-height: 320px;
+        }
+
+        &__image-wrap {
+            min-height: 300px;
+        }
+
+        &__content {
+            text-align: center;
+        }
+
         &__text {
-            opacity: 1 !important;
-            transform: none !important;
-            width: auto;
-            flex: 1;
-
-            &--right,
-            &--left {
-                margin: 0 0 0 14px;
-                text-align: left;
-            }
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        &__img-wrap {
-            width: 88px;
-            height: 108px;
+        &__specs {
+            justify-content: center;
         }
-    }
-}
 
-@media (prefers-reduced-motion: reduce) {
-    .anime-wrapper {
-        height: auto;
-        padding: 56px 0 64px;
-    }
+        &__title {
+            font-size: 30px;
+        }
 
-    .anime-sticky {
-        position: static;
-        height: auto;
-    }
-
-    .anime-head {
-        opacity: 1;
-        transform: none;
-    }
-
-    .anime-row__side {
-        transform: none !important;
-    }
-
-    .anime-piece__text {
-        opacity: 1 !important;
-        transform: none !important;
+        &__tabs {
+            gap: 20px;
+            flex-wrap: wrap;
+        }
     }
 }
