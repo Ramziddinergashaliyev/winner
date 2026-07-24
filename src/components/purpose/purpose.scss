@@ -11,9 +11,6 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
     overflow: hidden;
 
     &__container {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 40px;
         display: grid;
         grid-template-columns: 0.85fr auto 1.6fr;
         align-items: center;
@@ -35,14 +32,14 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
         margin: 0 0 20px;
         font-size: 34px;
         line-height: 1.15;
-        font-weight: 800;
-        letter-spacing: -0.01em;
+        font-weight: 700;
+        letter-spacing: 1px;
         color: $ink;
         text-transform: uppercase;
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        gap: 8px;
+        gap: 2px;
 
         span {
             display: block;
@@ -68,8 +65,8 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        font-size: 13px;
-        font-weight: 700;
+        font-size: 15px;
+        font-weight: 600;
         letter-spacing: 0.04em;
         color: $red;
         text-decoration: none;
@@ -160,7 +157,7 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
 
     &__item-title {
         margin: 0 0 8px;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 700;
         letter-spacing: 0.04em;
         color: $ink;

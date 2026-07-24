@@ -91,7 +91,11 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 0;
-            height: 400px;
+            height: 500px;
+
+            @media (max-width:1500px) {
+                height: 400px;
+            }
         }
 
         &__content {
@@ -283,8 +287,12 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: stretch;
-            height: 400px;
+            height: 500px;
             padding: 0;
+
+            @media (max-width:1500px) {
+                height: 400px;
+            }
         }
 
         &__image {

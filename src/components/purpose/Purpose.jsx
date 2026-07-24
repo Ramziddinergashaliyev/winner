@@ -45,6 +45,7 @@ const items = [
     }
 ]
 
+
 const Purpose = () => {
     const sectionRef = useRef(null)
     const [visible, setVisible] = useState(false)
@@ -65,6 +66,7 @@ const Purpose = () => {
 
         observer.observe(node)
         return () => observer.disconnect()
+
     }, [])
 
     return (
@@ -72,7 +74,7 @@ const Purpose = () => {
             ref={sectionRef}
             className={`purpose ${visible ? "purpose--visible" : ""}`}
         >
-            <div className="purpose__container">
+            <div className="purpose__container container">
                 <div className="purpose__intro">
                     <h2 className="purpose__title">
                         <span>ENGINEERED</span>
