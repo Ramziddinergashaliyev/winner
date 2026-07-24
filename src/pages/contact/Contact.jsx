@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Reveal from '../../components/reveal/Reveal'
 import { useGetProductsQuery } from '../../services/productApi'
 
+import { useGetValue } from '../../hooks/useGetValue'
 import './contact.scss'
 
 const infoCards = [
@@ -28,19 +29,23 @@ const infoCards = [
     },
 ]
 
+const initialState = {
+    name: '',
+    phone: '',
+    message: ''
+}
+
 const Contact = () => {
-    const [form, setForm] = useState({ name: '', phone: '', message: '' })
+    const [form, setForm] = useState(initialState)
     const [submitted, setSubmitted] = useState(false)
+    const { formData, setFormData, handleChange } = useGetValue({ initialState })
 
     const { data } = useGetProductsQuery()
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        setSubmitted(true)
+        console.log(formData);
+        setFormData(initialState)
     }
 
     return (
@@ -48,7 +53,7 @@ const Contact = () => {
             <div className="contact__container container">
 
                 <Reveal as="div" className="contact__head" variant="up">
-                    <span className="contact__eyebrow">Get in touch</span>
+                    <span className="contact__eyebrow">Get in touch</span>3
                     <h1 className="contact__title">
                         Let&apos;s talk <span>lubricants.</span>
                     </h1>
@@ -85,16 +90,17 @@ const Contact = () => {
                                 <span className="contact__success-mark">✓</span>
                                 <h3>Message sent</h3>
                                 <p>Thanks for reaching out — we&apos;ll get back to you shortly.</p>
+
                                 <button
                                     type="button"
                                     className="contact__form-btn"
                                     onClick={() => {
                                         setSubmitted(false)
-                                        setForm({ name: '', phone: '', message: '' })
-                                    }}
-                                >
+                                        setFormData(initialState)
+                                    }}>
                                     Send another message
                                 </button>
+
                             </div>
                         ) : (
                             <form className="contact__form" onSubmit={handleSubmit}>
@@ -106,7 +112,7 @@ const Contact = () => {
                                         type="text"
                                         name="name"
                                         placeholder="John Smith"
-                                        value={form.name}
+                                        value={formData.name}
                                         onChange={handleChange}
                                         required
                                     />
@@ -118,7 +124,7 @@ const Contact = () => {
                                         type="tel"
                                         name="phone"
                                         placeholder="+998 90 123 45 67"
-                                        value={form.phone}
+                                        value={formData.phone}
                                         onChange={handleChange}
                                         required
                                     />
@@ -130,7 +136,7 @@ const Contact = () => {
                                         name="message"
                                         rows={5}
                                         placeholder="Tell us what you need..."
-                                        value={form.message}
+                                        value={formData.message}
                                         onChange={handleChange}
                                         required
                                     />
@@ -145,7 +151,7 @@ const Contact = () => {
                 </div>
             </div>
             <div className="contact-map">
-                <iframe
+                {/* <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.148531603664!2d69.13233057615395!3d41.202175407463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae630224f2d643%3A0x3eb0e432eb928383!2z0JrQvtC80L_QsNC90LjRjyBUUlQ!5e1!3m2!1sen!2s!4v1783414673165!5m2!1sen!2s"
                     width="100%"
                     height="450"
@@ -154,7 +160,8 @@ const Contact = () => {
                     loading="lazy"
                     referrerPolicy="strict-origin-when-cross-origin"
                     title="Location map"
-                ></iframe>
+                ></iframe> */}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3248.230692956812!2d69.136341!3d41.200520000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDEyJzAxLjkiTiA2OcKwMDgnMTAuOCJF!5e1!3m2!1sen!2s!4v1762319654663!5m2!1sen!2s" style={{ width: "100%", height: "450px", border: "0px" }} loading="lazy"></iframe>
             </div>
         </section >
     )
