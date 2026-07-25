@@ -269,7 +269,7 @@ $color-card-bg: #0d0d0d;
     isolation: isolate;
     overflow: hidden;
     padding: clamp(56px, 50px, 120px) 0;
-    background: url(../../assets/images/history.jpg) center / contain no-repeat;
+    background: url(../../assets/images/history.jpg) center / cover no-repeat;
 
     &__container {
         position: relative;
@@ -408,7 +408,7 @@ $color-card-bg: #0d0d0d;
             content: "";
             position: absolute;
             inset: 0;
-            // background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.85) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.85) 100%);
         }
     }
 
