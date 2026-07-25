@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./purpose.scss"
 import { FaArrowRight } from 'react-icons/fa'
+import { NavLink } from 'react-router-dom'
 
 const items = [
     {
@@ -77,21 +78,19 @@ const Purpose = () => {
             <div className="purpose__container container">
                 <div className="purpose__intro">
                     <h2 className="purpose__title">
-                        <span>ENGINEERED</span>
-                        <span>WITH PURPOSE.</span>
+                        <span>ENGINEERED FOR</span>
+                        <span>MAXIMUM PROTECTION.</span>
                     </h2>
 
                     <p className="purpose__desc">
-                        Every WINNER product is the result of innovation, rigorous
-                        testing, and strict quality control - delivering performance
-                        you can rely on, every time.
+                        Every WINNER motor oil and coolant is formulated with advanced technology, rigorously tested, and manufactured under strict quality standards—delivering superior engine protection, reliable cooling, and peak performance in every drive.
                     </p>
 
-                    <a href="#technology" className="purpose__link">
+                    <NavLink to={"/about"} className="purpose__link">
                         <span>OUR TECHNOLOGY</span>
 
                         <FaArrowRight />
-                    </a>
+                    </NavLink>
                 </div>
 
                 <div className="purpose__divider" aria-hidden="true" />

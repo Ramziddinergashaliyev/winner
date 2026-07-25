@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
-import img from "../../assets/images/winner.webp"
+import img1 from "../../assets/images/bgauto.webp"
+import img2 from "../../assets/images/bgauto1.webp"
+import img3 from "../../assets/images/bgauto2.webp"
 
 import "./animeCard.scss"
 
@@ -8,57 +10,18 @@ const TABS = [
     {
         id: "engine",
         label: "Motor oils for passenger cars",
-        tag: "Engine Oil",
-        title: ["Power that", "never quits."],
-        text: "Yuqori haroratda ham dvigatelni ishqalanishdan himoya qiluvchi, quvvatni saqlab qoluvchi ilg'or motor moyi.",
-        badges: ["Fully Synthetic", "5W-30", "API SN"],
-        image: img,
+        image: img1,
     },
     {
         id: "diesel",
         label: "Motor oils for diesel",
-        tag: "diesel",
-        title: ["Confidence in", "every shift."],
-        text: "Advanced transmission fluid engineered for smooth operation, excellent thermal stability, and reliable protection in every driving condition.",
-        badges: ["Fully Synthetic", "4 L", "DEX VI"],
-        image: img,
+        image: img2,
     },
     {
         id: "transmission",
         label: "Transmission",
-        tag: "Transmission Fluid",
-        title: ["Confidence in", "every shift."],
-        text: "Advanced transmission fluid engineered for smooth operation, excellent thermal stability, and reliable protection in every driving condition.",
-        badges: ["Fully Synthetic", "4 L", "DEX VI"],
-        image: img,
-    },
-    {
-        id: "cooling",
-        label: "Hydraulic oils",
-        tag: "Coolant",
-        title: ["Stay cool,", "stay steady."],
-        text: "Har qanday ob-havo sharoitida dvigatelni qizib ketishdan va muzlab qolishdan himoya qiluvchi antifriz.",
-        badges: ["Long Life", "1 L", "G12+"],
-        image: img,
-    },
-    {
-        id: "industrial",
-        label: "Antifreeze",
-        tag: "Industrial Oil",
-        title: ["Built for", "heavy duty."],
-        text: "Sanoat uskunalari uchun mo'ljallangan, yuqori bosim va yukga bardosh beruvchi kuchli moylash mahsuloti.",
-        badges: ["Heavy Duty", "20 L", "ISO VG 68"],
-        image: img,
-    },
-    {
-        id: "industrial",
-        label: "Windscreen washer",
-        tag: "Industrial Oil",
-        title: ["Built for", "heavy duty."],
-        text: "Sanoat uskunalari uchun mo'ljallangan, yuqori bosim va yukga bardosh beruvchi kuchli moylash mahsuloti.",
-        badges: ["Heavy Duty", "20 L", "ISO VG 68"],
-        image: img,
-    },
+        image: img3,
+    }
 ]
 
 const AnimeCard = () => {
@@ -88,40 +51,11 @@ const AnimeCard = () => {
             </nav>
 
             <div className="anime-card__body">
-                <div className="anime-card__image-wrap">
-                    <span className="anime-card__blob" aria-hidden="true" />
-
-                    <img
-                        key={active.id}
-                        src={active.image}
-                        alt={active.label}
-                        className="anime-card__image"
-                    />
-                </div>
-
-                <div key={active.id + "-content"} className="anime-card__content">
-                    <span className="anime-card__tag">{active.tag}</span>
-
-                    <h1 className="anime-card__title">
-                        {active.title[0]} <br /> {active.title[1]}
-                    </h1>
-
-                    <p className="anime-card__text">{active.text}</p>
-
-                    <div className="anime-card__specs">
-                        {active.badges.map((badge, i) => (
-                            <React.Fragment key={badge}>
-                                {i !== 0 && <span className="anime-card__divider" />}
-                                <span className="anime-card__spec">{badge}</span>
-                            </React.Fragment>
-                        ))}
-                    </div>
-
-                    <button type="button" className="anime-card__btn">
-                        View {active.label} Range
-                    </button>
-
-                </div>
+                <div
+                    key={active.id}
+                    className="anime-card__bg"
+                    style={{ backgroundImage: `url(${active.image})` }}
+                />
             </div>
         </div>
     )

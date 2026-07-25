@@ -30,7 +30,7 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
 
     &__title {
         margin: 0 0 20px;
-        font-size: 34px;
+        font-size: 30px;
         line-height: 1.15;
         font-weight: 700;
         letter-spacing: 1px;
@@ -58,7 +58,6 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
         font-size: 15px;
         line-height: 1.6;
         color: $ink-soft;
-        max-width: 340px;
     }
 
     &__link {

@@ -1,16 +1,21 @@
 .distrbut {
+    padding-top: 40px;
     position: relative;
     background: #ffffff;
 
     &__top {
         position: relative;
-        background: url(../../assets/images/distBg.png) no-repeat;
+        background: url(../../assets/images/distBg.jpg) no-repeat;
         background-size: cover;
-        background-position: center right;
-        min-height: 560px;
+        background-position: left;
+        min-height: 590px;
         display: flex;
         align-items: center;
         margin-top: 28px;
+
+        @media (max-width:1500px) {
+            min-height: 490px;
+        }
 
         @media (max-width: 992px) {
             min-height: auto;

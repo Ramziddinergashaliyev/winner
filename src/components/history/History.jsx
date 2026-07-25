@@ -29,8 +29,6 @@ const History = () => {
         <section className="history">
             <div className="history__container container">
                 <Reveal as="div" className="history__intro" variant="left">
-                    <span className="history__eyebrow">Brand History</span>
-
                     <h2 className="history__title">
                         More than oil.
                         <span className="history__title-accent">It&apos;s the DNA of winners.</span>

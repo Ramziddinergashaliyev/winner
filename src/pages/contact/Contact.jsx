@@ -150,17 +150,8 @@ const Contact = () => {
                     </Reveal>
                 </div>
             </div>
+
             <div className="contact-map">
-                {/* <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.148531603664!2d69.13233057615395!3d41.202175407463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae630224f2d643%3A0x3eb0e432eb928383!2z0JrQvtC80L_QsNC90LjRjyBUUlQ!5e1!3m2!1sen!2s!4v1783414673165!5m2!1sen!2s"
-                    width="100%"
-                    height="450"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    title="Location map"
-                ></iframe> */}
                 <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3248.230692956812!2d69.136341!3d41.200520000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDEyJzAxLjkiTiA2OcKwMDgnMTAuOCJF!5e1!3m2!1sen!2s!4v1762319654663!5m2!1sen!2s" style={{ width: "100%", height: "450px", border: "0px" }} loading="lazy"></iframe>
             </div>
         </section >
