@@ -129,17 +129,19 @@ const Details = () => {
                                     key={product.id}
                                     style={{ animationDelay: `${index * 70}ms` }}
                                 >
-                                    <div className="product-card__image">
-                                        <img
-                                            src={
-                                                product?.images?.length === 2 || product?.images?.length === 3
-                                                    ? product?.images?.[1]
-                                                    : product?.images?.[0] || img
-                                            }
-                                            alt={product?.name?.ru || product?.name?.en}
-                                            loading="lazy"
-                                        />
-                                    </div>
+                                    <NavLink to={`/single-products/${product.id}`}>
+                                        <div className="product-card__image">
+                                            <img
+                                                src={
+                                                    product?.images?.length === 2 || product?.images?.length === 3
+                                                        ? product?.images?.[1]
+                                                        : product?.images?.[0] || img
+                                                }
+                                                alt={product?.name?.ru || product?.name?.en}
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                    </NavLink>
 
                                     <h3 className="product-card__name">
                                         {product?.name?.ru || product?.name?.en}
