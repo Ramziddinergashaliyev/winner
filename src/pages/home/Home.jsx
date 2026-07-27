@@ -13,8 +13,8 @@ const Home = () => {
             <Info />
             <Catalog embedded />
             <AnimeCard />
-            <History />
             <Purpose />
+            <History />
         </>
     )
 }
