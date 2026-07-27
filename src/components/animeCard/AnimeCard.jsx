@@ -64,8 +64,6 @@
 
 // export default AnimeCard
 
-
-
 import React, { useEffect, useRef, useState } from 'react'
 
 import img1 from "../../assets/images/bgauto.webp"
@@ -80,8 +78,8 @@ const TABS = [
     { id: "transmission", label: "Transmission", image: img3 },
 ]
 
-const AUTOPLAY_DELAY = 4000 // ms
-const DIRECTION = "right" // barcha o'tishlar doim shu tomonga
+const AUTOPLAY_DELAY = 4000
+const DIRECTION = "right"
 
 const AnimeCard = () => {
     const [activeIndex, setActiveIndex] = useState(0)
@@ -123,7 +121,6 @@ const AnimeCard = () => {
     useEffect(() => {
         startAutoplay()
         return () => clearInterval(intervalRef.current)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleTabClick = (idx) => {
@@ -179,8 +176,6 @@ const AnimeCard = () => {
 }
 
 export default AnimeCard
-
-
 
 
 // import React, { useLayoutEffect, useRef, useState } from 'react'

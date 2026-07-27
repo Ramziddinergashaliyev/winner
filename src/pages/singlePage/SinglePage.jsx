@@ -6,7 +6,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import { useGetProductByIdQuery, useGetProductsQuery } from '../../services/productApi'
 import './singlePage.scss'
 
-const THUMBNAILS = [img, img1, img]
+// const THUMBNAILS = [img, img1, img]
 
 const CHARACTERISTIC_ROWS = [
     { label: 'SAE viscosity grade', key: 'viscosityClass' },
@@ -28,11 +28,15 @@ const SinglePage = () => {
     const { data } = useGetProductByIdQuery(id)
     const { data: productData } = useGetProductsQuery()
 
+    const THUMBNAILS = data?.images 
+
+
     const swipperData = productData?.filter(
         (item) =>
             item?.category?.title?.en === data?.category?.title?.en &&
             item?.id !== data?.id
     ) || []
+
 
     const handleThumbChange = (index) => {
         if (index === activeThumb) return
@@ -55,7 +59,7 @@ const SinglePage = () => {
                     <Reveal as="div" className="single__gallery" variant="left">
 
                         <div className="single__thumbs">
-                            {THUMBNAILS.map((thumb, i) => (
+                            {THUMBNAILS?.map((thumb, i) => (
                                 <button
                                     type="button"
                                     key={i}
@@ -70,7 +74,7 @@ const SinglePage = () => {
 
                         <div className="single__main-image">
                             <img
-                                src={THUMBNAILS[activeThumb]}
+                                src={THUMBNAILS?.[activeThumb]}
                                 alt="WINNER 5W-30"
                                 className={imgChanging ? 'is-changing' : ''}
                             />

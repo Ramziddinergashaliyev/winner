@@ -131,7 +131,11 @@ const Details = () => {
                                 >
                                     <div className="product-card__image">
                                         <img
-                                            src={product?.images?.[0] || img}
+                                            src={
+                                                product?.images?.length === 2 || product?.images?.length === 3
+                                                    ? product?.images?.[1]
+                                                    : product?.images?.[0] || img
+                                            }
                                             alt={product?.name?.ru || product?.name?.en}
                                             loading="lazy"
                                         />
