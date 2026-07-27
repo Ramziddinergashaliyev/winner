@@ -64,7 +64,9 @@
 
 // export default AnimeCard
 
-import React, { useLayoutEffect, useRef, useState } from 'react'
+
+
+import React, { useEffect, useRef, useState } from 'react'
 
 import img1 from "../../assets/images/bgauto.webp"
 import img2 from "../../assets/images/bgauto1.webp"
@@ -78,40 +80,55 @@ const TABS = [
     { id: "transmission", label: "Transmission", image: img3 },
 ]
 
+const AUTOPLAY_DELAY = 4000 // ms
+const DIRECTION = "right" // barcha o'tishlar doim shu tomonga
+
 const AnimeCard = () => {
-    const [activeIndex, setActiveIndex] = useState(1)
+    const [activeIndex, setActiveIndex] = useState(0)
     const [prevIndex, setPrevIndex] = useState(null)
-    const [direction, setDirection] = useState("right")
-    const [indicator, setIndicator] = useState({ left: 0, width: 0 })
 
     const animKey = useRef(0)
-    const tabRefs = useRef([])
+    const activeIndexRef = useRef(activeIndex)
+    const intervalRef = useRef(null)
 
     const active = TABS[activeIndex]
     const prev = prevIndex !== null ? TABS[prevIndex] : null
 
-    const measure = (idx) => {
-        const el = tabRefs.current[idx]
-        if (!el) return
-        setIndicator({ left: el.offsetLeft, width: el.offsetWidth })
+    const goTo = (idx, manual = false) => {
+        setActiveIndex((current) => {
+            if (idx === current) return current
+            setPrevIndex(current)
+            animKey.current += 1
+            return idx
+        })
+        if (manual) restartAutoplay()
     }
 
-    useLayoutEffect(() => {
-        measure(activeIndex)
+    const startAutoplay = () => {
+        clearInterval(intervalRef.current)
+        intervalRef.current = setInterval(() => {
+            const next = (activeIndexRef.current + 1) % TABS.length
+            goTo(next)
+        }, AUTOPLAY_DELAY)
+    }
+
+    const restartAutoplay = () => {
+        startAutoplay()
+    }
+
+    useEffect(() => {
+        activeIndexRef.current = activeIndex
     }, [activeIndex])
 
-    useLayoutEffect(() => {
-        const onResize = () => measure(activeIndex)
-        window.addEventListener("resize", onResize)
-        return () => window.removeEventListener("resize", onResize)
-    }, [activeIndex])
+    useEffect(() => {
+        startAutoplay()
+        return () => clearInterval(intervalRef.current)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const handleTabClick = (idx) => {
-        if (idx === activeIndex) return
-        setDirection(idx > activeIndex ? "right" : "left")
-        setPrevIndex(activeIndex)
-        setActiveIndex(idx)
-        animKey.current += 1
+        if (idx === activeIndexRef.current) return
+        goTo(idx, true)
     }
 
     return (
@@ -122,7 +139,6 @@ const AnimeCard = () => {
                         {TABS.map((tab, idx) => (
                             <li key={tab.id}>
                                 <span
-                                    ref={(el) => (tabRefs.current[idx] = el)}
                                     role="button"
                                     tabIndex={0}
                                     className={
@@ -138,11 +154,6 @@ const AnimeCard = () => {
                                 </span>
                             </li>
                         ))}
-
-                        <span
-                            className="anime-card__indicator"
-                            style={{ left: indicator.left, width: indicator.width }}
-                        />
                     </ul>
                 </div>
             </nav>
@@ -151,18 +162,16 @@ const AnimeCard = () => {
                 {prev && (
                     <div
                         key={`prev-${animKey.current}`}
-                        className={`anime-card__bg anime-card__bg--out-${direction}`}
+                        className={`anime-card__bg anime-card__bg--out-${DIRECTION}`}
                         style={{ backgroundImage: `url(${prev.image})` }}
                         onAnimationEnd={() => setPrevIndex(null)}
                     />
                 )}
-
                 <div
                     key={`active-${animKey.current}`}
-                    className={`anime-card__bg anime-card__bg--in-${direction}`}
+                    className={`anime-card__bg anime-card__bg--in-${DIRECTION}`}
                     style={{ backgroundImage: `url(${active.image})` }}
                 />
-
                 <div className="anime-card__overlay" />
             </div>
         </div>
@@ -171,7 +180,10 @@ const AnimeCard = () => {
 
 export default AnimeCard
 
-// import React, { useRef, useState } from 'react'
+
+
+
+// import React, { useLayoutEffect, useRef, useState } from 'react'
 
 // import img1 from "../../assets/images/bgauto.webp"
 // import img2 from "../../assets/images/bgauto1.webp"
@@ -188,11 +200,30 @@ export default AnimeCard
 // const AnimeCard = () => {
 //     const [activeIndex, setActiveIndex] = useState(1)
 //     const [prevIndex, setPrevIndex] = useState(null)
-//     const [direction, setDirection] = useState("right") // "right" | "left"
+//     const [direction, setDirection] = useState("right")
+//     const [indicator, setIndicator] = useState({ left: 0, width: 0 })
+
 //     const animKey = useRef(0)
+//     const tabRefs = useRef([])
 
 //     const active = TABS[activeIndex]
 //     const prev = prevIndex !== null ? TABS[prevIndex] : null
+
+//     const measure = (idx) => {
+//         const el = tabRefs.current[idx]
+//         if (!el) return
+//         setIndicator({ left: el.offsetLeft, width: el.offsetWidth })
+//     }
+
+//     useLayoutEffect(() => {
+//         measure(activeIndex)
+//     }, [activeIndex])
+
+//     useLayoutEffect(() => {
+//         const onResize = () => measure(activeIndex)
+//         window.addEventListener("resize", onResize)
+//         return () => window.removeEventListener("resize", onResize)
+//     }, [activeIndex])
 
 //     const handleTabClick = (idx) => {
 //         if (idx === activeIndex) return
@@ -209,18 +240,28 @@ export default AnimeCard
 //                     <ul className="anime-card__tabs container">
 //                         {TABS.map((tab, idx) => (
 //                             <li key={tab.id}>
-//                                 <button
-//                                     type="button"
+//                                 <span
+//                                     ref={(el) => (tabRefs.current[idx] = el)}
+//                                     role="button"
+//                                     tabIndex={0}
 //                                     className={
 //                                         "anime-card__tab" +
 //                                         (idx === activeIndex ? " anime-card__tab--active" : "")
 //                                     }
 //                                     onClick={() => handleTabClick(idx)}
+//                                     onKeyDown={(e) => {
+//                                         if (e.key === "Enter" || e.key === " ") handleTabClick(idx)
+//                                     }}
 //                                 >
 //                                     {tab.label}
-//                                 </button>
+//                                 </span>
 //                             </li>
 //                         ))}
+
+//                         <span
+//                             className="anime-card__indicator"
+//                             style={{ left: indicator.left, width: indicator.width }}
+//                         />
 //                     </ul>
 //                 </div>
 //             </nav>
@@ -234,11 +275,13 @@ export default AnimeCard
 //                         onAnimationEnd={() => setPrevIndex(null)}
 //                     />
 //                 )}
+
 //                 <div
 //                     key={`active-${animKey.current}`}
 //                     className={`anime-card__bg anime-card__bg--in-${direction}`}
 //                     style={{ backgroundImage: `url(${active.image})` }}
 //                 />
+
 //                 <div className="anime-card__overlay" />
 //             </div>
 //         </div>
