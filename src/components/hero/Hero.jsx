@@ -95,6 +95,7 @@ const slides = [
     }
 ];
 
+
 function Hero() {
     return (
         <section className="hero">
