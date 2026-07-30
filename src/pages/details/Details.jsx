@@ -228,7 +228,9 @@ const ProductImage = ({ src, alt }) => {
 
     return (
         <div className={`product-card__image${loaded ? '' : ' product-card__image--loading'}`}>
-            {!loaded && <span className="product-card__skeleton" aria-hidden="true" />}
+            {!loaded && (
+                <span className="product-card__spinner" aria-hidden="true" />
+            )}
             <img
                 src={src}
                 alt={alt}
