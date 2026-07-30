@@ -53,7 +53,7 @@ const Contact = () => {
             <div className="contact__container container">
 
                 <Reveal as="div" className="contact__head" variant="up">
-                    <span className="contact__eyebrow">Get in touch</span>3
+                    <span className="contact__eyebrow">Get in touch</span>
                     <h1 className="contact__title">
                         Let&apos;s talk <span>lubricants.</span>
                     </h1>
