@@ -96,10 +96,6 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
             grid-template-columns: 1fr 1fr;
             padding: 0;
             height: 500px;
-
-            @media (max-width:1500px) {
-                height: 400px;
-            }
         }
 
         &__content {
@@ -166,6 +162,26 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
+        }
+    }
+
+    &-band__stat {
+        text-align: center;
+
+        .num {
+            font-size: 28px;
+            font-weight: 800;
+            color: $color-white;
+            letter-spacing: -0.5px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .label {
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: #8f9095;
+            margin-top: 6px;
+            text-transform: uppercase;
         }
     }
 
