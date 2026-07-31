@@ -262,14 +262,14 @@ $color-border: rgba(255, 255, 255, 0.08);
 $color-border-hover: rgba(255, 42, 42, 0.45);
 $color-text-muted: #9a9a9a;
 $color-text-muted-soft: #c4c4c4;
-$color-card-bg: #0d0d0d;
+$color-card-bg: hsl(0, 0%, 5%);
 
 .history {
     position: relative;
     isolation: isolate;
     overflow: hidden;
     padding: clamp(56px, 50px, 120px) 0;
-    background: url(../../assets/images/history.jpg) center / cover no-repeat;
+    background: url(../../assets/images/history.webp) center / cover no-repeat;
 
     &__container {
         position: relative;

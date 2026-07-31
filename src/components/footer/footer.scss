@@ -1,3 +1,228 @@
+// $bg-page: #91919121;
+// $bg-field: #ffffff;
+// $border: #d9d9d7;
+// $border-focus: #9a9a98;
+
+// $text-heading: #1a1a1a;
+// $text-body: #2e2e2c;
+// $text-label: #56564f;
+// $text-faint: #8a8a86;
+
+// $button-bg: #232323;
+// $button-bg-hover: #3a3a3a;
+// $button-text: #ffffff;
+
+// $radius: 8px;
+
+// $container-max: 1280px;
+// $gutter: 24px;
+
+// @media (prefers-reduced-motion: no-preference) {
+
+//     .site-footer a,
+//     .site-footer button,
+//     .site-footer input,
+//     .site-footer textarea {
+//         transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+//     }
+// }
+
+// .site-footer {
+//     background: $bg-page;
+//     color: $text-body;
+//     padding: 64px 0 56px;
+
+//     &__sr-only {
+//         position: absolute;
+//         width: 1px;
+//         height: 1px;
+//         overflow: hidden;
+//         clip: rect(0 0 0 0);
+//         white-space: nowrap;
+//     }
+
+//     &__grid {
+//         display: grid;
+//         grid-template-columns: 1.3fr 200px 1.5fr 1.2fr;
+//         gap: 25px;
+
+//         @media (max-width: 1100px) {
+//             grid-template-columns: 1fr 1fr;
+//             row-gap: 28px;
+//         }
+
+//         @media (max-width: 640px) {
+//             grid-template-columns: 1fr;
+//         }
+//     }
+
+//     &__heading {
+//         font-size: 22px;
+//         font-weight: 600;
+//         text-transform: uppercase;
+//         letter-spacing: 0.2px;
+//         color: $text-heading;
+//         margin: 0 0 28px;
+//     }
+
+//     &__col {
+//         ul {
+//             list-style: none;
+//             padding: 0;
+//             margin: 0;
+//             display: flex;
+//             flex-direction: column;
+//             gap: 16px;
+//         }
+
+//         a {
+//             color: $text-body;
+//             text-decoration: none;
+//             font-size: 17px;
+//             line-height: 1.4;
+
+//             &:hover,
+//             &:focus-visible {
+//                 color: $text-heading;
+//                 text-decoration: underline;
+//             }
+
+//             &:focus-visible {
+//                 outline: 2px solid $border-focus;
+//                 outline-offset: 3px;
+//                 border-radius: 2px;
+//             }
+//         }
+//     }
+
+//     &__group {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 8px;
+//         margin-bottom: 10px;
+
+//         &:last-child {
+//             margin-bottom: 0;
+//         }
+//     }
+
+//     &__label {
+//         font-size: 16px;
+//         color: $text-label;
+//     }
+
+//     &__value {
+//         font-size: 18px;
+//         font-weight: 700;
+//         color: $text-heading;
+//         text-decoration: none;
+
+//         &:hover,
+//         &:focus-visible {
+//             text-decoration: underline;
+//         }
+//     }
+
+//     &__address {
+//         font-size: 16px;
+//         line-height: 1.55;
+//         color: $text-body;
+//         margin: 0;
+//         max-width: 320px;
+//     }
+
+//     &__form {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 10px;
+//     }
+
+//     &__form>input,
+//     &__form>textarea {
+//         width: 100%;
+//         background: $bg-field;
+//         border: 1px solid $border;
+//         border-radius: $radius;
+//         padding: 12px 18px;
+//         font-size: 15px;
+//         font-family: inherit;
+//         color: $text-heading;
+//         box-sizing: border-box;
+
+//         &::placeholder {
+//             color: $text-faint;
+//         }
+
+//         &:focus-visible {
+//             outline: none;
+//             border-color: $border-focus;
+//         }
+//     }
+
+//     textarea {
+//         resize: vertical;
+//         min-height: 96px;
+//     }
+
+//     &__phone {
+//         .site-footer__phone-input {
+//             --react-international-phone-height: 43.5px;
+//             --react-international-phone-background-color: #{$bg-field};
+//             --react-international-phone-text-color: #{$text-heading};
+//             --react-international-phone-font-size: 15px;
+//             --react-international-phone-border-radius: #{$radius};
+//             --react-international-phone-border-color: #{$border};
+//             width: 100%;
+//             font-family: inherit;
+//         }
+
+//         .react-international-phone-input {
+//             flex: 1;
+//             width: 100%;
+//         }
+
+//         .react-international-phone-input-container:focus-within {
+//             border-color: $border-focus !important;
+//         }
+//     }
+
+//     &__submit {
+//         align-self: flex-center;
+//         margin-top: 4px;
+//         padding: 14px 30px;
+//         border: none;
+//         border-radius: $radius;
+//         background: $button-bg;
+//         color: $button-text;
+//         font-size: 15px;
+//         font-weight: 600;
+//         cursor: pointer;
+
+//         &:hover,
+//         &:focus-visible {
+//             background: $button-bg-hover;
+//         }
+
+//         &:focus-visible {
+//             outline: 2px solid $button-bg;
+//             outline-offset: 2px;
+//         }
+//     }
+
+//     @media (max-width:640px) {
+//         padding: 36px 0px;
+
+//         &__heading {
+//             margin: 0 0 18px;
+//         }
+
+//         &__col ul {
+//             gap: 14px;
+//         }
+//     }
+// }
+
+
 $bg-page: #91919121;
 $bg-field: #ffffff;
 $border: #d9d9d7;
@@ -8,11 +233,15 @@ $text-body: #2e2e2c;
 $text-label: #56564f;
 $text-faint: #8a8a86;
 
+$color-red: #e2231a;
+$color-red-dark: #c41e16;
+
 $button-bg: #232323;
 $button-bg-hover: #3a3a3a;
 $button-text: #ffffff;
 
 $radius: 8px;
+$radius-lg: 16px;
 
 $container-max: 1280px;
 $gutter: 24px;
@@ -30,7 +259,8 @@ $gutter: 24px;
 .site-footer {
     background: $bg-page;
     color: $text-body;
-    padding: 64px 0 56px;
+    padding: 34px 0 0;
+    border-top: 4px solid $color-red;
 
     &__sr-only {
         position: absolute;
@@ -43,8 +273,9 @@ $gutter: 24px;
 
     &__grid {
         display: grid;
-        grid-template-columns: 1.3fr 200px 1.5fr 1.2fr;
+        grid-template-columns: 1.3fr 200px 1.5fr 1.5fr;
         gap: 25px;
+        align-items: stretch;
 
         @media (max-width: 1100px) {
             grid-template-columns: 1fr 1fr;
@@ -58,14 +289,30 @@ $gutter: 24px;
 
     &__heading {
         font-size: 22px;
-        font-weight: 600;
+        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.2px;
         color: $text-heading;
-        margin: 0 0 28px;
+        margin: 0 0 14px;
+        position: relative;
+        padding-bottom: 8px;
+
+        &--light {
+            color: $button-text;
+        }
     }
 
     &__col {
+        padding-right: 25px;
+
+        &--bordered {
+            border-right: 1px solid $border;
+        }
+
+        &--form {
+            padding-right: 0;
+        }
+
         ul {
             list-style: none;
             padding: 0;
@@ -73,6 +320,21 @@ $gutter: 24px;
             display: flex;
             flex-direction: column;
             gap: 16px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 16px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 9px;
+                width: 7px;
+                height: 7px;
+                background: $color-red;
+            }
         }
 
         a {
@@ -95,27 +357,35 @@ $gutter: 24px;
         }
     }
 
-    &__group {
+    &__contact-item {
         display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-bottom: 10px;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 20px;
 
         &:last-child {
             margin-bottom: 0;
         }
     }
 
-    &__label {
-        font-size: 16px;
-        color: $text-label;
+    &__icon {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        color: $color-red;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
     }
 
     &__value {
-        font-size: 18px;
-        font-weight: 700;
+        font-size: 17px;
+        font-weight: 600;
         color: $text-heading;
         text-decoration: none;
+        line-height: 1.4;
 
         &:hover,
         &:focus-visible {
@@ -125,10 +395,18 @@ $gutter: 24px;
 
     &__address {
         font-size: 16px;
-        line-height: 1.55;
+        line-height: 1.5;
         color: $text-body;
         margin: 0;
-        max-width: 320px;
+        max-width: 260px;
+    }
+
+    &__form-card {
+        background: $color-red;
+        border-radius: $radius-lg;
+        padding: 18px 18px 12px;
+        height: 100%;
+        box-sizing: border-box;
     }
 
     &__form {
@@ -140,38 +418,40 @@ $gutter: 24px;
     &__form>input,
     &__form>textarea {
         width: 100%;
-        background: $bg-field;
-        border: 1px solid $border;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.6);
         border-radius: $radius;
         padding: 12px 18px;
         font-size: 15px;
         font-family: inherit;
-        color: $text-heading;
+        color: $button-text;
         box-sizing: border-box;
 
         &::placeholder {
-            color: $text-faint;
+            color: rgba(255, 255, 255, 0.85);
         }
 
         &:focus-visible {
             outline: none;
-            border-color: $border-focus;
+            border-color: $button-text;
         }
     }
 
     textarea {
         resize: vertical;
-        min-height: 96px;
+        min-height: 90px;
     }
 
     &__phone {
+        position: relative;
+
         .site-footer__phone-input {
             --react-international-phone-height: 43.5px;
-            --react-international-phone-background-color: #{$bg-field};
-            --react-international-phone-text-color: #{$text-heading};
+            --react-international-phone-background-color: transparent;
+            --react-international-phone-text-color: #{$button-text};
             --react-international-phone-font-size: 15px;
             --react-international-phone-border-radius: #{$radius};
-            --react-international-phone-border-color: #{$border};
+            --react-international-phone-border-color: rgba(255, 255, 255, 0.6);
             width: 100%;
             font-family: inherit;
         }
@@ -179,45 +459,475 @@ $gutter: 24px;
         .react-international-phone-input {
             flex: 1;
             width: 100%;
+            background: transparent;
+            color: $button-text;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.85);
+            }
+        }
+
+        .react-international-phone-country-selector-button {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .react-international-phone-input-container:focus-within {
-            border-color: $border-focus !important;
+            border-color: $button-text !important;
+        }
+
+        // Dropdown ro'yxati forma fonidan (transparent/qizil) mustaqil bo'lishi kerak —
+        // shu sabab alohida, tiniq (oq) fon va yuqori z-index beriladi.
+        .react-international-phone-country-selector-dropdown {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            z-index: 60;
+            width: 260px;
+            max-width: 90vw;
+            max-height: 260px;
+            overflow-y: auto;
+            margin: 0;
+            padding: 6px 0;
+            background: $bg-field !important;
+            color: $text-heading;
+            border: 1px solid $border;
+            border-radius: $radius;
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+            list-style: none;
+        }
+
+        .react-international-phone-country-selector-dropdown__list-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            background: $bg-field;
+            color: $text-heading;
+            cursor: pointer;
+
+            &-flag-emoji {
+                flex-shrink: 0;
+            }
+
+            &-country-name {
+                font-size: 14px;
+                color: $text-heading;
+            }
+
+            &-dial-code {
+                font-size: 13px;
+                color: $text-faint;
+            }
+
+            &:hover,
+            &--selected {
+                background: $bg-page;
+            }
         }
     }
 
     &__submit {
-        align-self: flex-center;
-        margin-top: 4px;
+        margin-top: 6px;
         padding: 14px 30px;
         border: none;
         border-radius: $radius;
-        background: $button-bg;
-        color: $button-text;
+        background: $button-text;
+        color: $color-red-dark;
         font-size: 15px;
-        font-weight: 600;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
         cursor: pointer;
 
         &:hover,
         &:focus-visible {
-            background: $button-bg-hover;
+            background: rgba(255, 255, 255, 0.9);
         }
 
         &:focus-visible {
-            outline: 2px solid $button-bg;
+            outline: 2px solid $button-text;
             outline-offset: 2px;
         }
     }
 
+    &__bottom {
+        margin-top: 56px;
+        border-top: 1px solid $border;
+    }
+
+    &__bottom-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 22px 0;
+        font-size: 14px;
+        color: $text-faint;
+
+        a {
+            color: $text-faint;
+            text-decoration: none;
+
+            &:hover,
+            &:focus-visible {
+                color: $text-heading;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (max-width: 1100px) {
+        &__col--bordered {
+            border-right: none;
+            padding-right: 0;
+        }
+    }
+
     @media (max-width:640px) {
-        padding: 36px 0px;
+        padding: 36px 0 0;
 
         &__heading {
-            margin: 0 0 18px;
+            margin: 0 0 14px;
         }
 
         &__col ul {
             gap: 14px;
         }
+
+        &__bottom-inner {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 }
+
+
+// $bg-page: #91919121;
+// $bg-field: #ffffff;
+// $border: #d9d9d7;
+// $border-focus: #9a9a98;
+
+// $text-heading: #1a1a1a;
+// $text-body: #2e2e2c;
+// $text-label: #56564f;
+// $text-faint: #8a8a86;
+
+// $color-red: #e2231a;
+// $color-red-dark: #c41e16;
+
+// $button-bg: #232323;
+// $button-bg-hover: #3a3a3a;
+// $button-text: #ffffff;
+
+// $radius: 8px;
+// $radius-lg: 16px;
+
+// $container-max: 1280px;
+// $gutter: 24px;
+
+// @media (prefers-reduced-motion: no-preference) {
+
+//     .site-footer a,
+//     .site-footer button,
+//     .site-footer input,
+//     .site-footer textarea {
+//         transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+//     }
+// }
+
+// .site-footer {
+//     background: $bg-page;
+//     color: $text-body;
+//     padding: 34px 0 0;
+//     border-top: 4px solid $color-red;
+
+//     &__sr-only {
+//         position: absolute;
+//         width: 1px;
+//         height: 1px;
+//         overflow: hidden;
+//         clip: rect(0 0 0 0);
+//         white-space: nowrap;
+//     }
+
+//     &__grid {
+//         display: grid;
+//         grid-template-columns: 1.3fr 200px 1.5fr 1.5fr;
+//         gap: 25px;
+//         align-items: stretch;
+
+//         @media (max-width: 1100px) {
+//             grid-template-columns: 1fr 1fr;
+//             row-gap: 28px;
+//         }
+
+//         @media (max-width: 640px) {
+//             grid-template-columns: 1fr;
+//         }
+//     }
+
+//     &__heading {
+//         font-size: 22px;
+//         font-weight: 700;
+//         text-transform: uppercase;
+//         letter-spacing: 0.2px;
+//         color: $text-heading;
+//         margin: 0 0 14px;
+//         position: relative;
+//         padding-bottom: 8px;
+
+//         &--light {
+//             color: $button-text;
+//         }
+//     }
+
+//     &__col {
+//         padding-right: 25px;
+
+//         &--bordered {
+//             border-right: 1px solid $border;
+//         }
+
+//         &--form {
+//             padding-right: 0;
+//         }
+
+//         ul {
+//             list-style: none;
+//             padding: 0;
+//             margin: 0;
+//             display: flex;
+//             flex-direction: column;
+//             gap: 16px;
+//         }
+
+//         li {
+//             position: relative;
+//             padding-left: 16px;
+
+//             &::before {
+//                 content: '';
+//                 position: absolute;
+//                 left: 0;
+//                 top: 9px;
+//                 width: 7px;
+//                 height: 7px;
+//                 background: $color-red;
+//             }
+//         }
+
+//         a {
+//             color: $text-body;
+//             text-decoration: none;
+//             font-size: 17px;
+//             line-height: 1.4;
+
+//             &:hover,
+//             &:focus-visible {
+//                 color: $text-heading;
+//                 text-decoration: underline;
+//             }
+
+//             &:focus-visible {
+//                 outline: 2px solid $border-focus;
+//                 outline-offset: 3px;
+//                 border-radius: 2px;
+//             }
+//         }
+//     }
+
+//     &__contact-item {
+//         display: flex;
+//         align-items: flex-start;
+//         gap: 14px;
+//         margin-bottom: 20px;
+
+//         &:last-child {
+//             margin-bottom: 0;
+//         }
+//     }
+
+//     &__icon {
+//         flex-shrink: 0;
+//         width: 22px;
+//         height: 22px;
+//         color: $color-red;
+
+//         svg {
+//             width: 100%;
+//             height: 100%;
+//         }
+//     }
+
+//     &__value {
+//         font-size: 17px;
+//         font-weight: 600;
+//         color: $text-heading;
+//         text-decoration: none;
+//         line-height: 1.4;
+
+//         &:hover,
+//         &:focus-visible {
+//             text-decoration: underline;
+//         }
+//     }
+
+//     &__address {
+//         font-size: 16px;
+//         line-height: 1.5;
+//         color: $text-body;
+//         margin: 0;
+//         max-width: 260px;
+//     }
+
+//     &__form-card {
+//         background: $color-red;
+//         border-radius: $radius-lg;
+//         padding: 18px 18px 12px;
+//         height: 100%;
+//         box-sizing: border-box;
+//     }
+
+//     &__form {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 10px;
+//     }
+
+//     &__form>input,
+//     &__form>textarea {
+//         width: 100%;
+//         background: transparent;
+//         border: 1px solid rgba(255, 255, 255, 0.6);
+//         border-radius: $radius;
+//         padding: 12px 18px;
+//         font-size: 15px;
+//         font-family: inherit;
+//         color: $button-text;
+//         box-sizing: border-box;
+
+//         &::placeholder {
+//             color: rgba(255, 255, 255, 0.85);
+//         }
+
+//         &:focus-visible {
+//             outline: none;
+//             border-color: $button-text;
+//         }
+//     }
+
+//     textarea {
+//         resize: vertical;
+//         min-height: 90px;
+//     }
+
+//     &__phone {
+//         .site-footer__phone-input {
+//             --react-international-phone-height: 43.5px;
+//             --react-international-phone-background-color: transparent;
+//             --react-international-phone-text-color: #{$button-text};
+//             --react-international-phone-font-size: 15px;
+//             --react-international-phone-border-radius: #{$radius};
+//             --react-international-phone-border-color: rgba(255, 255, 255, 0.6);
+//             width: 100%;
+//             font-family: inherit;
+//         }
+
+//         .react-international-phone-input {
+//             flex: 1;
+//             width: 100%;
+//             background: transparent;
+//             color: $button-text;
+
+//             &::placeholder {
+//                 color: rgba(255, 255, 255, 0.85);
+//             }
+//         }
+
+//         .react-international-phone-country-selector-button {
+//             background: transparent;
+//             border-color: rgba(255, 255, 255, 0.6);
+//         }
+
+//         .react-international-phone-input-container:focus-within {
+//             border-color: $button-text !important;
+//         }
+//     }
+
+//     &__submit {
+//         margin-top: 6px;
+//         padding: 14px 30px;
+//         border: none;
+//         border-radius: $radius;
+//         background: $button-text;
+//         color: $color-red-dark;
+//         font-size: 15px;
+//         font-weight: 700;
+//         text-transform: uppercase;
+//         letter-spacing: 0.5px;
+//         cursor: pointer;
+
+//         &:hover,
+//         &:focus-visible {
+//             background: rgba(255, 255, 255, 0.9);
+//         }
+
+//         &:focus-visible {
+//             outline: 2px solid $button-text;
+//             outline-offset: 2px;
+//         }
+//     }
+
+//     &__bottom {
+//         margin-top: 56px;
+//         border-top: 1px solid $border;
+//     }
+
+//     &__bottom-inner {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         flex-wrap: wrap;
+//         gap: 10px;
+//         padding: 22px 0;
+//         font-size: 14px;
+//         color: $text-faint;
+
+//         a {
+//             color: $text-faint;
+//             text-decoration: none;
+
+//             &:hover,
+//             &:focus-visible {
+//                 color: $text-heading;
+//                 text-decoration: underline;
+//             }
+//         }
+//     }
+
+//     @media (max-width: 1100px) {
+//         &__col--bordered {
+//             border-right: none;
+//             padding-right: 0;
+//         }
+//     }
+
+//     @media (max-width:640px) {
+//         padding: 36px 0 0;
+
+//         &__heading {
+//             margin: 0 0 14px;
+//         }
+
+//         &__col ul {
+//             gap: 14px;
+//         }
+
+//         &__bottom-inner {
+//             flex-direction: column;
+//             align-items: flex-start;
+//         }
+//     }
+// }

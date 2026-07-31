@@ -118,7 +118,7 @@ function Hero() {
                             style={{ backgroundImage: `url(${slide.image})` }}
                         >
                             <div className="hero__slide-info container">
-                                <h3 className="hero__slide-info-text">{slide.title}</h3>
+                                <h3 className="hero__slide-info-text"><i>{slide.title}</i></h3>
                             </div>
                         </div>
                     </SwiperSlide>
