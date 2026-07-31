@@ -784,6 +784,12 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 0;
+            height: 600px;
+
+
+            @media (max-width:1500px) {
+                height: 512px;
+            }
         }
 
         &__content {
@@ -802,10 +808,14 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
             &-text {
                 color: $color-gray-text;
                 font-size: 16px;
-                line-height: 19px;
+                line-height: 24px;
                 margin-bottom: 22px;
                 text-align: justify;
                 text-justify: inter-word;
+
+                @media (max-width:1500px) {
+                    line-height: 19px;
+                }
             }
 
             .link-arrow {
@@ -842,7 +852,6 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
     }
 
-    // ---- SWAPPED: endi oq fon, qora matn ----
     &-band {
         background: $color-black;
         color: $color-white;
