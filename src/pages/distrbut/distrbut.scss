@@ -5,16 +5,16 @@
 
     &__top {
         position: relative;
-        background: url(../../assets/images/distBg.jpg) no-repeat;
+        background: url(../../assets/images/distBg.png) no-repeat;
         background-size: cover;
         background-position: left;
-        min-height: 590px;
+        min-height: 500px;
         display: flex;
         align-items: center;
         margin-top: 28px;
 
         @media (max-width:1500px) {
-            min-height: 490px;
+            min-height: 425px;
         }
 
         @media (max-width: 992px) {
