@@ -329,7 +329,7 @@ $color-card-bg: hsl(0, 0%, 5%);
         font-size: 16px;
         line-height: 500;
         line-height: 1.75;
-        color: $color-text-muted-soft;
+        color: white;
         text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
     }
 
@@ -346,7 +346,7 @@ $color-card-bg: hsl(0, 0%, 5%);
     flex-direction: column;
     overflow: hidden;
     border-radius: 18px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.08) 100%);
+    background: white;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.35);
