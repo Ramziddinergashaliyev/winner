@@ -46,6 +46,7 @@ const Catalog = ({ embedded = false }) => {
         <section className={`catalog ${embedded ? 'catalog--embedded' : ''}`}>
             <div className="container">
                 <div className="catalog-wrapper">
+
                     <div className="catalog-info">
                         <h2 className='catalog-info-title'>Catalog</h2>
                         <p className='catalog-info-text'>LUBRICANTS,FLUIDS AND AUTOMATIVE CARE</p>
@@ -68,12 +69,14 @@ const Catalog = ({ embedded = false }) => {
                                 }}
                             >
                                 <div className="catalog-card__overlay" />
+
                                 <div className="catalog-card__info">
                                     <h3 className="catalog-card__info-text">{item?.title?.en}</h3>
                                 </div>
                             </Reveal>
                         ))}
                     </div>
+
                 </div>
             </div>
         </section>

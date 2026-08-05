@@ -46,7 +46,6 @@ const items = [
     }
 ]
 
-
 const Purpose = () => {
     const sectionRef = useRef(null)
     const [visible, setVisible] = useState(false)

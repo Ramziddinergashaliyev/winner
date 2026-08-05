@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import "./about.scss";
 
+import img1 from "../../assets/images/partfolio/antPart.webp";
+import img2 from "../../assets/images/partfolio/engPart.webp";
+import img3 from "../../assets/images/partfolio/hydrPart.webp";
+import img4 from "../../assets/images/partfolio/transPart.webp";
+
 function useScrollReveal(rootRef) {
     useEffect(() => {
         const root = rootRef.current;
@@ -37,45 +42,53 @@ const stagger = (i) => ({ "--i": i });
 
 const PORTFOLIO_ITEMS = [
     {
-        key: "evf",
+        key: "hydraulic",
         index: "01",
-        eyebrow: "ELECTRIFICATION",
-        title: "EVF (Electric Vehicle Fluid)",
+        eyebrow: "MOTOR OILS",
+        title: "MOTOR OILS",
+        img: img2,
         points: [
-            "Collaborating with global car makers, WINNER has developed high-end products for EV and HEV lubricants.",
-            "Based on innovative challenges, WINNER will once again lead the paradigm of lubricants.",
+            "WINNER motor oils are formulated with carefully selected base oils and advanced additive technologies for reliable engine protection.",
+            "They help reduce friction and wear, maintain engine cleanliness, and support stable performance under high loads and temperatures.",
+            "Developed in accordance with recognized international standards, WINNER motor oils provide dependable protection for modern petrol and diesel engines."
+        ],
+    },
+    {
+        key: "evf",
+        index: "02",
+        eyebrow: "TRANSMISSION FLUIDS ",
+        title: "TRANSMISSION FLUIDS ",
+        img: img4,
+        points: [
+            "WINNER gear oils are formulated with high-quality base oils and advanced anti-wear additives to protect gears and transmission components under demanding operating conditions.",
+            "They help reduce friction, support smooth gear operation, and provide reliable protection against wear, corrosion, and deposit formation.",
+            "Excellent thermal and oxidation stability ensures lasting performance under high loads, pressure, and temperature."
         ],
     },
     {
         key: "engine",
-        index: "02",
-        eyebrow: "COMBUSTION",
-        title: "Engine Oil",
+        index: "03",
+        eyebrow: "HYDRAULIC FLUIDS",
+        title: "HYDRAULIC FLUIDS",
+        img: img3,
         points: [
-            "Made of VHVI base oil and certified by global car makers.",
-            "Provides excellent engine protection and increases fuel efficiency in any driving conditions.",
+            "WINNER hydraulic fluids are formulated with high-quality base oils and advanced additives to ensure efficient power transmission and reliable system performance.",
+            "They provide excellent protection against wear, corrosion, oxidation, and deposit formation, helping extend equipment service life.",
+            "Stable viscosity and strong thermal performance ensure smooth operation under high pressure, heavy loads, and demanding working conditions."
         ],
     },
     {
         key: "gear",
-        index: "03",
-        eyebrow: "TRANSMISSION",
-        title: "Gear Oil",
-        points: [
-            "Made of VHVI base oil with anti-wear technology for smoothness and durability.",
-            "Supplied to global car makers in acknowledgment of our high-end technology.",
-        ],
-    },
-    {
-        key: "hydraulic",
         index: "04",
-        eyebrow: "INDUSTRIAL",
-        title: "Hydraulic / Industrial Oil",
+        eyebrow: "ANTIFREEZE & COOLANTS",
+        title: "ANTIFREEZE & COOLANTS",
+        img: img1,
         points: [
-            "Optimized lubricant development for each application ensures excellent protection.",
-            "Supplied to global construction and agricultural manufacturing companies.",
+            "WINNER antifreeze and coolants provide efficient heat transfer and help maintain stable engine temperatures in demanding climate and driving conditions.",
+            "Advanced formulations protect cooling-system components against corrosion, deposits, freezing, and overheating.",
+            "Compatible with aluminium and mixed-metal cooling systems, WINNER coolants deliver reliable, long-lasting protection throughout the year."
         ],
-    },
+    }
 ];
 
 export default function AboutSections() {
@@ -153,14 +166,17 @@ export default function AboutSections() {
                                     <div className="about-portfolio__card-index">{item.index}</div>
 
                                     <div className="about-portfolio__card-media">
-                                        <div className={`about-portfolio__card-image about-portfolio__card-image--${item.key}`}></div>
+                                        <div className={`about-portfolio__card-image about-portfolio__card-image--${item.key}`}>
+                                            <img src={item.img} alt={item.title} loading="lazy" />
+                                        </div>
+
+
                                         <div className="about-portfolio__card-tint"></div>
                                         <span className="about-portfolio__card-sweep"></span>
                                         <span className="about-portfolio__card-plus">+</span>
                                     </div>
 
                                     <div className="about-portfolio__card-content">
-                                        <span className="about-portfolio__card-eyebrow">{item.eyebrow}</span>
                                         <h3 className="about-portfolio__card-title">{item.title}</h3>
 
                                         <ul className="about-portfolio__card-list">
@@ -205,6 +221,7 @@ export default function AboutSections() {
 
                     <div className="about-defines__item" data-reveal style={stagger(1)}>
                         <div className="num">01</div>
+
                         <h3 className="about-defines__item-title">EFFICIENT HEAT TRANSFER</h3>
 
                         <p className="about-defines__item-text">
@@ -232,7 +249,6 @@ export default function AboutSections() {
 
                 </div>
             </section>
-
         </div>
     );
 }
