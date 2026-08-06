@@ -71,9 +71,9 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
             content: "";
             position: absolute;
             inset: 0;
-            background:
-                linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.15) 55%, rgba(0, 0, 0, 0.55) 100%),
-                radial-gradient(ellipse at 80% 20%, rgba(200, 31, 35, 0.18), transparent 60%);
+            // background:
+            //     linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.15) 55%, rgba(0, 0, 0, 0.55) 100%),
+            //     radial-gradient(ellipse at 80% 20%, rgba(200, 31, 35, 0.18), transparent 60%);
             pointer-events: none;
         }
     }
