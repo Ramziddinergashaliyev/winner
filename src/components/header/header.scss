@@ -40,6 +40,10 @@
         @include flex-center;
         gap: 34px;
 
+        @media (max-width:1500px) {
+            gap: 24px;
+        }
+
         &-link {
             position: relative;
             display: inline-block;

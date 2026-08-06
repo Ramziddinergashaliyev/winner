@@ -3,27 +3,27 @@ import { ROUTES } from "./routes";
 export const MENU = [
     {
         id: 1,
-        title: "Home",
+        title: "home",
         path: ROUTES.HOME,
     },
     {
         id: 2,
-        title: "About",
+        title: "about",
         path: ROUTES.ABOUT,
     },
     {
         id: 3,
-        title: "Catalog",
+        title: "catalog",
         path: ROUTES.CATALOG,
     },
     {
         id: 4,
-        title: "Distrbuter",
+        title: "distrbuter",
         path: ROUTES.DISTR,
     },
     {
         id: 5,
-        title: "Contact",
+        title: "contact",
         path: ROUTES.CONTACT,
     }
 ];

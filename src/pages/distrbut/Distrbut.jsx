@@ -210,12 +210,15 @@ const Distrbut = () => {
             <div className="distrbut__top">
                 <div className="container distrbut__inner-container">
                     <div className="distrbut__content">
+
                         <span className="distrbut__label">Global network</span>
+
                         <h2 className="distrbut__title">
                             Official <span className="distrbut__title-accent">Distributors.</span>
                             <br />
                             Stronger Together.
                         </h2>
+
                         <p className="distrbut__desc">
                             Join our global network of trusted partners and deliver
                             performance that drives results.
@@ -232,6 +235,7 @@ const Distrbut = () => {
                                 </div>
                             ))}
                         </div>
+
                     </div>
                 </div>
             </div>

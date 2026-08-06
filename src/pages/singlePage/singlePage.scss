@@ -484,9 +484,8 @@ $main-image-height: 550px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 18px;
+        margin-bottom: 24px;
         border-radius: 10px;
-        background: radial-gradient(ellipse at 50% 70%, #fdeceb 0%, transparent 70%);
         padding: 16px;
         box-sizing: border-box;
 
@@ -495,9 +494,6 @@ $main-image-height: 550px;
             height: 100%;
         }
 
-        img {
-            filter: drop-shadow(0 14px 16px $black);
-        }
     }
 
     &__name {

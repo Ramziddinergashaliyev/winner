@@ -329,13 +329,13 @@ const SinglePage = () => {
                                     key={item.id}
                                     style={{ animationDelay: `${index * 80}ms` }}
                                 >
-                                    <div className="related-card__image">
+                                    <NavLink to={`/single-products/${item?.id}`} className="related-card__image">
                                         <LoadingImage
                                             src={item?.images?.[0]}
                                             alt={item?.name?.en}
                                             wrapClassName="related-card__image-loader"
                                         />
-                                    </div>
+                                    </NavLink>
                                     <h3 className="related-card__name">{item?.name?.en}</h3>
                                     <p className="related-card__tag">{item?.category?.title?.en}</p>
 

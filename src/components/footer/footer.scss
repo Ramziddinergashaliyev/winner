@@ -1,18 +1,18 @@
-$bg-page: #91919121;
-$bg-field: #ffffff;
-$border: #d9d9d7;
-$border-focus: #9a9a98;
+$bg-page: #1a1a1a;
+$bg-field: #232323;
+$border: #3a3a3a;
+$border-focus: #6a6a6a;
 
-$text-heading: #1a1a1a;
-$text-body: #2e2e2c;
-$text-label: #56564f;
-$text-faint: #8a8a86;
+$text-heading: #ffffff;
+$text-body: #e5e5e5;
+$text-label: #cfcfcf;
+$text-faint: #a0a0a0;
 
 $color-red: #e2231a;
 $color-red-dark: #c41e16;
 
-$button-bg: #232323;
-$button-bg-hover: #3a3a3a;
+$button-bg: #ffffff;
+$button-bg-hover: #e5e5e5;
 $button-text: #ffffff;
 
 $radius: 8px;
@@ -32,7 +32,7 @@ $gutter: 24px;
 }
 
 .site-footer {
-    background: white;
+    background: #000000;
     color: $text-body;
     padding: 34px 0 0;
     border-top: 4px solid $color-red;
@@ -177,7 +177,8 @@ $gutter: 24px;
     }
 
     &__form-card {
-        background: rgb(50, 50, 50);
+        background: #141414;
+        border: 1px solid $border;
         border-radius: $radius-lg;
         padding: 18px 18px 12px;
         height: 100%;
@@ -194,7 +195,7 @@ $gutter: 24px;
     &__form>textarea {
         width: 100%;
         background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: $radius;
         padding: 12px 18px;
         font-size: 15px;
@@ -203,7 +204,7 @@ $gutter: 24px;
         box-sizing: border-box;
 
         &::placeholder {
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         &:focus-visible {
@@ -226,7 +227,7 @@ $gutter: 24px;
             --react-international-phone-text-color: #{$button-text};
             --react-international-phone-font-size: 15px;
             --react-international-phone-border-radius: #{$radius};
-            --react-international-phone-border-color: rgba(255, 255, 255, 0.6);
+            --react-international-phone-border-color: rgba(255, 255, 255, 0.3);
             width: 100%;
             font-family: inherit;
         }
@@ -238,13 +239,13 @@ $gutter: 24px;
             color: $button-text;
 
             &::placeholder {
-                color: rgba(255, 255, 255, 0.85);
+                color: rgba(255, 255, 255, 0.6);
             }
         }
 
         .react-international-phone-country-selector-button {
             background: transparent;
-            border-color: rgba(255, 255, 255, 0.6);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .react-international-phone-input-container:focus-within {
@@ -266,7 +267,7 @@ $gutter: 24px;
             color: $text-heading;
             border: 1px solid $border;
             border-radius: $radius;
-            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.6);
             list-style: none;
         }
 
@@ -295,7 +296,7 @@ $gutter: 24px;
 
             &:hover,
             &--selected {
-                background: $bg-page;
+                background: #333;
             }
         }
     }
@@ -303,10 +304,10 @@ $gutter: 24px;
     &__submit {
         margin-top: 6px;
         padding: 14px 30px;
-        border: none;
+        border: 1px solid $button-text;
         border-radius: $radius;
-        background: $button-text;
-        color: black;
+        background: transparent;
+        color: $button-text;
         font-size: 15px;
         font-weight: 700;
         text-transform: uppercase;
@@ -315,7 +316,8 @@ $gutter: 24px;
 
         &:hover,
         &:focus-visible {
-            background: rgba(255, 255, 255, 0.9);
+            background: $button-text;
+            color: #000000;
         }
 
         &:focus-visible {
