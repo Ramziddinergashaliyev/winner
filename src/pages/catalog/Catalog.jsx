@@ -11,6 +11,7 @@ import mM from '../../assets/images/catalog/mM.webp'
 import trans from '../../assets/images/catalog/trans.webp'
 import washer from '../../assets/images/catalog/washer.webp'
 import { useGetCategoriesQuery } from '../../services/categoryApi'
+import { useTranslation } from 'react-i18next'
 
 const categories = [
     {
@@ -40,6 +41,7 @@ const categories = [
 ]
 
 const Catalog = ({ embedded = false }) => {
+    const { t, i18n } = useTranslation()
     const { data } = useGetCategoriesQuery()
 
     return (

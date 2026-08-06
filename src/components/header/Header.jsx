@@ -11,11 +11,6 @@ import "./header.scss";
 
 const LANGUAGES = [
     {
-        code: "uz",
-        label: "UZ",
-        flag: "https://flagcdn.com/w40/uz.png",
-    },
-    {
         code: "en",
         label: "EN",
         flag: "https://flagcdn.com/w40/gb.png",
