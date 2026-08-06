@@ -185,7 +185,7 @@ export default function Footer() {
             <div className="site-footer__bottom">
                 <div className="container site-footer__bottom-inner">
                     <span>© {new Date().getFullYear()} WINNER. All rights reserved.</span>
-                    <NavLink to="/privacy">Privacy Policy</NavLink>
+                    <NavLink>Privacy Policy</NavLink>
                 </div>
             </div>
         </footer>
