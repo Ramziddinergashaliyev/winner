@@ -102,7 +102,6 @@ const Contact = () => {
                                     }}>
                                     Send another message
                                 </button>
-
                             </div>
                         ) : (
                             <form className="contact__form" onSubmit={handleSubmit}>
