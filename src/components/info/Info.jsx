@@ -3,9 +3,9 @@ import './info.scss'
 import Reveal from '../reveal/Reveal'
 import { useTranslation } from 'react-i18next'
 
-import img1 from '../../assets/images/info.png'
-import img2 from '../../assets/images/info2.png'
-import img3 from '../../assets/images/info3.png'
+import img1 from '../../assets/images/info.webp'
+import img2 from '../../assets/images/info2.webp'
+import img3 from '../../assets/images/info3.webp'
 
 const cardsEn = [
     {

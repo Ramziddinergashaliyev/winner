@@ -13,33 +13,6 @@ import washer from '../../assets/images/catalog/washer.webp'
 import { useGetCategoriesQuery } from '../../services/categoryApi'
 import { useTranslation } from 'react-i18next'
 
-const categories = [
-    {
-        title: 'Motor oils for passenger cars and light commercial vehicles',
-        image: leg,
-    },
-    {
-        title: 'Motor oils for diesel engines',
-        image: mM,
-    },
-    {
-        title: 'Transmission oils',
-        image: trans,
-    },
-    {
-        title: 'Hydraulic oils',
-        image: gid,
-    },
-    {
-        title: 'Antifreeze',
-        image: ant,
-    },
-    {
-        title: 'Window washers',
-        image: washer,
-    }
-]
-
 const Catalog = ({ embedded = false }) => {
     const { t, i18n } = useTranslation()
     const { data } = useGetCategoriesQuery()
@@ -50,8 +23,8 @@ const Catalog = ({ embedded = false }) => {
                 <div className="catalog-wrapper">
 
                     <div className="catalog-info">
-                        <h2 className='catalog-info-title'>Catalog</h2>
-                        <p className='catalog-info-text'>LUBRICANTS,FLUIDS AND AUTOMATIVE CARE</p>
+                        <h2 className='catalog-info-title'>{t("catalog")}</h2>
+                        <p className='catalog-info-text'>{t("LUBRICANTS")}</p>
                     </div>
 
                     <div className="catalog__grid">
@@ -73,7 +46,7 @@ const Catalog = ({ embedded = false }) => {
                                 <div className="catalog-card__overlay" />
 
                                 <div className="catalog-card__info">
-                                    <h3 className="catalog-card__info-text">{item?.title?.en}</h3>
+                                    <h3 className="catalog-card__info-text">{i18n?.languages?.[0] === "ru" ? item?.title?.ru : item?.title?.en}</h3>
                                 </div>
                             </Reveal>
                         ))}

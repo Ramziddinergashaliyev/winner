@@ -4,6 +4,7 @@ import { useGetProductsQuery } from '../../services/productApi'
 
 import { useGetValue } from '../../hooks/useGetValue'
 import './contact.scss'
+import { useTranslation } from 'react-i18next'
 
 const infoCards = [
     {
@@ -39,12 +40,12 @@ const Contact = () => {
     const [form, setForm] = useState(initialState)
     const [submitted, setSubmitted] = useState(false)
     const { formData, setFormData, handleChange } = useGetValue({ initialState })
-
     const { data } = useGetProductsQuery()
+
+    const { t, i18n } = useTranslation()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData);
         setFormData(initialState)
     }
 
@@ -53,9 +54,10 @@ const Contact = () => {
             <div className="contact__container container">
 
                 <Reveal as="div" className="contact__head" variant="up">
-                    <span className="contact__eyebrow">Get in touch</span>
+                    <span className="contact__eyebrow">{t("Get in touch")}</span>
+
                     <h1 className="contact__title">
-                        Let&apos;s talk <span>lubricants.</span>
+                        Let's talk <span>lubricants.</span>
                     </h1>
 
                     <p className="contact__subtitle">
@@ -67,7 +69,7 @@ const Contact = () => {
                 <div className="contact__grid">
 
                     <div className="contact__info">
-                        {infoCards.map((card, index) => (
+                        {infoCards?.map((card, index) => (
                             <Reveal
                                 as="div"
                                 className="contact__card"

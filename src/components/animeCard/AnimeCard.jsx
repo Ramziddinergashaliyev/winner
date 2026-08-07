@@ -5,11 +5,18 @@ import img2 from "../../assets/images/bgauto1.webp"
 import img3 from "../../assets/images/bgauto2.webp"
 
 import "./animeCard.scss"
+import { useTranslation } from 'react-i18next'
 
-const TABS = [
+const TABSEN = [
     { id: "engine", label: "Motor oils for passenger cars", image: img1 },
     { id: "diesel", label: "Motor oils for diesel", image: img2 },
     { id: "transmission", label: "Transmission", image: img3 },
+]
+
+const TABSRU = [
+    { id: "engine", label: "Моторные масла для легковой техники", image: img1 },
+    { id: "diesel", label: "Моторные масла для дизельных двигателей", image: img2 },
+    { id: "transmission", label: "Трансмиссионные масла", image: img3 },
 ]
 
 const AUTOPLAY_DELAY = 4000
@@ -18,13 +25,18 @@ const DIRECTION = "right"
 const AnimeCard = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const [prevIndex, setPrevIndex] = useState(null)
+    const { t, i18n } = useTranslation()
+    console.log(i18n);
+
+
+    const TABSDATA = i18n?.languages?.[0] === "ru" ? TABSRU : TABSEN
 
     const animKey = useRef(0)
     const activeIndexRef = useRef(activeIndex)
     const intervalRef = useRef(null)
 
-    const active = TABS[activeIndex]
-    const prev = prevIndex !== null ? TABS[prevIndex] : null
+    const active = TABSDATA[activeIndex]
+    const prev = prevIndex !== null ? TABSDATA[prevIndex] : null
 
     const goTo = (idx, manual = false) => {
         setActiveIndex((current) => {
@@ -39,7 +51,7 @@ const AnimeCard = () => {
     const startAutoplay = () => {
         clearInterval(intervalRef.current)
         intervalRef.current = setInterval(() => {
-            const next = (activeIndexRef.current + 1) % TABS.length
+            const next = (activeIndexRef.current + 1) % TABSDATA.length
             goTo(next)
         }, AUTOPLAY_DELAY)
     }
@@ -67,7 +79,7 @@ const AnimeCard = () => {
             <nav className="anime-card__nav">
                 <div className="anime-card__nav-inner">
                     <ul className="anime-card__tabs container">
-                        {TABS.map((tab, idx) => (
+                        {TABSDATA?.map((tab, idx) => (
                             <li key={tab.id}>
                                 <span
                                     role="button"

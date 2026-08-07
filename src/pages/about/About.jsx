@@ -35,6 +35,7 @@ function useScrollReveal(rootRef) {
 
         targets.forEach((el) => observer.observe(el));
         return () => observer.disconnect();
+
     }, [rootRef]);
 }
 

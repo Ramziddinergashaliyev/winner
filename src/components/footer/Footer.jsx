@@ -2,24 +2,11 @@ import React, { useState } from 'react'
 import { PhoneInput } from 'react-international-phone'
 import { NavLink } from 'react-router-dom'
 import 'react-international-phone/style.css'
-import Reveal from '../reveal/Reveal'
 import './footer.scss'
-
-const PRODUCT_LINKS = [
-    { label: 'Motor oils for passenger cars and light commercial vehicles', href: '/ategories/1' },
-    { label: 'Motor oils for diesel engines', href: '/categories/2' },
-    { label: 'Transmission fluid', href: '/categories/3' },
-    { label: 'Hydraulic fluid', href: '/categories/4' },
-    { label: 'Antifreeze', href: '/categories/5' },
-    { label: 'Window washers', href: '/categories/6' },
-]
-
-const COMPANY_LINKS = [
-    { label: 'About', href: '/about' },
-    { label: 'Catalog', href: '/catalog' },
-    { label: 'Distributor', href: '/distrbuter' },
-    { label: 'Contact', href: '/contact' },
-]
+import Reveal from '../reveal/Reveal'
+import { MENU } from '../../constants'
+import { useTranslation } from 'react-i18next'
+import { useGetCategoriesQuery } from '../../services/categoryApi'
 
 const PhoneIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -43,6 +30,8 @@ const MailIcon = () => (
 
 export default function Footer() {
     const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+    const { t, i18n } = useTranslation()
+    const { data } = useGetCategoriesQuery()
 
     const handleChange = (field) => (e) => {
         setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -59,12 +48,12 @@ export default function Footer() {
                 <Reveal as="div" className="site-footer__container site-footer__grid" variant="up">
 
                     <nav className="site-footer__col site-footer__col--bordered" aria-label="Products">
-                        <h3 className="site-footer__heading">Products</h3>
+                        <h3 className="site-footer__heading">{t("Products")}</h3>
 
                         <ul>
-                            {PRODUCT_LINKS.map((link) => (
-                                <li key={link.label}>
-                                    <NavLink to={link.href}>{link.label}</NavLink>
+                            {data?.map((link) => (
+                                <li key={link.id}>
+                                    <NavLink to={`/categories/${link?.id}`}>{i18n?.languages?.[0] === "ru" ? link?.title?.ru : link?.title?.en}</NavLink>
                                 </li>
                             ))}
                         </ul>
@@ -72,26 +61,27 @@ export default function Footer() {
                     </nav>
 
                     <nav className="site-footer__col site-footer__col--bordered" aria-label="Company">
-                        <h3 className="site-footer__heading">Company</h3>
+                        <h3 className="site-footer__heading">{t("Company")}</h3>
 
                         <ul>
-                            {COMPANY_LINKS.map((link) => (
-                                <li key={link.label}>
-                                    <NavLink to={link.href}>{link.label}</NavLink>
+                            {MENU?.slice(1, 6)?.map((link) => (
+                                <li key={link.id}>
+                                    <NavLink to={link.path}>{t(link.title)}</NavLink>
                                 </li>
                             ))}
                         </ul>
-
                     </nav>
 
                     <div className="site-footer__col">
-                        <h3 className="site-footer__heading">Contacts</h3>
+                        <h3 className="site-footer__heading">{t("Contacts")}</h3>
 
                         <div className="site-footer__contact-item">
                             <span className="site-footer__icon"><PhoneIcon /></span>
+
                             <a className="site-footer__value" href="tel:+998712814930">
                                 +998 71 281 49 30
                             </a>
+
                         </div>
 
                         <div className="site-footer__contact-item">
@@ -118,11 +108,11 @@ export default function Footer() {
 
                     <div className="site-footer__col site-footer__col--form">
                         <div className="site-footer__form-card">
-                            <h3 className="site-footer__heading site-footer__heading--light">Оставить сообщение</h3>
+                            <h3 className="site-footer__heading site-footer__heading--light">{t("Оставить сообщение")}</h3>
 
                             <form className="site-footer__form" onSubmit={handleSubmit}>
                                 <label className="site-footer__sr-only" htmlFor="footer-name">
-                                    Имя
+                                    {t("Имя")}
                                 </label>
 
                                 <input
@@ -136,7 +126,7 @@ export default function Footer() {
 
                                 <div className="site-footer__phone">
                                     <label className="site-footer__sr-only" htmlFor="footer-phone">
-                                        Номер телефона
+                                        {t("Номер телефона")}
                                     </label>
 
                                     <PhoneInput
@@ -149,7 +139,7 @@ export default function Footer() {
                                 </div>
 
                                 <label className="site-footer__sr-only" htmlFor="footer-email">
-                                    Электронная почта
+                                    {t("Электронная почта")}
                                 </label>
 
                                 <input
@@ -162,7 +152,7 @@ export default function Footer() {
                                 />
 
                                 <label className="site-footer__sr-only" htmlFor="footer-message">
-                                    Сообщение
+                                    {t("Сообщение")}
                                 </label>
 
                                 <textarea
@@ -174,7 +164,7 @@ export default function Footer() {
                                 />
 
                                 <button type="submit" className="site-footer__submit">
-                                    Отправить
+                                    {t("Отправить")}
                                 </button>
                             </form>
                         </div>
@@ -184,8 +174,8 @@ export default function Footer() {
 
             <div className="site-footer__bottom">
                 <div className="container site-footer__bottom-inner">
-                    <span>© {new Date().getFullYear()} WINNER. All rights reserved.</span>
-                    <NavLink>Privacy Policy</NavLink>
+                    <span>© {new Date().getFullYear()} {t("All rights")}</span>
+                    <NavLink>{t("Privacy Policy")}</NavLink>
                 </div>
             </div>
         </footer>

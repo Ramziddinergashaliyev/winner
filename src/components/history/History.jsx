@@ -5,8 +5,9 @@ import img2 from '../../assets/images/history2.webp'
 import img3 from '../../assets/images/history3.webp'
 
 import './history.scss'
+import { useTranslation } from 'react-i18next'
 
-const cards = [
+const cardsEn = [
     {
         image: img1,
         title: 'Innovation',
@@ -24,25 +25,43 @@ const cards = [
     }
 ]
 
+const cardsRU = [
+    {
+        image: img1,
+        title: 'Инновации',
+        text: 'Собственные исследования и испытания в экстремальных условиях.',
+    },
+    {
+        image: img2,
+        title: 'Производительность',
+        text: 'Максимальная защита двигателя и мощность на каждом этапе пути.',
+    },
+    {
+        image: img3,
+        title: 'Победа',
+        text: 'Доверие чемпионов и профессионалов по всему миру.',
+    }
+]
+
 const History = () => {
+    const { t, i18n } = useTranslation()
+
+    const cardsData = i18n?.languages?.[0] === "ru" ? cardsRU : cardsEn
+
     return (
         <section className="history">
             <div className="history__container container">
                 <Reveal as="div" className="history__intro" variant="left">
                     <h2 className="history__title">
-                        More than oil.
-                        <span className="history__title-accent">It&apos;s the DNA of winners.</span>
+                        {t("more")}
+                        <span className="history__title-accent">{t("DNA")}</span>
                     </h2>
 
-                    <p className="history__text">
-                        WINNER is the result of a passion for technology, speed, and flawless
-                        quality. We craft oils that unlock your engine&apos;s full potential in any
-                        conditions.
-                    </p>
+                    <p className="history__text">{t("the result")}</p>
                 </Reveal>
 
                 <div className="history__cards">
-                    {cards.map((card, index) => (
+                    {cardsData?.map((card, index) => (
                         <Reveal
                             as="div"
                             className="history-card"
