@@ -1,20 +1,37 @@
-import { lazy, StrictMode, Suspense } from 'react'
+// import { lazy, StrictMode, Suspense } from 'react'
+// import { createRoot } from 'react-dom/client'
+// const App = lazy(() => import("./App.jsx"))
+// import "./styles/index.scss"
+// import Leazy from './components/leazy/Leazy.jsx'
+// import { BrowserRouter } from 'react-router-dom'
+// import { Provider } from 'react-redux'
+// import { store } from './store/store.js'
+// import "./utils/i18n.js"
+
+
+// createRoot(document.getElementById('root')).render(
+//   <StrictMode>
+//     <Suspense fallback={<Leazy />}>
+//       <Provider store={store}>
+//         <App />
+//       </Provider>
+//     </Suspense>
+//   </StrictMode>,
+// )
+
+
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-const App = lazy(() => import("./App.jsx"))
+import App from './App.jsx'  // lazy emas, oddiy import
 import "./styles/index.scss"
-import Leazy from './components/leazy/Leazy.jsx'
-import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/store.js'
 import "./utils/i18n.js"
 
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Suspense fallback={<Leazy />}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </Suspense>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </StrictMode>,
 )
