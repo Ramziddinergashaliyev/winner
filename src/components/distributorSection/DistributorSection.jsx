@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Reveal from '../reveal/Reveal'
 
 import './distributorSection.scss'
+import { useTranslation } from 'react-i18next'
 
 const distributors = [
     { id: 1, country: "Uzbekistan", firm: 'LLC "WINNER UZBEKISTAN"', addr: "Tashkent, Yunusabad district, Amir Temur St. 15", phone: "+998 71 123 45 67" },
@@ -37,6 +38,7 @@ export default function DistributorSection() {
     const [trackText, setTrackText] = useState('Select a country')
     const [visible, setVisible] = useState([])
     const itemRefs = useRef([])
+    const { t, i18n } = useTranslation()
 
     useEffect(() => {
         const obs = new IntersectionObserver(entries => {
@@ -70,11 +72,11 @@ export default function DistributorSection() {
                     <Reveal variant="left">
                         <p className="ds__badge">
                             <span className="ds__pulse" />
-                            Global Network
+                            {t("Network")}
                         </p>
 
                         <h2 className="ds__title">
-                            Our<br /><em>Distributors</em>
+                            {t("Our")}<br /><em>{t("Distributors")}</em>
                         </h2>
 
                         <div className="ds__track">

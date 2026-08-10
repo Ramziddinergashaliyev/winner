@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './distrbut.scss'
+import { useTranslation } from 'react-i18next'
 
 const countries = [
     {
@@ -197,6 +198,7 @@ const StatIcon = ({ type }) => {
 
 const Distrbut = () => {
     const [activeId, setActiveId] = useState(null)
+    const { t, i18n } = useTranslation()
 
     const toggleCountry = (id) => {
         setActiveId((prev) => (prev === id ? null : id))
@@ -211,17 +213,16 @@ const Distrbut = () => {
                 <div className="container distrbut__inner-container">
                     <div className="distrbut__content">
 
-                        <span className="distrbut__label">Global network</span>
+                        <span className="distrbut__label">{t("Network")}</span>
 
                         <h2 className="distrbut__title">
-                            Official <span className="distrbut__title-accent">Distributors.</span>
+                            {t("Official")} <span className="distrbut__title-accent">{t("Distributors")}.</span>
                             <br />
-                            Stronger Together.
+                            {t("Together.")}
                         </h2>
 
                         <p className="distrbut__desc">
-                            Join our global network of trusted partners and deliver
-                            performance that drives results.
+                            {t("Join our")}
                         </p>
 
                         <div className="distrbut__stats">
