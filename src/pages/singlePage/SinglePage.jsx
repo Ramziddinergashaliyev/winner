@@ -4,8 +4,20 @@ import Reveal from '../../components/reveal/Reveal'
 import { NavLink, useParams } from 'react-router-dom'
 import { useGetProductByIdQuery, useGetProductsQuery } from '../../services/productApi'
 import './singlePage.scss'
+import { useTranslation } from 'react-i18next'
 
-const CHARACTERISTIC_ROWS = [
+const CHARACTERISTIC_ROWSRU = [
+    { label: 'Класс вязкости SAE', key: 'viscosityClass' },
+    { label: 'Плотность при 15°С, г/см3', key: 'densityAt15C' },
+    { label: 'Кинематическая вязкость при 40 °С, мм2/с', key: 'kinematicViscosityAt40C' },
+    { label: 'Кинематическая вязкость при 100 °С, мм2/с', key: 'kinematicViscosityAt100C' },
+    { label: 'Индекс вязкости', key: 'viscosityIndex' },
+    { label: 'Температура вспышки в открытом тигле °С', key: 'flashPoint' },
+    { label: 'Температура затвердевания, °С', key: 'pourPoint' },
+    { label: 'Щелочное число, мг КОН/г', key: 'baseNumber' },
+]
+
+const CHARACTERISTIC_ROWSEN = [
     { label: 'SAE viscosity grade', key: 'viscosityClass' },
     { label: 'Density at 15°C, g/cm3', key: 'densityAt15C' },
     { label: 'Kinematic viscosity at 40 °C, mm2/s', key: 'kinematicViscosityAt40C' },
@@ -94,8 +106,11 @@ const SinglePage = () => {
     const { id } = useParams()
     const { data } = useGetProductByIdQuery(id)
     const { data: productData } = useGetProductsQuery()
-
     const THUMBNAILS = data?.images
+
+    const { t, i18n } = useTranslation()
+
+    const CHARACTERISTICDATA = i18n?.languages?.[0] === 'ru' ? CHARACTERISTIC_ROWSRU : CHARACTERISTIC_ROWSEN
 
     useEffect(() => {
         if (data?.volumes?.length) {
@@ -146,7 +161,7 @@ const SinglePage = () => {
     const canThumbNext = thumbStart + THUMBS_PER_PAGE < (THUMBNAILS?.length || 0)
     const showThumbNav = (THUMBNAILS?.length || 0) > THUMBS_PER_PAGE
 
-    const characteristicRows = CHARACTERISTIC_ROWS
+    const characteristicRows = CHARACTERISTICDATA
         .map(({ label, key }) => {
             const [value, method] = data?.[key] || []
             return { label, value, method }
@@ -235,7 +250,7 @@ const SinglePage = () => {
                         <p className="single__desc">{data?.description?.en}</p>
 
                         <div className="single__block">
-                            <h2 className="single__block-title">Volume</h2>
+                            <h2 className="single__block-title">{t("Volume")}</h2>
                             <div className="single__volumes">
                                 {data?.volumes?.map((vol) => (
                                     <button
@@ -251,7 +266,7 @@ const SinglePage = () => {
                         </div>
 
                         <div className="single__block">
-                            <h2 className="single__block-title">Specifications</h2>
+                            <h2 className="single__block-title">{t("Specifications")}</h2>
                             <div className="single__specs">
                                 {data?.specifications?.map((spec, i) => (
                                     <p className="single__specs-row--alt" key={i}>
@@ -266,16 +281,16 @@ const SinglePage = () => {
 
                 {hasCharacteristics && (
                     <Reveal as="div" className="char-table" variant="up">
-                        <div className="char-table__header">Characteristics</div>
-                        <div className="char-table__subheader">Basic physicochemical characteristics</div>
+                        <div className="char-table__header">{t("Characteristics")}</div>
+                        <div className="char-table__subheader">{t("Basic")}</div>
 
                         <div className="char-table__wrap">
                             <table className="char-table__table">
                                 <thead>
                                     <tr>
-                                        <th>Indicator name</th>
-                                        <th>Value</th>
-                                        <th>Testing method</th>
+                                        <th>{t("Indicator name")}</th>
+                                        <th>{t("Value")}</th>
+                                        <th>{t("Testing")}</th>
                                     </tr>
                                 </thead>
 
@@ -296,7 +311,7 @@ const SinglePage = () => {
                 {swipperData.length > 0 && (
                     <Reveal as="div" className="single__related" variant="up">
                         <div className="single__related-head">
-                            <h2 className="single__related-title">Related Products</h2>
+                            <h2 className="single__related-title">{t("Related")}</h2>
                             <div className="single__related-nav">
                                 <button
                                     type="button"
@@ -337,7 +352,7 @@ const SinglePage = () => {
                                         />
                                     </NavLink>
                                     <h3 className="related-card__name">{item?.name?.en}</h3>
-                                    <p className="related-card__tag">{item?.category?.title?.en}</p>
+                                    <p className="related-card__tag">{i18n?.languages?.[0] === 'ru' ? item?.category?.title?.en : item?.category?.title?.ru}</p>
 
                                     <div className="related-card__footer">
                                         <ul className="related-card__volumes">
@@ -347,7 +362,7 @@ const SinglePage = () => {
                                         </ul>
 
                                         <NavLink to={`/single-products/${item?.id}`} className="related-card__cta">
-                                            Details
+                                            {t("Details")}
                                         </NavLink>
                                     </div>
                                 </article>

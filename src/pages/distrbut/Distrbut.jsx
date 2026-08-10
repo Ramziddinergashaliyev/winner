@@ -21,7 +21,7 @@ const countries = [
             {
                 company: 'TOO «AVTODETAIL»',
                 address: 'Казахстан, Южно-Казахстанская область, 160021, город Шымкент, Абайский район, ул Байтулы баба 14А',
-                phone: '77022837999',
+                phone: '+7 702 283 7999',
             },
         ],
     },
@@ -101,7 +101,7 @@ const countriesEN = [
             {
                 company: 'LLP «AVTODETAIL»',
                 address: 'Kazakhstan, South Kazakhstan Region, 160021, Shymkent City, Abai District, 14A Baituly Baba St',
-                phone: '77022837999',
+                phone: '+7 702 283 7999',
             },
         ],
     },
@@ -162,7 +162,13 @@ const countriesEN = [
     },
 ]
 
-const stats = [
+const statsRU = [
+    { icon: 'globe', value: '30+', label: 'Стран' },
+    { icon: 'partners', value: '200+', label: 'Партнёров' },
+    { icon: 'support', value: '24/7', label: 'Поддержка' },
+]
+
+const statsEN = [
     { icon: 'globe', value: '30+', label: 'Countries' },
     { icon: 'partners', value: '200+', label: 'Partners' },
     { icon: 'support', value: '24/7', label: 'Support' },
@@ -204,8 +210,11 @@ const Distrbut = () => {
         setActiveId((prev) => (prev === id ? null : id))
     }
 
-    const half = Math.ceil(countries.length / 2)
-    const columns = [countries.slice(0, half), countries.slice(half)]
+    const countryData = i18n?.languages?.[0] === "ru" ? countries : countriesEN
+    const statsData = i18n?.languages?.[0] === "ru" ? statsRU : statsEN
+
+    const half = Math.ceil(countryData.length / 2)
+    const columns = [countryData.slice(0, half), countryData.slice(half)]
 
     return (
         <section className="distrbut">
@@ -226,7 +235,7 @@ const Distrbut = () => {
                         </p>
 
                         <div className="distrbut__stats">
-                            {stats.map((stat) => (
+                            {statsData?.map((stat) => (
                                 <div className="distrbut__stat" key={stat.label}>
                                     <span className="distrbut__stat-icon">
                                         <StatIcon type={stat.icon} />
@@ -285,7 +294,9 @@ const Distrbut = () => {
                                                     <div className="distrbut__dist" key={i}>
                                                         <p className="distrbut__dist-company">{dist.company}</p>
                                                         <p className="distrbut__dist-address">{dist.address}</p>
-                                                        <p className="distrbut__dist-phone">{dist.phone}</p>
+                                                        <a href={`tel:${dist.phone}`} className="distrbut__dist-phone">
+                                                            {dist.phone}
+                                                        </a>
                                                     </div>
                                                 ))}
                                             </div>

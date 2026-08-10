@@ -6,30 +6,6 @@ import { useGetValue } from '../../hooks/useGetValue'
 import './contact.scss'
 import { useTranslation } from 'react-i18next'
 
-const infoCards = [
-    {
-        label: 'Address',
-        content: (
-            <>
-                Яккасарайский р-н, &quot;Мухандислар МФЙ&quot;, <br /> ул.Мукими дом 2
-            </>
-        ),
-    },
-    {
-        label: 'Phone',
-        content: (
-            <>
-                <a href="tel:+998712814930">+998 71 281 49 30</a>
-                <a href="tel:+998712032031">+998 71 203 20 31</a>
-            </>
-        ),
-    },
-    {
-        label: 'Email',
-        content: <a href="mailto:infowin@gpggroup.uz">infowin@gpggroup.uz</a>,
-    },
-]
-
 const initialState = {
     name: '',
     phone: '',
@@ -44,6 +20,30 @@ const Contact = () => {
 
     const { t, i18n } = useTranslation()
 
+    const infoCards = [
+        {
+            label: 'Address',
+            content: (
+                <>
+                    {t("address")}
+                </>
+            ),
+        },
+        {
+            label: 'Phone',
+            content: (
+                <>
+                    <a href="tel:+998712814930">+998 71 281 49 30</a>
+                    <a href="tel:+998712032031">+998 71 203 20 31</a>
+                </>
+            ),
+        },
+        {
+            label: 'Email',
+            content: <a href="mailto:infowin@gpggroup.uz">infowin@gpggroup.uz</a>,
+        },
+    ]
+
     const handleSubmit = (e) => {
         e.preventDefault()
         setFormData(initialState)
@@ -57,12 +57,11 @@ const Contact = () => {
                     <span className="contact__eyebrow">{t("Get in touch")}</span>
 
                     <h1 className="contact__title">
-                        Let's talk <span>lubricants.</span>
+                        {t("Let's")}
                     </h1>
 
                     <p className="contact__subtitle">
-                        Questions about products, distribution, or partnership —
-                        our team replies within one business day.
+                        {t("Questions")}
                     </p>
                 </Reveal>
 
@@ -90,8 +89,8 @@ const Contact = () => {
                         {submitted ? (
                             <div className="contact__success contact__success--in">
                                 <span className="contact__success-mark">✓</span>
-                                <h3>Message sent</h3>
-                                <p>Thanks for reaching out — we&apos;ll get back to you shortly.</p>
+                                <h3>{t("Message sent")}</h3>
+                                <p>{t("Thanks for")}</p>
 
                                 <button
                                     type="button"
@@ -100,15 +99,15 @@ const Contact = () => {
                                         setSubmitted(false)
                                         setFormData(initialState)
                                     }}>
-                                    Send another message
+                                    {t("another")}
                                 </button>
                             </div>
                         ) : (
                             <form className="contact__form" onSubmit={handleSubmit}>
-                                <h2 className="contact__form-title">Send a message</h2>
+                                <h2 className="contact__form-title">{t("message")}</h2>
 
                                 <label className="contact__field">
-                                    <span>Full name</span>
+                                    <span>{t("Full name")}</span>
                                     <input
                                         type="text"
                                         name="name"

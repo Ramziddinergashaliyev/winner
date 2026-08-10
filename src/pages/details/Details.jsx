@@ -5,8 +5,9 @@ import { NavLink, useParams } from 'react-router-dom'
 import Reveal from '../../components/reveal/Reveal'
 import { useGetCategoriesByIdQuery } from '../../services/categoryApi'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
-const VOLUMES = ['1L', '4L', '5L', '10L']
+const VOLUMES = ['1L', '4L', '5L', '10L', '20L', '30L']
 
 const PER_PAGE = 6
 
@@ -34,6 +35,9 @@ const Details = () => {
     const [page, setPage] = useState(1)
     const { id } = useParams()
     const { data, isLoading, isError } = useGetCategoriesByIdQuery(id)
+    const { t, i18n } = useTranslation()
+    console.log(data);
+
 
     const toggleVolume = (vol) => {
         setSelectedVolumes((prev) =>
@@ -95,7 +99,7 @@ const Details = () => {
                 <Reveal as="aside" className="details__sidebar" variant="left" aria-label="Filters">
 
                     <h1 className="filter-block__title">
-                        {data?.name?.ru || data?.name?.en || 'Category'}
+                        {t('Filters')}
                     </h1>
 
                     <div className="filter-block">
@@ -105,7 +109,7 @@ const Details = () => {
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M12 2s7 7.58 7 12.5A7 7 0 1 1 5 14.5C5 9.58 12 2 12 2z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
                                 </svg>
-                                Volume
+                                {t("Volume")}
                             </span>
                         </button>
 
@@ -131,7 +135,7 @@ const Details = () => {
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M4 6h16M9 6V4h6v2M7 6l1 14h8l1-14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        Clear filters
+                        {t("Clear filters")}
                     </button>
 
                 </Reveal>
@@ -174,7 +178,7 @@ const Details = () => {
                                         </ul>
 
                                         <NavLink to={`/single-products/${product.id}`} className="product-card__cta">
-                                            Details
+                                            {t("Details")}
                                         </NavLink>
                                     </div>
                                 </article>
