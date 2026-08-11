@@ -16,7 +16,7 @@ const MainLayout = () => {
             <main key={location.pathname} className="page-enter">
                 <Outlet />
             </main>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
