@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react'
 import './details.scss'
-import img from '../../assets/images/winner.webp'
 import { NavLink, useParams } from 'react-router-dom'
 import Reveal from '../../components/reveal/Reveal'
 import { useGetCategoriesByIdQuery } from '../../services/categoryApi'
