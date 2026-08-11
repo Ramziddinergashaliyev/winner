@@ -126,7 +126,8 @@ $main-image-height: 550px;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: flex-start;
     gap: 48px;
-    margin-bottom: 64px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 
     @media (max-width: 900px) {
         grid-template-columns: 1fr;

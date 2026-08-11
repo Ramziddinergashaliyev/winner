@@ -3,6 +3,7 @@ import { PhoneInput } from 'react-international-phone'
 import { NavLink } from 'react-router-dom'
 import 'react-international-phone/style.css'
 import './footer.scss'
+
 import Reveal from '../reveal/Reveal'
 import { MENU } from '../../constants'
 import { useTranslation } from 'react-i18next'
@@ -70,6 +71,7 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
+
                     </nav>
 
                     <div className="site-footer__col">
@@ -94,7 +96,7 @@ export default function Footer() {
                         <div className="site-footer__contact-item">
                             <span className="site-footer__icon"><MapPinIcon /></span>
                             <p className="site-footer__address">
-                                Yakkasaray district, MFY "Muhandislar", Muqimi street, house 2
+                                {t("address")}
                             </p>
                         </div>
 
@@ -118,7 +120,7 @@ export default function Footer() {
                                 <input
                                     id="footer-name"
                                     type="text"
-                                    placeholder="Имя"
+                                    placeholder={t("Имя")}
                                     value={form.name}
                                     onChange={handleChange("name")}
                                     required
@@ -145,7 +147,7 @@ export default function Footer() {
                                 <input
                                     id="footer-email"
                                     type="email"
-                                    placeholder="Электронная почта"
+                                    placeholder={t("Электронная почта")}
                                     value={form.email}
                                     onChange={handleChange("email")}
                                     required
@@ -157,7 +159,7 @@ export default function Footer() {
 
                                 <textarea
                                     id="footer-message"
-                                    placeholder="Сообщение"
+                                    placeholder={t("Сообщение")}
                                     rows={3}
                                     value={form.message}
                                     onChange={handleChange("message")}

@@ -5,6 +5,7 @@ import img1 from "../../assets/images/partfolio/antPart.webp";
 import img2 from "../../assets/images/partfolio/engPart.webp";
 import img3 from "../../assets/images/partfolio/hydrPart.webp";
 import img4 from "../../assets/images/partfolio/transPart.webp";
+import { useTranslation } from "react-i18next";
 
 function useScrollReveal(rootRef) {
     useEffect(() => {
@@ -41,7 +42,58 @@ function useScrollReveal(rootRef) {
 
 const stagger = (i) => ({ "--i": i });
 
-const PORTFOLIO_ITEMS = [
+const PORTFOLIO_ITEMSRU = [
+    {
+        key: "hydraulic",
+        index: "01",
+        eyebrow: "МОТОРНЫЕ МАСЛА",
+        title: "МОТОРНЫЕ МАСЛА",
+        img: img2,
+        points: [
+            "Моторные масла WINNER изготовлены на основе тщательно подобранных базовых масел и передовых присадочных технологий для надёжной защиты двигателя.",
+            "Они помогают снизить трение и износ, поддерживают чистоту двигателя и обеспечивают стабильную работу при высоких нагрузках и температурах.",
+            "Разработанные в соответствии с признанными международными стандартами, моторные масла WINNER обеспечивают надёжную защиту современных бензиновых и дизельных двигателей."
+        ],
+    },
+    {
+        key: "evf",
+        index: "02",
+        eyebrow: "ТРАНСМИССИОННЫЕ ЖИДКОСТИ",
+        title: "ТРАНСМИССИОННЫЕ ЖИДКОСТИ",
+        img: img4,
+        points: [
+            "Трансмиссионные масла WINNER изготовлены на основе высококачественных базовых масел и современных противоизносных присадок для защиты шестерён и элементов трансмиссии в сложных условиях эксплуатации.",
+            "Они помогают снизить трение, обеспечивают плавную работу шестерён и надёжную защиту от износа, коррозии и образования отложений.",
+            "Отличная термическая и окислительная стабильность обеспечивает долговечную работу при высоких нагрузках, давлении и температурах."
+        ],
+    },
+    {
+        key: "engine",
+        index: "03",
+        eyebrow: "ГИДРАВЛИЧЕСКИЕ ЖИДКОСТИ",
+        title: "ГИДРАВЛИЧЕСКИЕ ЖИДКОСТИ",
+        img: img3,
+        points: [
+            "Гидравлические жидкости WINNER изготовлены на основе высококачественных базовых масел и современных присадок для эффективной передачи мощности и надёжной работы системы.",
+            "Они обеспечивают отличную защиту от износа, коррозии, окисления и образования отложений, способствуя продлению срока службы оборудования.",
+            "Стабильная вязкость и высокая термическая устойчивость обеспечивают плавную работу при высоком давлении, значительных нагрузках и сложных условиях эксплуатации."
+        ],
+    },
+    {
+        key: "gear",
+        index: "04",
+        eyebrow: "АНТИФРИЗ И ОХЛАДИТЕЛИ",
+        title: "АНТИФРИЗ И ОХЛАДИТЕЛИ",
+        img: img1,
+        points: [
+            "Антифризы и охлаждающие жидкости WINNER обеспечивают эффективный отвод тепла и помогают поддерживать стабильную температуру двигателя в сложных климатических и дорожных условиях.",
+            "Передовые составы защищают компоненты системы охлаждения от коррозии, отложений, замерзания и перегрева.",
+            "Совместимые с алюминиевыми и разнометаллическими системами охлаждения, охлаждающие жидкости WINNER обеспечивают надёжную и долговечную защиту круглый год."
+        ],
+    }
+];
+
+const PORTFOLIO_ITEMSEN = [
     {
         key: "hydraulic",
         index: "01",
@@ -57,7 +109,7 @@ const PORTFOLIO_ITEMS = [
     {
         key: "evf",
         index: "02",
-        eyebrow: "TRANSMISSION FLUIDS ",
+        eyebrow: "TRANSMISSION FLUIDS",
         title: "TRANSMISSION FLUIDS ",
         img: img4,
         points: [
@@ -95,6 +147,9 @@ const PORTFOLIO_ITEMS = [
 export default function AboutSections() {
     const rootRef = useRef(null);
     useScrollReveal(rootRef);
+    const { t, i18n } = useTranslation()
+
+    const PORTFOLIOCARDS = i18n?.languages?.[0] === "ru" ? PORTFOLIO_ITEMSRU : PORTFOLIO_ITEMSEN
 
     return (
         <div className="about" ref={rootRef}>
@@ -103,11 +158,11 @@ export default function AboutSections() {
                 <div className="about-hero__container">
                     <div className="about-hero__content">
                         <div className="about-hero__content-eyebrow" data-reveal style={stagger(0)}>
-                            ABOUT WINNER
+                            {t("ABOUT WINNER")}
                         </div>
 
                         <p className="about-hero__content-text" data-reveal style={stagger(2)}>
-                            Founded in 2011, WINNER is a trusted manufacturer of high-performance automotive fluids. Starting with antifreeze and engine coolants, the brand built its reputation in Uzbekistan through reliable formulations, corrosion protection, and long service life. WINNER later expanded into motor oils for petrol and diesel engines, using quality base oils and advanced additives to reduce wear, maintain engine cleanliness, and ensure stable performance under demanding conditions. Today, WINNER provides reliable fluid solutions for passenger cars, commercial vehicles, fleets, and industrial applications. With strict quality control, continuous innovation, and a commitment to environmental responsibility, WINNER delivers products designed to protect engines, extend service life, and ensure confidence on every journey.
+                            {t("about_text")}
                         </p>
                     </div>
 
@@ -118,27 +173,27 @@ export default function AboutSections() {
             <section className="about-band">
                 <div className="about-band-container container">
                     <div className="about-band__title" data-reveal style={stagger(0)}>
-                        FROM ANTIFREEZE EXPERTISE TO MARKET LEADERSHIP
+                        {t("LEADERSHIP")}
                     </div>
 
                     <div className="about-band__desc" data-reveal style={stagger(1)}>
-                        Since entering the market in 2011 with antifreeze and coolant products, WINNER has earned the trust of drivers through consistent quality and reliable performance. Today, the brand offers advanced coolants and motor oils for passenger cars, commercial vehicles, and professional fleets.
+                        {t("entering")}
                     </div>
 
                     <div className="about-band__numbers">
                         <div className="about-band__stat" data-reveal style={stagger(2)}>
                             <div className="num">#1</div>
-                            <div className="label">ANTIFREEZE BRAND IN UZBEKISTAN</div>
+                            <div className="label">{t("BRAND IN")}</div>
                         </div>
 
                         <div className="about-band__stat" data-reveal style={stagger(2)}>
                             <div className="num">OEM</div>
-                            <div className="label">REQUIREMENTS</div>
+                            <div className="label">{t("REQUIREMENTS")}</div>
                         </div>
 
                         <div className="about-band__stat" data-reveal style={stagger(2)}>
                             <div className="num">2011</div>
-                            <div className="label">FOUNDED</div>
+                            <div className="label">{t("FOUNDED")}</div>
                         </div>
                     </div>
                 </div>
@@ -149,12 +204,12 @@ export default function AboutSections() {
 
                     <div className="about-portfolio__header">
                         <h2 className="about-portfolio__header-title" data-reveal style={stagger(1)}>
-                            LUBRICANT PRODUCT PORTFOLIO
+                            {t("PORTFOLIO")}
                         </h2>
                     </div>
 
                     <div className="about-portfolio__row">
-                        {PORTFOLIO_ITEMS.map((item, i) => (
+                        {PORTFOLIOCARDS?.map((item, i) => (
                             <article
                                 className="about-portfolio__card"
                                 key={item.key}
@@ -170,7 +225,6 @@ export default function AboutSections() {
                                         <div className={`about-portfolio__card-image about-portfolio__card-image--${item.key}`}>
                                             <img src={item.img} alt={item.title} loading="lazy" />
                                         </div>
-
 
                                         <div className="about-portfolio__card-tint"></div>
                                         <span className="about-portfolio__card-sweep"></span>
@@ -203,11 +257,11 @@ export default function AboutSections() {
 
                     <div className="about-quality__content">
                         <h2 className="about-quality__content-title" data-reveal style={stagger(1)}>
-                            QUALITY & STANDARDS
+                            {t("QUALITY & STANDARDS")}
                         </h2>
 
                         <p className="about-quality__content-text" data-reveal style={stagger(2)}>
-                            Quality is built into every stage of WINNER production. From carefully selected raw materials to final packaging, each product undergoes rigorous laboratory testing and continuous quality control. We verify viscosity stability, oxidation resistance, thermal performance, and material compatibility to ensure reliable protection in demanding operating conditions. WINNER formulations are developed in accordance with recognized international standards and OEM requirements, delivering consistent quality and dependable performance in every product.
+                            {t("every product")}
                         </p>
                     </div>
                 </div>
@@ -217,34 +271,34 @@ export default function AboutSections() {
                 <div className="about-defines-container container">
 
                     <h2 className="about-defines__title" data-reveal style={stagger(0)}>
-                        PRODUCT ADVANTAGES
+                        {t("PRODUCT ADVANTAGES")}
                     </h2>
 
                     <div className="about-defines__item" data-reveal style={stagger(1)}>
                         <div className="num">01</div>
 
-                        <h3 className="about-defines__item-title">EFFICIENT HEAT TRANSFER</h3>
+                        <h3 className="about-defines__item-title">{t("TRANSFER")}</h3>
 
                         <p className="about-defines__item-text">
-                            WINNER coolants provide efficient heat dissipation and stable protection against freezing and overheating, even in extreme temperatures.
+                            {t("temperatures")}
                         </p>
                     </div>
 
                     <div className="about-defines__item" data-reveal style={stagger(1)}>
                         <div className="num">02</div>
-                        <h3 className="about-defines__item-title">ADVANCED CORROSION PROTECTION</h3>
+                        <h3 className="about-defines__item-title">{t("CORROSION")}</h3>
 
                         <p className="about-defines__item-text">
-                            Advanced formulations protect aluminium and mixed-metal cooling systems against corrosion, deposits, and premature wear.
+                            {t("premature")}
                         </p>
                     </div>
 
                     <div className="about-defines__item" data-reveal style={stagger(1)}>
                         <div className="num">03</div>
-                        <h3 className="about-defines__item-title">ENGINE PERFORMANCE & PROTECTION</h3>
+                        <h3 className="about-defines__item-title">{t("PERFORMANCE")}</h3>
 
                         <p className="about-defines__item-text">
-                            WINNER motor oils reduce engine wear, maintain cleanliness, improve fuel efficiency, and deliver stable performance under high loads and temperatures.
+                            {t("stable")}
                         </p>
                     </div>
 

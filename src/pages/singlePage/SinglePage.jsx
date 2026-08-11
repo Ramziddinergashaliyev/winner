@@ -172,7 +172,6 @@ const SinglePage = () => {
 
     return (
         <section className="single">
-            <div className="single-bg" />
             <div className="container">
                 <div className="single__top">
                     <Reveal as="div" className="single__gallery" variant="left">

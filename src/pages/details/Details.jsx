@@ -7,9 +7,69 @@ import { useGetCategoriesByIdQuery } from '../../services/categoryApi'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
 
-const VOLUMES = ['1L', '4L', '5L', '10L', '20L', '30L']
+import bgOne from "../../assets/images/productBg/ant.webp"
+import bgTwo from "../../assets/images/productBg/diesel.webp"
+import bgThree from "../../assets/images/productBg/hyd.webp"
+import bgFour from "../../assets/images/productBg/singleBg.webp"
+import bgFife from "../../assets/images/productBg/tran.webp"
+import bgSix from "../../assets/images/productBg/wind.webp"
 
 const PER_PAGE = 6
+
+const getAvailableVolumes = (products) => {
+    if (!Array.isArray(products)) return []
+
+    const set = new Set()
+    products.forEach((product) => {
+        (product?.volumes || []).forEach((v) => {
+            if (v !== null && v !== undefined && String(v).trim() !== '') {
+                set.add(String(v).trim())
+            }
+        })
+    })
+
+    return Array.from(set).sort((a, b) => {
+        const numA = parseFloat(a)
+        const numB = parseFloat(b)
+        if (numA !== numB) return numA - numB
+        return a.localeCompare(b)
+    })
+}
+
+const CATEGORY_BANNERS = {
+    5: bgOne,
+    2: bgTwo,
+    4: bgThree,
+    3: bgFife,
+    6: bgSix,
+    1: bgFour,
+}
+
+const getCategoryBanner = (data, id) => {
+    const categoryId = data?.id ?? id
+    return CATEGORY_BANNERS[categoryId] || bgFour
+}
+
+const normalizeVolume = (raw) => {
+    if (raw === null || raw === undefined) return ''
+
+    if (typeof raw === 'object') {
+        raw = raw.value ?? raw.volume ?? raw.label ?? raw.name ?? ''
+    }
+
+    return String(raw)
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, '')
+        .replace(/л/g, 'l')
+        .replace(/litr(a)?/g, 'l')
+}
+
+const getProductVolumes = (product) => {
+    const vols = product?.volumes ?? product?.volume ?? []
+    const arr = Array.isArray(vols) ? vols : [vols]
+    return arr.map(normalizeVolume).filter(Boolean)
+}
 
 const ProductImage = ({ src, alt }) => {
     const [loaded, setLoaded] = useState(false)
@@ -36,12 +96,20 @@ const Details = () => {
     const { id } = useParams()
     const { data, isLoading, isError } = useGetCategoriesByIdQuery(id)
     const { t, i18n } = useTranslation()
-    console.log(data);
 
+    const heroBanner = useMemo(() => getCategoryBanner(data, id), [data, id])
+
+    const availableVolumes = useMemo(
+        () => getAvailableVolumes(data?.products),
+        [data]
+    )
 
     const toggleVolume = (vol) => {
+        const normalized = normalizeVolume(vol)
         setSelectedVolumes((prev) =>
-            prev.includes(vol) ? prev.filter((v) => v !== vol) : [...prev, vol]
+            prev.includes(normalized)
+                ? prev.filter((v) => v !== normalized)
+                : [...prev, normalized]
         )
         setPage(1)
     }
@@ -55,10 +123,10 @@ const Details = () => {
         if (!data?.products) return []
 
         return data.products.filter((product) => {
-            const matchesVolume =
-                selectedVolumes.length === 0 ||
-                selectedVolumes.some((v) => product.volumes?.includes(v))
-            return matchesVolume
+            if (selectedVolumes.length === 0) return true
+
+            const productVolumes = getProductVolumes(product)
+            return selectedVolumes.some((v) => productVolumes.includes(v))
         })
     }, [data, selectedVolumes])
 
@@ -93,7 +161,10 @@ const Details = () => {
 
     return (
         <section className="details">
-            <div className="details__hero"></div>
+            <div
+                className="details__hero"
+                style={{ backgroundImage: `url(${heroBanner})` }}
+            ></div>
 
             <div className="details__body container">
                 <Reveal as="aside" className="details__sidebar" variant="left" aria-label="Filters">
@@ -114,12 +185,12 @@ const Details = () => {
                         </button>
 
                         <ul className="filter-block__checks">
-                            {VOLUMES.map((vol) => (
+                            {availableVolumes.map((vol) => (
                                 <li key={vol}>
                                     <label className="checkbox">
                                         <input
                                             type="checkbox"
-                                            checked={selectedVolumes.includes(vol)}
+                                            checked={selectedVolumes.includes(normalizeVolume(vol))}
                                             onChange={() => toggleVolume(vol)}
                                         />
                                         <span className="checkbox__box" aria-hidden="true" />
@@ -172,8 +243,8 @@ const Details = () => {
 
                                     <div className="product-card__footer">
                                         <ul className="product-card__volumes">
-                                            {product?.volumes?.map((v) => (
-                                                <li key={v}>{v}</li>
+                                            {product?.volumes?.map((v, i) => (
+                                                <li key={i}>{typeof v === 'object' ? (v.value ?? v.volume ?? v.label ?? v.name) : v}</li>
                                             ))}
                                         </ul>
 
