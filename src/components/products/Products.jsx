@@ -46,6 +46,7 @@ const Products = () => {
                         {productsData.map((item) => (
                             <div className="products__card" key={item.id}>
                                 <img src={img} alt={item.name} className="products__img" />
+
                                 <div className="products__info">
                                     <h3 className="products__name">{item.name}</h3>
                                     <p className="products__type">{item.type}</p>

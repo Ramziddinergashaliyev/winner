@@ -25,6 +25,11 @@ $skyblue: #2f6fa8;
         height: 600px;
     }
 
+    @media (max-width: 900px) {
+        height: auto;
+        background: none;
+    }
+
     &--embedded {
         margin-top: 0;
     }
@@ -52,6 +57,8 @@ $skyblue: #2f6fa8;
 
     @media (max-width: 900px) {
         flex-direction: column;
+        align-items: stretch;
+        padding: 40px 0;
     }
 }
 
@@ -70,6 +77,7 @@ $skyblue: #2f6fa8;
     @media (max-width: 900px) {
         flex: 1 1 auto;
         width: 100%;
+        padding: 0 0 20px;
     }
 
     &-title {
@@ -83,6 +91,10 @@ $skyblue: #2f6fa8;
         line-height: 1.1;
         letter-spacing: 5px;
         padding: 18px 0;
+
+        @media (max-width: 900px) {
+            color: $graphite;
+        }
 
         &::before {
             content: '';
@@ -122,6 +134,11 @@ $skyblue: #2f6fa8;
         text-transform: uppercase;
         line-height: 1.4;
         max-width: 260px;
+
+        @media (max-width: 900px) {
+            color: $graphite;
+            max-width: 100%;
+        }
     }
 }
 
@@ -135,6 +152,7 @@ $skyblue: #2f6fa8;
 
     @media (max-width: 900px) {
         grid-template-columns: repeat(2, 1fr);
+        width: 100%;
     }
 
     @media (max-width: 560px) {
@@ -155,7 +173,11 @@ $skyblue: #2f6fa8;
     transition: box-shadow 0.4s ease, transform 0.4s ease, overflow 0s;
 
     @media (max-width: 1500px) {
-        min-height: 170px;
+        min-height: 180px;
+    }
+
+    @media (max-width: 900px) {
+        min-height: 220px;
     }
 
     &:hover {
@@ -184,6 +206,10 @@ $skyblue: #2f6fa8;
         border-radius: 0 0 $radius $radius;
         transform: translateY(70px);
         transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+        @media (max-width: 900px) {
+            transform: translateY(0);
+        }
 
         &-text {
             margin: 0;

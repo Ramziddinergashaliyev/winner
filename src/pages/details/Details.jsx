@@ -78,6 +78,7 @@ const ProductImage = ({ src, alt }) => {
             {!loaded && (
                 <span className="product-card__spinner" aria-hidden="true" />
             )}
+
             <img
                 src={src}
                 alt={alt}
