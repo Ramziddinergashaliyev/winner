@@ -246,7 +246,7 @@ const SinglePage = () => {
                     <Reveal as="div" className="single__info" variant="right" delay={100}>
                         <h1 className="single__title">{data?.name?.en}</h1>
 
-                        <p className="single__desc">{data?.description?.en}</p>
+                        <p className="single__desc">{i18n?.languages?.[0] === 'ru' ? data?.description?.ru : data?.description?.en}</p>
 
                         <div className="single__block">
                             <h2 className="single__block-title">{t("Volume")}</h2>

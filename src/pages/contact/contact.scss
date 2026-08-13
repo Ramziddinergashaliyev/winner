@@ -33,6 +33,10 @@
             margin-bottom: 10px;
         }
 
+        @media (max-width:600px) {
+            margin-bottom: 10px;
+        }
+
         &::before {
             content: "";
             width: 28px;
