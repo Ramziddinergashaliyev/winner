@@ -66,9 +66,11 @@ const Lightbox = ({ src, alt, onClose }) => {
         const handleKey = (e) => {
             if (e.key === 'Escape') onClose()
         }
+
         document.addEventListener('keydown', handleKey)
         const prevOverflow = document.body.style.overflow
         document.body.style.overflow = 'hidden'
+
         return () => {
             document.removeEventListener('keydown', handleKey)
             document.body.style.overflow = prevOverflow

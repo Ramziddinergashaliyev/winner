@@ -19,8 +19,15 @@
 
         @media (max-width: 992px) {
             min-height: auto;
-            padding: 60px 0 260px;
+            padding: 60px 0px 0px;
             background-position: bottom right;
+        }
+
+        @media (max-width: 600px) {
+            background: url(../../assets/images/distBgMobile.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-bottom: 40px;
         }
     }
 
@@ -60,6 +67,12 @@
         color: #7a7a7a;
         max-width: 380px;
         margin: 0 0 24px;
+
+        @media (max-width:600px) {
+            color: white;
+            margin: 0 0 14px;
+            text-shadow: 1px 1px 10px #333;
+        }
     }
 
     &__stats {
@@ -95,6 +108,11 @@
             font-weight: 700;
             color: #101010;
             line-height: 1;
+
+            @media (max-width:600px) {
+                color: white;
+                text-shadow: 1px 1px 10px black;
+            }
         }
 
         &-label {
@@ -102,6 +120,11 @@
             color: #9a9a9a;
             text-transform: uppercase;
             letter-spacing: 0.04em;
+
+            @media (max-width:600px) {
+                color: white;
+                text-shadow: 1px 1px 10px black;
+            }
         }
     }
 
