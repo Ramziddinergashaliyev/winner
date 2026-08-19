@@ -14,7 +14,8 @@
         margin-top: 28px;
 
         @media (max-width:1500px) {
-            min-height: 425px;
+            min-height: 460px;
+            background-size: contain;
         }
 
         @media (max-width: 992px) {

@@ -177,7 +177,6 @@ const SinglePage = () => {
             <div className="container">
                 <div className="single__top">
                     <Reveal as="div" className="single__gallery" variant="left">
-
                         <div className="single__thumbs-wrap">
                             {showThumbNav && (
                                 <button
@@ -345,7 +344,6 @@ const SinglePage = () => {
                                     key={item.id}
                                     style={{ animationDelay: `${index * 80}ms` }}
                                 >
-
                                     <NavLink to={`/single-products/${item?.id}`} className="related-card__image">
                                         <LoadingImage
                                             src={item?.images?.[0]}

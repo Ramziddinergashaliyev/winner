@@ -30,6 +30,7 @@ const TABSUZ = [
 ]
 
 const AUTOPLAY_DELAY = 4000
+
 const DIRECTION = "right"
 
 const AnimeCard = () => {

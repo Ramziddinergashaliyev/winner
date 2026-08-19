@@ -1,5 +1,5 @@
 $color-black: #141416;
-$color-red: #e2231a;
+$color-red: rgb(255, 0, 0);
 $color-red-dark: #c41e16;
 $color-bg-light: #f1efec;
 $color-white: #ffffff;
@@ -185,7 +185,7 @@ $ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         &__desc {
-            color: $color-gray-text;
+            color: $color-white;
             font-size: 12.5px;
             line-height: 1.75;
             max-width: 330px;

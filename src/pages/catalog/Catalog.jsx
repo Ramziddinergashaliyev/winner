@@ -10,8 +10,10 @@ import leg from '../../assets/images/catalog/leg.webp'
 import mM from '../../assets/images/catalog/mM.webp'
 import trans from '../../assets/images/catalog/trans.webp'
 import washer from '../../assets/images/catalog/washer.webp'
+import file from "../../assets/file/winner.pdf"
 import { useGetCategoriesQuery } from '../../services/categoryApi'
 import { useTranslation } from 'react-i18next'
+import { MdArrowOutward } from 'react-icons/md'
 
 const Catalog = ({ embedded = false }) => {
     const { t, i18n } = useTranslation()
@@ -25,6 +27,9 @@ const Catalog = ({ embedded = false }) => {
                     <div className="catalog-info">
                         <h2 className='catalog-info-title'>{t("catalog")}</h2>
                         <p className='catalog-info-text'>{t("LUBRICANTS")}</p>
+                        <a href={file} download className="catalog-info-btn">
+                            {t("ctdw")} <MdArrowOutward />
+                        </a>
                     </div>
 
                     <div className="catalog__grid">
