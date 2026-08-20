@@ -1,15 +1,15 @@
 @use "../../styles/variables" as *;
 
 $color-bg: #eef0f2;
-$color-red: #e32b34;
+$color-red: rgb(255, 0, 0);
 $color-text-muted: #8a8d93;
 $radius: 6px;
 
 $gold: #7a5a2a;
 $blue: #1b3a63;
-$red: #8f1c1c;
+$red: rgb(255, 0, 0);
 $graphite: #3a3d42;
-$pink: #c23a6b;
+$pink: rgb(255, 0, 0);
 $skyblue: #2f6fa8;
 
 .catalog {
@@ -250,7 +250,7 @@ $skyblue: #2f6fa8;
         width: 100%;
         padding: 4px 10px;
         height: 40px;
-        background: $primary;
+        background: rgb(255, 0, 0);
         border-radius: 0 0 $radius $radius;
         transform: translateY(70px);
         transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);

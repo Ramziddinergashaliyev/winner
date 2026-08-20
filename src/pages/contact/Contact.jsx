@@ -3,8 +3,8 @@ import Reveal from '../../components/reveal/Reveal'
 import { useGetProductsQuery } from '../../services/productApi'
 
 import { useGetValue } from '../../hooks/useGetValue'
-import './contact.scss'
 import { useTranslation } from 'react-i18next'
+import './contact.scss'
 
 const initialState = {
     name: '',
@@ -22,7 +22,7 @@ const Contact = () => {
 
     const infoCards = [
         {
-            label: 'Address',
+            label: t('address'),
             content: (
                 <>
                     {t("address")}
@@ -30,7 +30,7 @@ const Contact = () => {
             ),
         },
         {
-            label: 'Phone',
+            label: t('Номер телефона'),
             content: (
                 <>
                     <a href="tel:+998712814930">+998 71 281 49 30</a>
@@ -39,7 +39,7 @@ const Contact = () => {
             ),
         },
         {
-            label: 'Email',
+            label: t('Электронная почта'),
             content: <a href="mailto:infowin@gpggroup.uz">infowin@gpggroup.uz</a>,
         },
     ]
@@ -119,7 +119,7 @@ const Contact = () => {
                                 </label>
 
                                 <label className="contact__field">
-                                    <span>Phone number</span>
+                                    <span>{t("Номер телефона")}</span>
                                     <input
                                         type="tel"
                                         name="phone"
@@ -131,7 +131,7 @@ const Contact = () => {
                                 </label>
 
                                 <label className="contact__field">
-                                    <span>Message</span>
+                                    <span>{t("Сообщение")}</span>
                                     <textarea
                                         name="message"
                                         rows={5}
@@ -143,7 +143,7 @@ const Contact = () => {
                                 </label>
 
                                 <button type="submit" className="contact__form-btn">
-                                    Send message
+                                    {t("message")}
                                 </button>
                             </form>
                         )}
