@@ -352,7 +352,6 @@ const SinglePage = () => {
                                         />
                                     </NavLink>
                                     <h3 className="related-card__name">{item?.name?.en}</h3>
-                                    <p className="related-card__tag">{i18n?.languages?.[0] === 'ru' ? item?.category?.title?.en : item?.category?.title?.ru}</p>
 
                                     <div className="related-card__footer">
                                         <ul className="related-card__volumes">

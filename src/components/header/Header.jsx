@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { IoSearch, IoChevronDown } from "react-icons/io5";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
-
 import { MENU } from "../../constants";
 import logo from "../../assets/icons/logo.webp";
 
@@ -81,20 +80,15 @@ function Header() {
 
                     <div
                         className={`header-right-lang ${isLangOpen ? "open" : ""
-                            }`}
-                    >
+                            }`}>
                         <button
                             className="header-right-lang__btn"
-                            onClick={() =>
-                                setIsLangOpen(!isLangOpen)
-                            }
-                        >
+                            onClick={() => setIsLangOpen(!isLangOpen)}>
                             <img
                                 src={activeLang.flag}
                                 alt={activeLang.label}
                                 className="header-right-lang__flag"
                             />
-
                             <span>{activeLang.label}</span>
 
                             <IoChevronDown className="header-right-lang__chevron" />
@@ -108,18 +102,15 @@ function Header() {
                                         className={
                                             lang.code === activeLang.code
                                                 ? "active"
-                                                : ""
-                                        }
+                                                : ""}
                                         onClick={() =>
                                             handleSelectLang(lang)
-                                        }
-                                    >
+                                        }>
                                         <img
                                             src={lang.flag}
                                             alt={lang.label}
                                             className="header-right-lang__flag"
                                         />
-
                                         <span>{lang.label}</span>
                                     </li>
                                 ))}
@@ -140,11 +131,12 @@ function Header() {
 
                     <button
                         onClick={() => setHide(true)}
-                        className="header-right-btns-menu"
-                    >
+                        className="header-right-btns-menu">
                         <AiOutlineMenu />
                     </button>
+
                 </div>
+
             </div>
         </header>
     );

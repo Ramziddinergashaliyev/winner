@@ -227,7 +227,7 @@ const Distrbut = () => {
                         <h2 className="distrbut__title">
                             {t("Official")} <span className="distrbut__title-accent">{t("Distributors")}.</span>
                             <br />
-                            {t("Together.")}
+                            {t("Together")}
                         </h2>
 
                         <p className="distrbut__desc">
