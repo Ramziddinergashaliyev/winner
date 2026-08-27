@@ -13,6 +13,13 @@ import bgFour from "../../assets/images/productBg/singleBg.webp"
 import bgFife from "../../assets/images/productBg/tran.webp"
 import bgSix from "../../assets/images/productBg/wind.webp"
 
+import bgOneRu from "../../assets/images/productBg-ru/ant.webp"
+import bgTwoRu from "../../assets/images/productBg-ru/diesel.webp"
+import bgThreeRu from "../../assets/images/productBg-ru/hyd.webp"
+import bgFourRu from "../../assets/images/productBg-ru/singleBg.webp"
+import bgFifeRu from "../../assets/images/productBg-ru/tran.webp"
+import bgSixRu from "../../assets/images/productBg-ru/wind.webp"
+
 const PER_PAGE = 6
 
 const getAvailableVolumes = (products) => {
@@ -44,9 +51,24 @@ const CATEGORY_BANNERS = {
     1: bgFour,
 }
 
-const getCategoryBanner = (data, id) => {
-    const categoryId = data?.id ?? id
-    return CATEGORY_BANNERS[categoryId] || bgFour
+const CATEGORY_BANNERS_RU = {
+    5: bgOneRu,
+    2: bgTwoRu,
+    4: bgThreeRu,
+    3: bgFifeRu,
+    6: bgSixRu,
+    1: bgFourRu,
+}
+
+const getCategoryBanner = (data, id, lang) => {
+    const categoryId = String(data?.id ?? id ?? '')
+    const isRu = typeof lang === 'string' && lang.toLowerCase().startsWith('ru')
+
+    const banners = isRu ? CATEGORY_BANNERS_RU : CATEGORY_BANNERS
+    const fallback = isRu ? bgFourRu : bgFour
+
+    const entry = Object.entries(banners).find(([key]) => key === categoryId)
+    return entry ? entry[1] : fallback
 }
 
 const normalizeVolume = (raw) => {
@@ -97,7 +119,10 @@ const Details = () => {
     const { data, isLoading, isError } = useGetCategoriesByIdQuery(id)
     const { t, i18n } = useTranslation()
 
-    const heroBanner = useMemo(() => getCategoryBanner(data, id), [data, id])
+    const heroBanner = useMemo(
+        () => getCategoryBanner(data, id, i18n.language),
+        [data, id, i18n.language]
+    )
 
     const availableVolumes = useMemo(
         () => getAvailableVolumes(data?.products),
