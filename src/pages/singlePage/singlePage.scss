@@ -551,7 +551,6 @@ $main-image-height: 550px;
         letter-spacing: 0.04em;
         cursor: pointer;
         transition: background 0.18s ease, transform 0.18s ease;
-
         @include focus-ring;
 
         &:hover {
