@@ -186,6 +186,13 @@ $main-image-height: 550px;
         cursor: default;
     }
 
+    &::after {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
     @media (max-width: 560px) {
         width: 28px;
         height: 100%;

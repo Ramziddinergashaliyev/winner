@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import './details.scss'
 import { NavLink, useParams } from 'react-router-dom'
 import Reveal from '../../components/reveal/Reveal'
@@ -20,7 +20,22 @@ import bgFourRu from "../../assets/images/productBg-ru/singleBg.webp"
 import bgFifeRu from "../../assets/images/productBg-ru/tran.webp"
 import bgSixRu from "../../assets/images/productBg-ru/wind.webp"
 
+import bgOneMb from "../../assets/images/productBg/antMb.webp"
+import bgTwoMb from "../../assets/images/productBg/dieselMb.webp"
+import bgThreeMb from "../../assets/images/productBg/hydMb.webp"
+import bgFourMb from "../../assets/images/productBg/singleBgMb.webp"
+import bgFifeMb from "../../assets/images/productBg/tranMb.webp"
+import bgSixMb from "../../assets/images/productBg/windMb.webp"
+
+import bgOneRuMb from "../../assets/images/productBg-ru/antMb.webp"
+import bgTwoRuMb from "../../assets/images/productBg-ru/dieselMb.webp"
+import bgThreeRuMb from "../../assets/images/productBg-ru/hydMb.webp"
+import bgFourRuMb from "../../assets/images/productBg-ru/singleBgMb.webp"
+import bgFifeRuMb from "../../assets/images/productBg-ru/tranMb.webp"
+import bgSixRuMb from "../../assets/images/productBg-ru/windMb.webp"
+
 const PER_PAGE = 6
+const MOBILE_BREAKPOINT = 700
 
 const getAvailableVolumes = (products) => {
     if (!Array.isArray(products)) return []
@@ -60,12 +75,58 @@ const CATEGORY_BANNERS_RU = {
     1: bgFourRu,
 }
 
-const getCategoryBanner = (data, id, lang) => {
+const CATEGORY_BANNERS_MB = {
+    5: bgOneMb,
+    2: bgTwoMb,
+    4: bgThreeMb,
+    3: bgFifeMb,
+    6: bgSixMb,
+    1: bgFourMb,
+}
+
+const CATEGORY_BANNERS_RU_MB = {
+    5: bgOneRuMb,
+    2: bgTwoRuMb,
+    4: bgThreeRuMb,
+    3: bgFifeRuMb,
+    6: bgSixRuMb,
+    1: bgFourRuMb,
+}
+
+const useIsMobile = (breakpoint = MOBILE_BREAKPOINT) => {
+    const [isMobile, setIsMobile] = useState(
+        () => typeof window !== 'undefined' && window.innerWidth <= breakpoint
+    )
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= breakpoint)
+        }
+
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [breakpoint])
+
+    return isMobile
+}
+
+const getCategoryBanner = (data, id, lang, isMobile) => {
     const categoryId = String(data?.id ?? id ?? '')
     const isRu = typeof lang === 'string' && lang.toLowerCase().startsWith('ru')
 
-    const banners = isRu ? CATEGORY_BANNERS_RU : CATEGORY_BANNERS
-    const fallback = isRu ? bgFourRu : bgFour
+    let banners
+    let fallback
+
+    if (isMobile) {
+        banners = isRu ? CATEGORY_BANNERS_RU_MB : CATEGORY_BANNERS_MB
+        fallback = isRu ? bgFourRuMb : bgFourMb
+    } else {
+        banners = isRu ? CATEGORY_BANNERS_RU : CATEGORY_BANNERS
+        fallback = isRu ? bgFourRu : bgFour
+    }
 
     const entry = Object.entries(banners).find(([key]) => key === categoryId)
     return entry ? entry[1] : fallback
@@ -118,10 +179,11 @@ const Details = () => {
     const { id } = useParams()
     const { data, isLoading, isError } = useGetCategoriesByIdQuery(id)
     const { t, i18n } = useTranslation()
+    const isMobile = useIsMobile()
 
     const heroBanner = useMemo(
-        () => getCategoryBanner(data, id, i18n.language),
-        [data, id, i18n.language]
+        () => getCategoryBanner(data, id, i18n.language, isMobile),
+        [data, id, i18n.language, isMobile]
     )
 
     const availableVolumes = useMemo(
