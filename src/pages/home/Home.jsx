@@ -5,6 +5,7 @@ import Info from '../../components/info/Info'
 import Catalog from '../catalog/Catalog'
 import AnimeCard from '../../components/animeCard/AnimeCard'
 import Purpose from '../../components/purpose/Purpose'
+import NewsCard from '../../components/newsCard/NewsCard'
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <AnimeCard />
             <Purpose />
             <History />
+            <NewsCard />
         </>
     )
 }
