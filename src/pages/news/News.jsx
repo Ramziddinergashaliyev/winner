@@ -15,7 +15,7 @@ const News = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const { t, i18n } = useTranslation()
 
-    const allData = i18n?.language === "rus" ? newsData : newsDataEn
+    const allData = i18n?.language === "ru" ? newsData : newsDataEn
 
     const totalPages = Math.ceil(allData.length / ITEMS_PER_PAGE)
 

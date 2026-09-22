@@ -11,9 +11,60 @@ import full3 from "../assets/fullValesco/three.webp"
 import full4 from "../assets/fullValesco/four.webp"
 import full5 from "../assets/fullValesco/fife.webp"
 
+//11-sentyabr
+
+import one11 from "../assets/news26/trt11/one.webp"
+import two11 from "../assets/news26/trt11/two.webp"
+import three11 from "../assets/news26/trt11/three.webp"
+import four11 from "../assets/news26/trt11/four.webp"
+import fife11 from "../assets/news26/trt11/fife.webp"
+
 export const newsData = [
     {
-        id: 8,
+        id: 2,
+        category: "Новости",
+        world: [""],
+        title: "WINNER официально дебютировал в День клиента",
+        description: ["WINNER официально представил свой бренд, производственные возможности и полную линейку автомобильных масел и технических жидкостей в рамках специального Дня клиента, на котором присутствовали дистрибьюторы, партнёры и специалисты автомобильной отрасли со всего Узбекистана."],
+        date: "11 сентября 2026",
+        img: one11,
+        gallerySections: [
+            {
+                heading: "",
+                texts: [
+                    "Мероприятие дало гостям возможность узнать WINNER изнутри — от философии бренда и продуктовой стратегии до производства, контроля качества и готовой линейки продукции.",
+                    "Объединяя партнёров. День клиента собрал представителей разных регионов Узбекистана, создав ценную площадку для прямого общения между командой WINNER и её дистрибьюторскими партнёрами.",
+                    "Гости узнали больше о компании, обсудили требования рынка и лично увидели, как производится продукция WINNER.",
+                    "Представление бренда WINNER. Ключевой частью мероприятия стала официальная презентация WINNER.",
+                    "Партнёры были ознакомлены с ценностями бренда, его позиционированием и планами дальнейшего развития. WINNER был создан для того, чтобы обеспечивать надёжными автомобильными маслами и техническими жидкостями легковые автомобили, коммерческий транспорт, автосервисы и профессиональные сферы применения.",
+                    "Презентация была сосредоточена на качестве продукции, стабильной производительности и долгосрочном сотрудничестве с дистрибьюторами и клиентами. Внутри производственного процесса. После презентации гости отправились на экскурсию по заводу, охватывающую основные этапы производства.",
+                ],
+                images: [one11, two11, three11, four11, fife11]
+            },
+            {
+                heading: "",
+                texts: [
+                    "Посетители наблюдали за процессами составления рецептур, смешивания, розлива, упаковки и контроля качества. Они также увидели, как ёмкости заполняются, герметизируются, маркируются, проверяются и подготавливаются к отправке. Технические специалисты WINNER рассказали о производственном оборудовании, технологических процедурах и требованиях к качеству на каждом этапе.",
+                    "Знакомство с линейкой продукции WINNER. Гости также были ознакомлены с полным ассортиментом продукции WINNER, включая: ",
+                    "Моторные масла для бензиновых двигателей — в том числе серии PRIMULA, EXSYN и MOLYGREEN",
+                    "Моторные масла для дизельных двигателей — для коммерческого транспорта и тяжёлых условий эксплуатации",
+                    "Трансмиссионные жидкости — для надёжной работы трансмиссии",
+                    "Гидравлические масла — для стабильной работы гидравлических систем",
+                    "Антифризы и охлаждающие жидкости — для защиты системы охлаждения",
+                    "Жидкости для стеклоомывателя — для эффективной очистки и чёткой видимости",
+                    "Представители WINNER рассказали о областях применения и технических характеристиках каждой категории продукции.",
+                    "Прямой диалог с партнёрами. День клиента также дал дистрибьюторам и партнёрам возможность поделиться отзывами, обсудить ожидания клиентов и задать технические и коммерческие вопросы. Такие беседы помогают WINNER лучше понимать потребности рынка и укреплять сотрудничество со своими партнёрами.",
+                    "Движение вперёд вместе. Официальное представление WINNER стало важным шагом в развитии бренда в Узбекистане.",
+                    "Благодаря посещениям завода, техническим презентациям и постоянному общению WINNER стремится построить прочную профессиональную сеть, основанную на доверии, знаниях и взаимном росте.",
+                    "WINNER благодарит всех клиентов, дистрибьюторов и партнёров, посетивших День клиента и внёсших вклад в успешное представление бренда.",
+                    "WINNER — МОЩНАЯ ПРОИЗВОДИТЕЛЬНОСТЬ",
+                ],
+                images: []
+            }
+        ]
+    },
+    {
+        id: 1,
         category: "Новости",
         world: [""],
         title: "Бренд WINNER представлен на Дне клиента",
@@ -60,7 +111,50 @@ export const newsData = [
 
 export const newsDataEn = [
     {
-        id: 8,
+        id: 2,
+        category: "News",
+        world: [""],
+        title: "WINNER Makes Its Official Debut at Client Day",
+        description: ["WINNER officially introduced its brand, production capabilities, and complete range of automotive oils and technical fluids during a dedicated Client Day attended by distributors, partners, and automotive professionals from across Uzbekistan."],
+        date: "11 September, 2026",
+        img: one11,
+        gallerySections: [
+            {
+                heading: "",
+                texts: [
+                    "The event gave guests an opportunity to discover WINNER from the inside — from the brand philosophy and product strategy to manufacturing, quality control, and the finished product range.",
+                    "Bringing Partners Together Client Day welcomed representatives from different regions of Uzbekistan, creating a valuable platform for direct communication between the WINNER team and its distribution partners.",
+                    "Guests learned more about the company, discussed market requirements, and saw firsthand how WINNER products are manufactured.",
+                    "Introducing the WINNER Brand A key part of the event was the official presentation of WINNER.",
+                    "Partners were introduced to the brand’s values, positioning, and future development plans. WINNER was created to provide reliable automotive oils and technical fluids for passenger vehicles, commercial transport, workshops, and professional applications.",
+                    "The presentation focused on product quality, dependable performance, and long-term cooperation with distributors and customers. Inside the Production Process Following the presentation, guests joined a guided factory tour covering the main stages of manufacturing.",
+                ],
+                images: [one11, two11, three11, four11, fife11]
+            },
+            {
+                heading: "",
+                texts: [
+                    "Visitors observed formulation, blending, filling, packaging, and quality-control processes. They also saw containers being filled, sealed, labelled, inspected, and prepared for distribution. WINNER technical specialists explained the production equipment, manufacturing procedures, and quality requirements at each stage.",
+                    "Exploring the WINNER Product Range Guests were also introduced to the complete WINNER portfolio, including: ",
+                    "Gasoline Engine Oils — including PRIMULA, EXSYN, and MOLYGREEN series",
+                    "Diesel Engine Oils — for commercial vehicles and demanding conditions",
+                    "Transmission Fluids — for reliable transmission operation",
+                    "Hydraulic Oils — for stable hydraulic-system performance",
+                    "Antifreeze & Coolants — for cooling-system protection",
+                    "Windscreen Washer Fluids — for effective cleaning and clear visibility",
+                    "WINNER representatives explained the applications and technical characteristics of each product category.",
+                    "Direct Dialogue With Partners Client Day also created an opportunity for distributors and partners to share feedback, discuss customer expectations, and ask technical and commercial questions. These conversations help WINNER better understand market needs and strengthen cooperation with its partners.",
+                    "Moving Forward Together The official introduction of WINNER marks an important step in the brand’s development in Uzbekistan.",
+                    "Through factory visits, technical presentations, and continued communication, WINNER aims to build a strong professional network based on trust, knowledge, and mutual growth.",
+                    "WINNER thanks all clients, distributors, and partners who attended Client Day and contributed to the successful introduction of the brand.",
+                    "WINNER — POWERFUL PERFORMANCE",
+                ],
+                images: []
+            }
+        ]
+    },
+    {
+        id: 1,
         category: "News",
         world: [""],
         title: "WINNER Brand Introduced at Client Day",

@@ -222,7 +222,7 @@ const NewsSingle = () => {
         )
     }
 
-    if (parseInt(id) === 6 || parseInt(id) === 7 || parseInt(id) === 8) {
+    if (parseInt(id) === 1 || parseInt(id) === 2) {
         return (
             <div className="news-single-page">
                 <div className="news-single-container container">
